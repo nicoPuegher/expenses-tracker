@@ -1,0 +1,19 @@
+# Dependencies
+/node_modules
+
+# Testing
+/coverage
+
+# Production
+/build
+/dist
+
+# Misc
+configs/
+.eslintrc.cjs
+tailwind.config.js
+postcss.config.js
+vite.config.js
+.DS_Store
+.vscode/*
+npm-debug.log*
