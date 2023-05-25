@@ -1,7 +1,8 @@
 import React from 'react';
+import Name from './components/Name/Name';
 
 function App() {
-  return <h1>Expenses Tracker</h1>;
+  return <Name />;
 }
 
 export default App;
