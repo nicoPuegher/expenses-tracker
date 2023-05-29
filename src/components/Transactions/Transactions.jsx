@@ -1,4 +1,5 @@
 import React from 'react';
+import LocalDiningIcon from '@mui/icons-material/LocalDining';
 
 const people = [
   {
@@ -61,7 +62,9 @@ function Transactions() {
       {people.map((person) => (
         <li key={person.email} className="flex justify-between gap-x-6 py-3">
           <div className="flex items-center gap-x-4">
-            <div className="h-7 w-7 flex-none rounded bg-gray-300" />
+            <div className="h-7 w-7 flex-none rounded bg-gray-300">
+              <LocalDiningIcon />
+            </div>
             <div className="min-w-0 flex-auto">
               <p className="text-sm font-semibold leading-6 text-gray-900">
                 {person.name}
