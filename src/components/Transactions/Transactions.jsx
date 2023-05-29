@@ -33,14 +33,12 @@ function Transactions() {
         <TransactionDate date={transaction.date} />
         <div className="flex min-w-0 flex-auto items-center justify-between">
           <div>
-            <p className="text-sm font-semibold leading-6 text-gray-900">
+            <p className="pb-1 text-sm font-semibold leading-none text-gray-900">
               {transaction.name}
             </p>
             <Tag name={transaction.type} color="bg-gray-50" />
           </div>
-          <p className="text-base leading-5 text-gray-500">
-            ${transaction.amount}
-          </p>
+          <p className="text-base text-gray-500">${transaction.amount}</p>
         </div>
       </div>
     </li>
