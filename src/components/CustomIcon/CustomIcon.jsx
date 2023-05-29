@@ -8,13 +8,13 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 function CustomIcon({ iconType }) {
   switch (iconType) {
     case 'Food':
-      return <LocalDiningIcon fontSize="small" />;
+      return <LocalDiningIcon fontSize="inherit" />;
     case 'Rent':
-      return <HomeIcon fontSize="small" />;
+      return <HomeIcon fontSize="inherit" />;
     case 'Transport':
-      return <DirectionsBusIcon fontSize="small" />;
+      return <DirectionsBusIcon fontSize="inherit" />;
     default:
-      return <AttachMoneyIcon fontSize="small" />;
+      return <AttachMoneyIcon fontSize="inherit" />;
   }
 }
 

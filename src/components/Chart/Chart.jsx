@@ -1,5 +1,5 @@
 import React from 'react';
-import ChartNav from '../ChartNav/ChartNav';
+import Filter from '../Filter/Filter';
 import ChartBar from '../ChartBar/ChartBar';
 import monthsData from './monthsData';
 
@@ -20,7 +20,7 @@ function Chart() {
 
   return (
     <section className="bg-gray-200">
-      <ChartNav />
+      <Filter title="Analytics" options="Year" />
       {chartBars}
     </section>
   );

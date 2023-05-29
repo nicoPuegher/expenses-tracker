@@ -1,47 +1,33 @@
 import React from 'react';
-import CustomIcon from '../CustomIcon/CustomIcon';
-
-const expenses = [
-  {
-    id: 'tf1',
-    type: 'Food',
-    name: 'Supermarket',
-    amount: 35,
-  },
-  {
-    id: 'tr1',
-    type: 'Rent',
-    name: 'Apartment',
-    amount: 1500,
-  },
-  {
-    id: 'tt1',
-    type: 'Transport',
-    name: 'Bus',
-    amount: 2,
-  },
-];
+import Filter from '../Filter/Filter';
+import TransactionDate from '../TransactionDate/TransactionDate';
+import Tag from '../Tag/Tag';
+import expenses from './expenses';
 
 function Transactions() {
   const transactions = expenses.map((transaction) => (
     <li key={transaction.id} className="flex py-2">
       <div className="flex w-full items-center gap-x-4">
-        <div className="flex h-7 w-7 flex-none items-center justify-center rounded bg-gray-300">
-          <CustomIcon iconType={transaction.type} />
-        </div>
+        <TransactionDate date={transaction.date} />
         <div className="flex min-w-0 flex-auto items-center justify-between">
-          <p className="text-sm font-semibold leading-6 text-gray-900">
-            {transaction.name}
-          </p>
-          <p className="text-base leading-5 text-gray-500">
-            ${transaction.amount}
-          </p>
+          <div>
+            <p className="pb-1 text-sm font-semibold leading-none text-gray-900">
+              {transaction.name}
+            </p>
+            <Tag name={transaction.type} color="bg-gray-50" />
+          </div>
+          <p className="text-base text-gray-500">${transaction.amount}</p>
         </div>
       </div>
     </li>
   ));
 
-  return <ul className="divide-y divide-gray-100">{transactions}</ul>;
+  return (
+    <section>
+      <Filter title="Transactions" options="Year" />
+      <ul className="divide-y divide-gray-100">{transactions}</ul>
+    </section>
+  );
 }
 
 export default Transactions;
