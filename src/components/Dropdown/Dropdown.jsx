@@ -7,7 +7,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-function ChartDropdown({ options, optionsList }) {
+function Dropdown({ options, filterList }) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -40,7 +40,7 @@ function ChartDropdown({ options, optionsList }) {
                   )}
                   type="button"
                 >
-                  {optionsList[0]}
+                  {filterList[0]}
                 </button>
               )}
             </Menu.Item>
@@ -53,7 +53,7 @@ function ChartDropdown({ options, optionsList }) {
                   )}
                   type="button"
                 >
-                  {optionsList[1]}
+                  {filterList[1]}
                 </button>
               )}
             </Menu.Item>
@@ -66,7 +66,7 @@ function ChartDropdown({ options, optionsList }) {
                   )}
                   type="button"
                 >
-                  {optionsList[2]}
+                  {filterList[2]}
                 </button>
               )}
             </Menu.Item>
@@ -77,9 +77,9 @@ function ChartDropdown({ options, optionsList }) {
   );
 }
 
-ChartDropdown.propTypes = {
+Dropdown.propTypes = {
   options: PropTypes.string.isRequired,
-  optionsList: PropTypes.instanceOf(Object).isRequired,
+  filterList: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default ChartDropdown;
+export default Dropdown;
