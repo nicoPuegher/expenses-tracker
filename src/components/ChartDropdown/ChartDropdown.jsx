@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import PropTypes from 'prop-types';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
