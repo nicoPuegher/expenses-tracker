@@ -1,5 +1,5 @@
 import React from 'react';
-import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import CustomIcon from '../CustomIcon/CustomIcon';
 
 const expenses = [
   {
@@ -24,17 +24,17 @@ const expenses = [
 
 function Transactions() {
   const transactions = expenses.map((transaction) => (
-    <li key={transaction.id} className="flex justify-between gap-x-6 py-3">
-      <div className="flex items-center gap-x-4">
-        <div className="h-7 w-7 flex-none rounded bg-gray-300">
-          <LocalDiningIcon />
+    <li key={transaction.id} className="flex py-2">
+      <div className="flex w-full items-center gap-x-4">
+        <div className="flex h-7 w-7 flex-none items-center justify-center rounded bg-gray-300">
+          <CustomIcon iconType={transaction.type} />
         </div>
-        <div className="flex min-w-0 flex-auto">
+        <div className="flex min-w-0 flex-auto items-center justify-between">
           <p className="text-sm font-semibold leading-6 text-gray-900">
             {transaction.name}
           </p>
-          <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-            {transaction.amount}
+          <p className="text-base leading-5 text-gray-500">
+            ${transaction.amount}
           </p>
         </div>
       </div>
