@@ -1,5 +1,6 @@
 import React from 'react';
 import CustomIcon from '../CustomIcon/CustomIcon';
+import Tag from '../Tag/Tag';
 
 const expenses = [
   {
@@ -30,9 +31,12 @@ function Transactions() {
           <CustomIcon iconType={transaction.type} />
         </div>
         <div className="flex min-w-0 flex-auto items-center justify-between">
-          <p className="text-sm font-semibold leading-6 text-gray-900">
-            {transaction.name}
-          </p>
+          <div>
+            <p className="text-sm font-semibold leading-6 text-gray-900">
+              {transaction.name}
+            </p>
+            <Tag name={transaction.type} color="bg-gray-50" />
+          </div>
           <p className="text-base leading-5 text-gray-500">
             ${transaction.amount}
           </p>
