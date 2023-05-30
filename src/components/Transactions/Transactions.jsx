@@ -6,10 +6,10 @@ import expenses from './expenses';
 
 function Transactions() {
   const transactions = expenses.map((transaction) => (
-    <li key={transaction.id} className="flex py-2">
-      <div className="flex w-full items-center gap-x-4">
+    <li key={transaction.id} className="py-2">
+      <div className="flex gap-x-4">
         <TransactionDate date={transaction.date} />
-        <div className="flex min-w-0 flex-auto items-center justify-between">
+        <div className="flex flex-auto items-center justify-between">
           <div>
             <p className="pb-1 text-sm font-semibold leading-none text-gray-900">
               {transaction.name}
