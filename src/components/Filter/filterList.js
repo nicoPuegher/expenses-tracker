@@ -1,7 +1,16 @@
-const filterList = {
-  0: 2023,
-  1: 2022,
-  2: 2021,
-};
+const filterList = [
+  {
+    id: 'fl1',
+    value: 2023,
+  },
+  {
+    id: 'fl2',
+    value: 2022,
+  },
+  {
+    id: 'fl3',
+    value: 2021,
+  },
+];
 
 export default filterList;
