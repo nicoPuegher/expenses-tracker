@@ -20,7 +20,7 @@ function Chart() {
 
   return (
     <section className="bg-gray-200">
-      <Filter title="Analytics" options="Year" />
+      <Filter title="Analytics" option="Year" />
       {chartBars}
     </section>
   );

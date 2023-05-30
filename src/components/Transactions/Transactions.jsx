@@ -24,7 +24,7 @@ function Transactions() {
 
   return (
     <section>
-      <Filter title="Transactions" options="Year" />
+      <Filter title="Transactions" option="Year" />
       <ul className="divide-y divide-gray-100">{transactions}</ul>
     </section>
   );
