@@ -8,12 +8,12 @@ function ChartBar({ name, expenses, yearlyExpenses }) {
   }
 
   return (
-    <section className="flex items-center">
+    <div className="flex items-center">
       <div>{name}</div>
       <div className="h-2 w-full">
         <div className="h-full bg-black" style={{ width: barSize }} />
       </div>
-    </section>
+    </div>
   );
 }
 

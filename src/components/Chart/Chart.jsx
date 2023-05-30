@@ -20,8 +20,8 @@ function Chart() {
 
   return (
     <section className="bg-gray-200">
-      <Filter title="Analytics" options="Year" />
-      {chartBars}
+      <Filter title="Analytics" option="Year" />
+      <div className="grid grid-cols-2">{chartBars}</div>
     </section>
   );
 }
