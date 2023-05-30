@@ -2,11 +2,11 @@ import React from 'react';
 
 function Add() {
   return (
-    <div className="flex justify-center bg-gray-50">
+    <section className="flex justify-center bg-gray-50">
       <button className="bg-gray-100" type="button">
         Add
       </button>
-    </div>
+    </section>
   );
 }
 
