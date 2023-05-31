@@ -6,12 +6,12 @@ import Transactions from './components/Transactions/Transactions';
 
 function App() {
   return (
-    <>
+    <div className="p-2">
       <Name />
       <Add />
       <Chart />
       <Transactions />
-    </>
+    </div>
   );
 }
 
