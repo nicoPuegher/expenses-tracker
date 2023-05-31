@@ -2,8 +2,8 @@ import React from 'react';
 
 function Add() {
   return (
-    <section className="flex justify-center bg-gray-50">
-      <button className="bg-gray-100" type="button">
+    <section className="mb-4 flex justify-center rounded bg-gray-50 py-2">
+      <button className="rounded bg-gray-300 px-6 py-2" type="button">
         Add
       </button>
     </section>
