@@ -23,9 +23,9 @@ function Transactions() {
   ));
 
   return (
-    <section className="overflow-hidden overflow-y-scroll rounded bg-gray-300 p-2">
-      <Filter title="Transactions" option="Year" />
-      <ul className="divide-y divide-gray-100">{transactions}</ul>
+    <section className="overflow-hidden overflow-y-scroll rounded bg-gray-300">
+      <Filter title="Transactions" option="Year" background="bg-gray-300" />
+      <ul className="divide-y divide-gray-100 px-2">{transactions}</ul>
     </section>
   );
 }
