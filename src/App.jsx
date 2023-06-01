@@ -5,7 +5,7 @@ import Transactions from './components/Transactions/Transactions';
 
 function App() {
   return (
-    <div className="px-2">
+    <div className="px-2 py-4">
       <Add />
       <Chart />
       <Transactions />
