@@ -20,6 +20,27 @@ const expenses = [
     amount: 2,
     date: new Date(2023, 4, 26),
   },
+  {
+    id: 'tt12',
+    type: 'Transport',
+    name: 'Bus',
+    amount: 2,
+    date: new Date(2023, 4, 26),
+  },
+  {
+    id: 'tt13',
+    type: 'Transport',
+    name: 'Bus',
+    amount: 2,
+    date: new Date(2023, 4, 26),
+  },
+  {
+    id: 'tt14',
+    type: 'Transport',
+    name: 'Bus',
+    amount: 2,
+    date: new Date(2023, 4, 26),
+  },
 ];
 
 export default expenses;
