@@ -23,7 +23,7 @@ function Transactions() {
   ));
 
   return (
-    <section>
+    <section className="rounded bg-gray-300 p-2">
       <Filter title="Transactions" option="Year" />
       <ul className="divide-y divide-gray-100">{transactions}</ul>
     </section>
