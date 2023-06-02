@@ -22,7 +22,7 @@ function Transactions() {
   ));
 
   return (
-    <section className="overflow-hidden overflow-y-scroll rounded bg-gray-300 px-2">
+    <section className="flex-1 overflow-hidden overflow-y-scroll rounded bg-gray-300 px-2">
       <ul className="divide-y divide-gray-100">{transactions}</ul>
     </section>
   );
