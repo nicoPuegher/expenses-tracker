@@ -5,7 +5,7 @@ import filterList from './filterList';
 
 function Filter({ title, option }) {
   return (
-    <div className="flex items-center justify-between bg-gray-300">
+    <div className="flex items-center justify-between rounded bg-gray-300 p-2">
       <h2>{title}</h2>
       <Dropdown option={option} filterList={filterList} />
     </div>
