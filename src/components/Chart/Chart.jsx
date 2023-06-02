@@ -18,7 +18,7 @@ function Chart() {
   ));
 
   return (
-    <section className="mb-3 rounded bg-gray-200 p-2">
+    <section className="mb-3 rounded bg-gray-200 py-2">
       <div className="grid grid-cols-2">{chartBars}</div>
     </section>
   );

@@ -8,10 +8,10 @@ function ChartBar({ name, expenses, yearlyExpenses }) {
   }
 
   return (
-    <div className="flex items-center">
+    <div className="mx-2 flex items-center justify-between">
       <div>{name}</div>
-      <div className="h-2 w-full">
-        <div className="h-full bg-black" style={{ width: barSize }} />
+      <div className="flex h-3.5 w-2/3 items-center bg-slate-400">
+        <div className="mx-0.5 h-2 bg-black" style={{ width: barSize }} />
       </div>
     </div>
   );
