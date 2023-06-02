@@ -10,7 +10,7 @@ function Transactions() {
         <TransactionDate date={transaction.date} />
         <div className="flex flex-auto items-center justify-between">
           <div>
-            <p className="pb-1 text-sm font-semibold leading-none text-gray-900">
+            <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
               {transaction.name}
             </p>
             <Tag name={transaction.type} color="bg-gray-50" />
