@@ -1,5 +1,4 @@
 import React from 'react';
-import Filter from '../Filter/Filter';
 import TransactionDate from '../TransactionDate/TransactionDate';
 import Tag from '../Tag/Tag';
 import expenses from './expenses';
@@ -24,7 +23,6 @@ function Transactions() {
 
   return (
     <section className="overflow-hidden overflow-y-scroll rounded bg-gray-300">
-      <Filter title="Transactions" option="Year" background="bg-gray-300" />
       <ul className="divide-y divide-gray-100 px-2">{transactions}</ul>
     </section>
   );

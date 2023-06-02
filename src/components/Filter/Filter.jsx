@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import Dropdown from '../Dropdown/Dropdown';
 import filterList from './filterList';
 
-function Filter({ title, option, background }) {
-  const classes = `sticky top-0 p-2 flex items-center justify-between ${background}`;
-
+function Filter({ title, option }) {
   return (
-    <div className={classes}>
+    <div className="flex items-center justify-between">
       <h2>{title}</h2>
       <Dropdown option={option} filterList={filterList} />
     </div>
@@ -17,11 +15,6 @@ function Filter({ title, option, background }) {
 Filter.propTypes = {
   title: PropTypes.string.isRequired,
   option: PropTypes.string.isRequired,
-  background: PropTypes.string,
-};
-
-Filter.defaultProps = {
-  background: '',
 };
 
 export default Filter;
