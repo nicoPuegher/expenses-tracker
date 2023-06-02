@@ -5,7 +5,7 @@ import expenses from './expenses';
 
 function Transactions() {
   const transactions = expenses.map((transaction) => (
-    <li key={transaction.id} className="py-2">
+    <li key={transaction.id} className="py-3">
       <div className="flex gap-x-4">
         <TransactionDate date={transaction.date} />
         <div className="flex flex-auto items-center justify-between">
@@ -22,8 +22,8 @@ function Transactions() {
   ));
 
   return (
-    <section className="overflow-hidden overflow-y-scroll rounded bg-gray-300">
-      <ul className="divide-y divide-gray-100 px-2">{transactions}</ul>
+    <section className="overflow-hidden overflow-y-scroll rounded bg-gray-300 px-2">
+      <ul className="divide-y divide-gray-100">{transactions}</ul>
     </section>
   );
 }
