@@ -7,7 +7,7 @@ function TransactionDate({ date }) {
   const year = date.getFullYear();
 
   return (
-    <div className="flex h-12 w-12 flex-col items-center justify-center rounded bg-gray-400 text-xs">
+    <div className="flex flex-col items-center justify-center rounded bg-gray-400 px-2 py-0.5 text-xs">
       <p>{month}</p>
       <p>{day}</p>
       <p>{year}</p>

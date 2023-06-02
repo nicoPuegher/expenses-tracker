@@ -25,7 +25,7 @@ function Dropdown({ option, filterList }) {
   ));
 
   return (
-    <Menu as="div" className="">
+    <Menu as="div">
       <div>
         <Menu.Button className="inline-flex gap-x-1.5 rounded bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
           {option}

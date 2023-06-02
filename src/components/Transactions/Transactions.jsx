@@ -1,17 +1,16 @@
 import React from 'react';
-import Filter from '../Filter/Filter';
 import TransactionDate from '../TransactionDate/TransactionDate';
 import Tag from '../Tag/Tag';
 import expenses from './expenses';
 
 function Transactions() {
   const transactions = expenses.map((transaction) => (
-    <li key={transaction.id} className="py-2">
+    <li key={transaction.id} className="py-3">
       <div className="flex gap-x-4">
         <TransactionDate date={transaction.date} />
         <div className="flex flex-auto items-center justify-between">
           <div>
-            <p className="pb-1 text-sm font-semibold leading-none text-gray-900">
+            <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
               {transaction.name}
             </p>
             <Tag name={transaction.type} color="bg-gray-50" />
@@ -23,9 +22,8 @@ function Transactions() {
   ));
 
   return (
-    <section className="overflow-hidden overflow-y-scroll rounded bg-gray-300">
-      <Filter title="Transactions" option="Year" background="bg-gray-300" />
-      <ul className="divide-y divide-gray-100 px-2">{transactions}</ul>
+    <section className="flex-1 overflow-hidden overflow-y-scroll rounded bg-gray-300 px-2">
+      <ul className="divide-y divide-gray-100">{transactions}</ul>
     </section>
   );
 }
