@@ -1,12 +1,16 @@
-import React from 'react';
-// import Modal from '../Modal/Modal';
+import React, { useState } from 'react';
+import Modal from '../Modal/Modal';
 import Add from '../Add/Add';
 
 function New() {
+  const [openModal, setOpenModal] = useState(false);
+
+  const openModalHandler = () => setOpenModal(true);
+
   return (
     <>
-      {/* <Modal /> */}
-      <Add />
+      {openModal && <Modal />}
+      <Add onOpenModal={openModalHandler} />
     </>
   );
 }
