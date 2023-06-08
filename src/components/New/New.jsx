@@ -6,10 +6,11 @@ function New() {
   const [openModal, setOpenModal] = useState(false);
 
   const openModalHandler = () => setOpenModal(true);
+  const closeModalHandler = () => setOpenModal(false);
 
   return (
     <>
-      {openModal && <Modal />}
+      {openModal && <Modal onCloseModal={closeModalHandler} />}
       <Add onOpenModal={openModalHandler} />
     </>
   );
