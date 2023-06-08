@@ -1,8 +1,9 @@
 import React, { Fragment, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Dialog, Transition } from '@headlessui/react';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
-function Modal() {
+function Modal({ onCloseModal }) {
   const [open, setOpen] = useState(true);
 
   const cancelButtonRef = useRef(null);
@@ -13,7 +14,11 @@ function Modal() {
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        onClose={setOpen}
+        // onClose={setOpen}
+        onClose={() => {
+          onCloseModal();
+          setOpen(false);
+        }}
       >
         <Transition.Child
           as={Fragment}
@@ -89,5 +94,9 @@ function Modal() {
     </Transition.Root>
   );
 }
+
+Modal.propTypes = {
+  onCloseModal: PropTypes.func.isRequired,
+};
 
 export default Modal;

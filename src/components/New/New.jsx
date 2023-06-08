@@ -6,12 +6,16 @@ import Add from '../Add/Add';
 function New() {
   const [openModal, setOpenModal] = useState(false);
 
-  const openModalHandler = () => setOpenModal(true);
-  //   const closeModalHandler = () => setOpenModal(false);
+  const openModalHandler = () => setOpenModal(() => true);
+  const closeModalHandler = () => setOpenModal(() => false);
 
   return (
     <>
-      {openModal && createPortal(<Modal />, document.getElementById('modal'))}
+      {openModal &&
+        createPortal(
+          <Modal onCloseModal={closeModalHandler} />,
+          document.getElementById('modal')
+        )}
       <Add onOpenModal={openModalHandler} />
     </>
   );
