@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { createPortal } from 'react-dom';
 import Modal from '../Modal/Modal';
 import Add from '../Add/Add';
 
 function New() {
-  const [openModal, setOpenModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const openModalHandler = () => setOpenModal(() => true);
-  const closeModalHandler = () => setOpenModal(() => false);
+  const openModalHandler = () => {
+    setIsOpen(() => true);
+  };
+
+  const closeModalHandler = () => {
+    setIsOpen(() => false);
+  };
 
   return (
     <>
-      {openModal &&
-        createPortal(
-          <Modal onCloseModal={closeModalHandler} />,
-          document.getElementById('modal')
-        )}
+      <Modal isOpen={isOpen} onCloseModal={closeModalHandler} />
       <Add onOpenModal={openModalHandler} />
     </>
   );

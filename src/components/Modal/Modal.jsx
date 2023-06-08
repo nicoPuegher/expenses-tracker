@@ -1,23 +1,19 @@
-import React, { Fragment, useRef, useState } from 'react';
+import React, { Fragment, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Dialog, Transition } from '@headlessui/react';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
-function Modal({ onCloseModal }) {
-  const [open, setOpen] = useState(true);
-
+function Modal({ isOpen, onCloseModal }) {
   const cancelButtonRef = useRef(null);
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        // onClose={setOpen}
         onClose={() => {
           onCloseModal();
-          setOpen(false);
         }}
       >
         <Transition.Child
@@ -73,14 +69,14 @@ function Modal({ onCloseModal }) {
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                    onClick={() => setOpen(false)}
+                    onClick={() => onCloseModal()}
                   >
                     Deactivate
                   </button>
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={() => setOpen(false)}
+                    onClick={() => onCloseModal()}
                     ref={cancelButtonRef}
                   >
                     Cancel
@@ -96,6 +92,7 @@ function Modal({ onCloseModal }) {
 }
 
 Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
   onCloseModal: PropTypes.func.isRequired,
 };
 
