@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Dialog, Transition } from '@headlessui/react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
+import BasicDatePicker from '../BasicDatePicker/BasicDatePicker';
 
 function Modal({ isOpen, onCloseModal }) {
   const cancelButtonRef = useRef(null);
@@ -59,7 +60,6 @@ function Modal({ isOpen, onCloseModal }) {
                             size="small"
                             fullWidth
                           />
-
                           <TextField
                             id="outlined-basic"
                             label="Amount"
@@ -74,6 +74,7 @@ function Modal({ isOpen, onCloseModal }) {
                             }}
                             fullWidth
                           />
+                          <BasicDatePicker />
                         </div>
                       </div>
                     </div>
