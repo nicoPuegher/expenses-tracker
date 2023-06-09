@@ -2,6 +2,7 @@ import React, { Fragment, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Dialog, Transition } from '@headlessui/react';
 import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 
 function Modal({ isOpen, onCloseModal }) {
   const cancelButtonRef = useRef(null);
@@ -56,6 +57,21 @@ function Modal({ isOpen, onCloseModal }) {
                             label="Title"
                             variant="outlined"
                             size="small"
+                            fullWidth
+                          />
+
+                          <TextField
+                            id="outlined-basic"
+                            label="Amount"
+                            variant="outlined"
+                            size="small"
+                            InputProps={{
+                              startAdornment: (
+                                <InputAdornment position="start">
+                                  $
+                                </InputAdornment>
+                              ),
+                            }}
                             fullWidth
                           />
                         </div>
