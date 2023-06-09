@@ -7,7 +7,10 @@ function BasicDatePicker() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        slotProps={{ textField: { size: 'small', fullWidth: true } }}
+        label="Pick a date"
+        slotProps={{
+          textField: { size: 'small', fullWidth: true },
+        }}
       />
     </LocalizationProvider>
   );
