@@ -5,3 +5,11 @@
 #root {
   height: 100dvh;
 }
+
+/* Small fixes for material-ui calendar */
+.css-3dah0e-MuiModal-root-MuiDialog-root {
+  padding: 0 0.5rem;
+}
+.css-3dah0e-MuiModal-root-MuiDialog-root .MuiDialog-paper {
+  min-width: 100% !important;
+}
