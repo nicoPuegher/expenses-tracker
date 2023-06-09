@@ -1,7 +1,6 @@
 import React, { Fragment, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Dialog, Transition } from '@headlessui/react';
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 function Modal({ isOpen, onCloseModal }) {
   const cancelButtonRef = useRef(null);
