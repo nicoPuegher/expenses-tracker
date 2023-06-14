@@ -7,11 +7,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-function Dropdown({ filterList }) {
+function Dropdown({ filterList, onChangeFilter }) {
   const [currentSelection, setCurrentSelection] = useState('2023');
 
   const clickHandler = (event) => {
     setCurrentSelection(event.target.value);
+    onChangeFilter(event.target.value);
   };
 
   const items = filterList.map((item) => (
@@ -63,6 +64,7 @@ function Dropdown({ filterList }) {
 
 Dropdown.propTypes = {
   filterList: PropTypes.instanceOf(Object).isRequired,
+  onChangeFilter: PropTypes.func.isRequired,
 };
 
 export default Dropdown;

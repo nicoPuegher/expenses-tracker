@@ -4,10 +4,14 @@ import Dropdown from '../Dropdown/Dropdown';
 import filterList from './filterList';
 
 function Filter({ title }) {
+  const changeFilterHandler = (newYear) => {
+    console.log(newYear);
+  };
+
   return (
     <div className="relative mb-3 flex items-center justify-between rounded bg-gray-300 px-2 py-3">
       <h2>{title}</h2>
-      <Dropdown filterList={filterList} />
+      <Dropdown filterList={filterList} onChangeFilter={changeFilterHandler} />
     </div>
   );
 }
