@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Dropdown from '../Dropdown/Dropdown';
 import filterList from './filterList';
 
-function Filter({ title }) {
-  const changeFilterHandler = (newYear) => {
-    console.log(newYear);
+function Filter({ title, onChangeFilter }) {
+  const changeFilterHandler = (newFilter) => {
+    onChangeFilter(newFilter);
   };
 
   return (
@@ -18,6 +18,7 @@ function Filter({ title }) {
 
 Filter.propTypes = {
   title: PropTypes.string.isRequired,
+  onChangeFilter: PropTypes.func.isRequired,
 };
 
 export default Filter;

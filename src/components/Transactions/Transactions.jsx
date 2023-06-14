@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TransactionDate from '../TransactionDate/TransactionDate';
 import Tag from '../Tag/Tag';
 import expenses from './expenses';
 
-function Transactions() {
+function Transactions({ currentFilter }) {
   const transactions = expenses.map((transaction) => (
     <li key={transaction.id} className="py-3">
       <div className="flex gap-x-4">
@@ -27,5 +28,9 @@ function Transactions() {
     </section>
   );
 }
+
+Transactions.propTypes = {
+  currentFilter: PropTypes.string.isRequired,
+};
 
 export default Transactions;
