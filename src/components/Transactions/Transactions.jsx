@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Alert from '@mui/material/Alert';
 import TransactionDate from '../TransactionDate/TransactionDate';
 import Tag from '../Tag/Tag';
 import expenses from './expenses';
 
 function Transactions({ currentFilter }) {
-  const transactions = expenses.map((transaction) => (
+  const filteredTransactions = expenses.filter(
+    (transaction) => transaction.date.getFullYear() === Number(currentFilter)
+  );
+
+  const transactions = filteredTransactions.map((transaction) => (
     <li key={transaction.id} className="py-3">
       <div className="flex gap-x-4">
         <TransactionDate date={transaction.date} />
@@ -21,6 +26,12 @@ function Transactions({ currentFilter }) {
       </div>
     </li>
   ));
+
+  if (transactions.length === 0) {
+    return (
+      <Alert severity="error">No transactions found in {currentFilter}.</Alert>
+    );
+  }
 
   return (
     <section className="flex-1 overflow-hidden overflow-y-scroll rounded bg-gray-300 px-2">
