@@ -43,39 +43,37 @@ function Modal({ isOpen, onCloseModal }) {
             >
               <Dialog.Panel className="relative w-full overflow-hidden rounded bg-white px-2 py-3 shadow-xl transition-all">
                 <form>
-                  <div className="bg-white">
-                    <div>
-                      <div className="text-center">
-                        <Dialog.Title
-                          as="h3"
-                          className="text-base font-semibold leading-6 text-gray-900"
-                        >
-                          New Expense
-                        </Dialog.Title>
-                        <div>
-                          <TextField
-                            id="outlined-basic"
-                            label="Title"
-                            variant="outlined"
-                            size="small"
-                            fullWidth
-                          />
-                          <TextField
-                            id="outlined-basic"
-                            label="Amount"
-                            variant="outlined"
-                            size="small"
-                            InputProps={{
-                              startAdornment: (
-                                <InputAdornment position="start">
-                                  $
-                                </InputAdornment>
-                              ),
-                            }}
-                            fullWidth
-                          />
-                          <BasicDatePicker />
-                        </div>
+                  <div className="mb-3 bg-white">
+                    <div className="text-center">
+                      <Dialog.Title
+                        as="h3"
+                        className="mb-3 text-base font-semibold leading-6 text-gray-900"
+                      >
+                        New Expense
+                      </Dialog.Title>
+                      <div className="flex flex-col gap-3">
+                        <TextField
+                          id="outlined-basic"
+                          label="Title"
+                          variant="outlined"
+                          size="small"
+                          fullWidth
+                        />
+                        <TextField
+                          id="outlined-basic"
+                          label="Amount"
+                          variant="outlined"
+                          size="small"
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                $
+                              </InputAdornment>
+                            ),
+                          }}
+                          fullWidth
+                        />
+                        <BasicDatePicker />
                       </div>
                     </div>
                   </div>

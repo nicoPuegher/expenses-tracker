@@ -3,18 +3,22 @@ import PropTypes from 'prop-types';
 import Dropdown from '../Dropdown/Dropdown';
 import filterList from './filterList';
 
-function Filter({ title, option }) {
+function Filter({ title, onChangeFilter }) {
+  const changeFilterHandler = (newFilter) => {
+    onChangeFilter(newFilter);
+  };
+
   return (
     <div className="relative mb-3 flex items-center justify-between rounded bg-gray-300 px-2 py-3">
       <h2>{title}</h2>
-      <Dropdown option={option} filterList={filterList} />
+      <Dropdown filterList={filterList} onChangeFilter={changeFilterHandler} />
     </div>
   );
 }
 
 Filter.propTypes = {
   title: PropTypes.string.isRequired,
-  option: PropTypes.string.isRequired,
+  onChangeFilter: PropTypes.func.isRequired,
 };
 
 export default Filter;

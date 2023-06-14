@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
@@ -7,7 +7,14 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-function Dropdown({ option, filterList }) {
+function Dropdown({ filterList, onChangeFilter }) {
+  const [currentSelection, setCurrentSelection] = useState('2023');
+
+  const clickHandler = (event) => {
+    setCurrentSelection(event.target.value);
+    onChangeFilter(event.target.value);
+  };
+
   const items = filterList.map((item) => (
     <Menu.Item key={item.id}>
       {({ active }) => (
@@ -17,6 +24,8 @@ function Dropdown({ option, filterList }) {
             'w-full block px-4 py-2 text-sm text-left'
           )}
           type="button"
+          value={item.value}
+          onClick={clickHandler}
         >
           {item.value}
         </button>
@@ -28,7 +37,7 @@ function Dropdown({ option, filterList }) {
     <Menu as="div">
       <div>
         <Menu.Button className="inline-flex gap-x-1.5 rounded bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {option}
+          {currentSelection}
           <ChevronDownIcon
             className="-mr-1 h-5 w-5 text-gray-400"
             aria-hidden="true"
@@ -54,8 +63,8 @@ function Dropdown({ option, filterList }) {
 }
 
 Dropdown.propTypes = {
-  option: PropTypes.string.isRequired,
   filterList: PropTypes.instanceOf(Object).isRequired,
+  onChangeFilter: PropTypes.func.isRequired,
 };
 
 export default Dropdown;
