@@ -47,7 +47,7 @@ function Modal({ isOpen, onCloseModal }) {
                     <div className="text-center">
                       <Dialog.Title
                         as="h3"
-                        className="text-base font-semibold leading-6 text-gray-900"
+                        className="mb-3 text-base font-semibold leading-6 text-gray-900"
                       >
                         New Expense
                       </Dialog.Title>
