@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="flex h-full flex-col px-2 py-3">
       <New />
-      <Filter title="Filter by" option="Year" />
+      <Filter title="Filter by year" />
       <Chart />
       <Transactions />
     </div>
