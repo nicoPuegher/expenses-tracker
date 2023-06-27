@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import BasicDatePicker from './BasicDatePicker';
 import types from '../utils/types-list';
 
-function Form({ onCloseModal }) {
+function SubmitForm({ onCloseModal }) {
   // const [formValues, setFormValues] = useState({
   //   title: {
   //     value: '',
@@ -106,12 +106,12 @@ function Form({ onCloseModal }) {
   );
 }
 
-Form.propTypes = {
+SubmitForm.propTypes = {
   onCloseModal: PropTypes.func,
 };
 
-Form.defaultProps = {
+SubmitForm.defaultProps = {
   onCloseModal: () => {},
 };
 
-export default Form;
+export default SubmitForm;
