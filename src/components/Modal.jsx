@@ -4,8 +4,8 @@ import { Dialog, Transition } from '@headlessui/react';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import InputAdornment from '@mui/material/InputAdornment';
-import BasicDatePicker from '../BasicDatePicker/BasicDatePicker';
-import types from './types-list';
+import BasicDatePicker from './BasicDatePicker';
+import types from '../utils/types-list';
 
 function Modal({ isOpen, onCloseModal }) {
   const [formValues, setFormValues] = useState({
