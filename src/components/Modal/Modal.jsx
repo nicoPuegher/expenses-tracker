@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Dialog, Transition } from '@headlessui/react';
 import TextField from '@mui/material/TextField';
@@ -8,6 +8,29 @@ import BasicDatePicker from '../BasicDatePicker/BasicDatePicker';
 import types from './types-list';
 
 function Modal({ isOpen, onCloseModal }) {
+  const [formValues, setFormValues] = useState({
+    title: {
+      value: '',
+      error: false,
+      errorMessage: 'You must enter a title.',
+    },
+    amount: {
+      value: '',
+      error: false,
+      errorMessage: 'You must enter an amount.',
+    },
+    date: {
+      value: '',
+      error: false,
+      errorMessage: 'You must select a date.',
+    },
+    type: {
+      value: '',
+      error: false,
+      errorMessage: 'You must select a type.',
+    },
+  });
+
   const cancelButtonRef = useRef(null);
 
   const submitHandler = (event) => {
@@ -49,7 +72,7 @@ function Modal({ isOpen, onCloseModal }) {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <Dialog.Panel className="relative w-full overflow-hidden rounded bg-white px-2 py-3 shadow-xl transition-all">
-                <form>
+                <form noValidate onSubmit={submitHandler}>
                   <div className="mb-3 bg-white">
                     <div className="text-center">
                       <Dialog.Title
@@ -92,7 +115,7 @@ function Modal({ isOpen, onCloseModal }) {
                         >
                           {types.map((type) => (
                             <MenuItem key={type.value} value={type.value}>
-                              {type.label}
+                              {type.value}
                             </MenuItem>
                           ))}
                         </TextField>
@@ -103,7 +126,6 @@ function Modal({ isOpen, onCloseModal }) {
                     <button
                       type="submit"
                       className="inline-flex w-full justify-center rounded bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500"
-                      onClick={submitHandler}
                     >
                       Add
                     </button>
