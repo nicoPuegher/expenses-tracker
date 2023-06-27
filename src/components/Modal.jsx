@@ -13,10 +13,8 @@ function Modal({ isOpen, onCloseModal, children }) {
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={() => onCloseModal()}>
         <TransitionIn />
-        <div className="fixed inset-0 z-10">
-          <div className="flex min-h-full items-center justify-center p-2 text-center">
-            <TransitionOut>{customChildren}</TransitionOut>
-          </div>
+        <div className="fixed inset-0 z-10 flex min-h-full items-center justify-center p-2 text-center">
+          <TransitionOut>{customChildren}</TransitionOut>
         </div>
       </Dialog>
     </Transition.Root>
