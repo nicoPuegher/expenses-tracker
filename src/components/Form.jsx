@@ -1,30 +1,37 @@
 import React from 'react';
+import { Dialog } from '@headlessui/react';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+import InputAdornment from '@mui/material/InputAdornment';
+import PropTypes from 'prop-types';
+import BasicDatePicker from './BasicDatePicker';
+import types from '../utils/types-list';
 
-function Form() {
-  const [formValues, setFormValues] = useState({
-    title: {
-      value: '',
-      error: false,
-      errorMessage: 'You must enter a title.',
-    },
-    amount: {
-      value: '',
-      error: false,
-      errorMessage: 'You must enter an amount.',
-    },
-    date: {
-      value: '',
-      error: false,
-      errorMessage: 'You must select a date.',
-    },
-    type: {
-      value: '',
-      error: false,
-      errorMessage: 'You must select a type.',
-    },
-  });
+function Form({ onCloseModal }) {
+  // const [formValues, setFormValues] = useState({
+  //   title: {
+  //     value: '',
+  //     error: false,
+  //     errorMessage: 'You must enter a title.',
+  //   },
+  //   amount: {
+  //     value: '',
+  //     error: false,
+  //     errorMessage: 'You must enter an amount.',
+  //   },
+  //   date: {
+  //     value: '',
+  //     error: false,
+  //     errorMessage: 'You must select a date.',
+  //   },
+  //   type: {
+  //     value: '',
+  //     error: false,
+  //     errorMessage: 'You must select a type.',
+  //   },
+  // });
 
-  const cancelButtonRef = useRef(null);
+  // const cancelButtonRef = useRef(null);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -91,7 +98,6 @@ function Form() {
           type="button"
           className="mt-3 inline-flex w-full justify-center rounded bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
           onClick={() => onCloseModal()}
-          ref={cancelButtonRef}
         >
           Cancel
         </button>
@@ -99,5 +105,13 @@ function Form() {
     </form>
   );
 }
+
+Form.propTypes = {
+  onCloseModal: PropTypes.func,
+};
+
+Form.defaultProps = {
+  onCloseModal: () => {},
+};
 
 export default Form;

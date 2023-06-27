@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import PropTypes from 'prop-types';
 
-function TransitionOut() {
+function TransitionOut({ children }) {
   return (
     <Transition.Child
       as={Fragment}
@@ -13,10 +14,14 @@ function TransitionOut() {
       leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
     >
       <Dialog.Panel className="relative w-full overflow-hidden rounded bg-white px-2 py-3 shadow-xl transition-all">
-        FORM
+        {children}
       </Dialog.Panel>
     </Transition.Child>
   );
 }
+
+TransitionOut.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default TransitionOut;
