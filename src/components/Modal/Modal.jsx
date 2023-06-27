@@ -2,11 +2,18 @@ import React, { Fragment, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Dialog, Transition } from '@headlessui/react';
 import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 import InputAdornment from '@mui/material/InputAdornment';
 import BasicDatePicker from '../BasicDatePicker/BasicDatePicker';
+import types from './types-list';
 
 function Modal({ isOpen, onCloseModal }) {
   const cancelButtonRef = useRef(null);
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    onCloseModal();
+  };
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
@@ -74,14 +81,29 @@ function Modal({ isOpen, onCloseModal }) {
                           fullWidth
                         />
                         <BasicDatePicker />
+                        <TextField
+                          id="outlined-basic"
+                          label="Type"
+                          variant="outlined"
+                          size="small"
+                          defaultValue=""
+                          fullWidth
+                          select
+                        >
+                          {types.map((type) => (
+                            <MenuItem key={type.value} value={type.value}>
+                              {type.label}
+                            </MenuItem>
+                          ))}
+                        </TextField>
                       </div>
                     </div>
                   </div>
                   <div className="bg-gray-50">
                     <button
-                      type="button"
+                      type="submit"
                       className="inline-flex w-full justify-center rounded bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500"
-                      onClick={() => onCloseModal()}
+                      onClick={submitHandler}
                     >
                       Add
                     </button>
