@@ -42,51 +42,49 @@ function SubmitForm({ onCloseModal }) {
 
   return (
     <form noValidate onSubmit={submitHandler}>
-      <div className="mb-3 bg-white">
-        <div className="text-center">
-          <Dialog.Title
-            as="h3"
-            className="mb-3 text-base font-semibold leading-6 text-gray-900"
+      <div className="mb-3 bg-white text-center">
+        <Dialog.Title
+          as="h3"
+          className="mb-3 text-base font-semibold leading-6 text-gray-900"
+        >
+          New Expense
+        </Dialog.Title>
+        <div className="flex flex-col gap-3">
+          <TextField
+            id="outlined-basic"
+            label="Title"
+            variant="outlined"
+            size="small"
+            fullWidth
+          />
+          <TextField
+            id="outlined-basic"
+            label="Amount"
+            variant="outlined"
+            size="small"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">$</InputAdornment>
+              ),
+            }}
+            fullWidth
+          />
+          <BasicDatePicker />
+          <TextField
+            id="outlined-basic"
+            label="Type"
+            variant="outlined"
+            size="small"
+            defaultValue=""
+            fullWidth
+            select
           >
-            New Expense
-          </Dialog.Title>
-          <div className="flex flex-col gap-3">
-            <TextField
-              id="outlined-basic"
-              label="Title"
-              variant="outlined"
-              size="small"
-              fullWidth
-            />
-            <TextField
-              id="outlined-basic"
-              label="Amount"
-              variant="outlined"
-              size="small"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">$</InputAdornment>
-                ),
-              }}
-              fullWidth
-            />
-            <BasicDatePicker />
-            <TextField
-              id="outlined-basic"
-              label="Type"
-              variant="outlined"
-              size="small"
-              defaultValue=""
-              fullWidth
-              select
-            >
-              {types.map((type) => (
-                <MenuItem key={type.value} value={type.value}>
-                  {type.value}
-                </MenuItem>
-              ))}
-            </TextField>
-          </div>
+            {types.map((type) => (
+              <MenuItem key={type.value} value={type.value}>
+                {type.value}
+              </MenuItem>
+            ))}
+          </TextField>
         </div>
       </div>
       <FormButtons onCloseModal={() => onCloseModal()} />
