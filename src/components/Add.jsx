@@ -5,7 +5,7 @@ function Add({ onOpenModal }) {
   const clickHandler = () => onOpenModal();
 
   return (
-    <section className="mb-3 flex justify-center rounded bg-gray-50 py-3">
+    <div className="mb-3 flex justify-center rounded bg-gray-50 py-3">
       <button
         className="rounded bg-gray-300 px-6 py-2"
         type="button"
@@ -13,7 +13,7 @@ function Add({ onOpenModal }) {
       >
         Add
       </button>
-    </section>
+    </div>
   );
 }
 
