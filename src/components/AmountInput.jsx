@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import PropTypes from 'prop-types';
 
-function AmountInput({ onChange }) {
+function AmountInput({ onChange, error, helperText }) {
   return (
     <TextField
       id="outlined-basic"
@@ -15,6 +15,8 @@ function AmountInput({ onChange }) {
         startAdornment: <InputAdornment position="start">$</InputAdornment>,
       }}
       onChange={(e) => onChange(e.target)}
+      error={error}
+      helperText={helperText}
       fullWidth
       required
     />
@@ -23,6 +25,8 @@ function AmountInput({ onChange }) {
 
 AmountInput.propTypes = {
   onChange: PropTypes.func.isRequired,
+  error: PropTypes.bool.isRequired,
+  helperText: PropTypes.string.isRequired,
 };
 
 export default AmountInput;

@@ -16,7 +16,7 @@ function SubmitForm({ onCloseModal }) {
     },
     amount: {
       value: '',
-      error: true,
+      error: false,
       errorMessage: 'You must enter an amount.',
     },
     date: {
@@ -85,7 +85,13 @@ function SubmitForm({ onCloseModal }) {
               inputValues.title.error ? inputValues.title.errorMessage : ''
             }
           />
-          <AmountInput onChange={changeHandler} />
+          <AmountInput
+            onChange={changeHandler}
+            error={inputValues.amount.error}
+            helperText={
+              inputValues.amount.error ? inputValues.amount.errorMessage : ''
+            }
+          />
           <DateInput onChange={changeHandler} />
           <SelectInput onChange={changeHandler} />
         </div>
