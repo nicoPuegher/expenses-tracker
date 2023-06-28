@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import TitleInput from './TitleInput';
@@ -8,38 +8,47 @@ import SelectInput from './SelectInput';
 import FormButtons from './FormButtons';
 
 function SubmitForm({ onCloseModal }) {
-  // const [formValues, setFormValues] = useState({
-  //   title: {
-  //     value: '',
-  //     error: false,
-  //     errorMessage: 'You must enter a title.',
-  //   },
-  //   amount: {
-  //     value: '',
-  //     error: false,
-  //     errorMessage: 'You must enter an amount.',
-  //   },
-  //   date: {
-  //     value: '',
-  //     error: false,
-  //     errorMessage: 'You must select a date.',
-  //   },
-  //   type: {
-  //     value: '',
-  //     error: false,
-  //     errorMessage: 'You must select a type.',
-  //   },
-  // });
-
-  // const cancelButtonRef = useRef(null);
+  const [formValues, setFormValues] = useState({
+    title: {
+      value: '',
+      error: false,
+      errorMessage: 'You must enter a title.',
+    },
+    amount: {
+      value: '',
+      error: false,
+      errorMessage: 'You must enter an amount.',
+    },
+    date: {
+      value: '',
+      error: false,
+      errorMessage: 'You must select a date.',
+    },
+    type: {
+      value: '',
+      error: false,
+      errorMessage: 'You must select a type.',
+    },
+  });
 
   const submitHandler = (event) => {
     event.preventDefault();
     onCloseModal();
   };
 
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: {
+        ...formValues[name],
+        value,
+      },
+    });
+  };
+
   return (
-    <form noValidate onSubmit={submitHandler}>
+    <form onSubmit={submitHandler}>
       <div className="mb-3 bg-white text-center">
         <Dialog.Title
           as="h3"
@@ -48,10 +57,10 @@ function SubmitForm({ onCloseModal }) {
           New Expense
         </Dialog.Title>
         <div className="flex flex-col gap-3">
-          <TitleInput />
-          <AmountInput />
-          <DateInput />
-          <SelectInput />
+          <TitleInput onChange={changeHandler} />
+          <AmountInput onChange={changeHandler} />
+          <DateInput onChange={changeHandler} />
+          <SelectInput onChange={changeHandler} />
         </div>
       </div>
       <FormButtons onCloseModal={() => onCloseModal()} />
