@@ -1,12 +1,10 @@
 import React from 'react';
 import { Dialog } from '@headlessui/react';
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
-import InputAdornment from '@mui/material/InputAdornment';
 import PropTypes from 'prop-types';
-import BasicDatePicker from './BasicDatePicker';
-import types from '../utils/types-list';
-
+import TitleInput from './TitleInput';
+import AmountInput from './AmountInput';
+import DateInput from './DateInput';
+import SelectInput from './SelectInput';
 import FormButtons from './FormButtons';
 
 function SubmitForm({ onCloseModal }) {
@@ -50,41 +48,10 @@ function SubmitForm({ onCloseModal }) {
           New Expense
         </Dialog.Title>
         <div className="flex flex-col gap-3">
-          <TextField
-            id="outlined-basic"
-            label="Title"
-            variant="outlined"
-            size="small"
-            fullWidth
-          />
-          <TextField
-            id="outlined-basic"
-            label="Amount"
-            variant="outlined"
-            size="small"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">$</InputAdornment>
-              ),
-            }}
-            fullWidth
-          />
-          <BasicDatePicker />
-          <TextField
-            id="outlined-basic"
-            label="Type"
-            variant="outlined"
-            size="small"
-            defaultValue=""
-            fullWidth
-            select
-          >
-            {types.map((type) => (
-              <MenuItem key={type.value} value={type.value}>
-                {type.value}
-              </MenuItem>
-            ))}
-          </TextField>
+          <TitleInput />
+          <AmountInput />
+          <DateInput />
+          <SelectInput />
         </div>
       </div>
       <FormButtons onCloseModal={() => onCloseModal()} />
