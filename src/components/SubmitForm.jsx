@@ -93,7 +93,13 @@ function SubmitForm({ onCloseModal }) {
             }
           />
           <DateInput onChange={changeHandler} />
-          <SelectInput onChange={changeHandler} />
+          <SelectInput
+            onChange={changeHandler}
+            error={inputValues.type.error}
+            helperText={
+              inputValues.type.error ? inputValues.type.errorMessage : ''
+            }
+          />
         </div>
       </div>
       <FormButtons onCloseModal={() => onCloseModal()} />
