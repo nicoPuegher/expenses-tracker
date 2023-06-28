@@ -92,7 +92,13 @@ function SubmitForm({ onCloseModal }) {
               inputValues.amount.error ? inputValues.amount.errorMessage : ''
             }
           />
-          <DateInput onChange={changeHandler} />
+          <DateInput
+            onChange={changeHandler}
+            error={inputValues.date.error}
+            helperText={
+              inputValues.date.error ? inputValues.date.errorMessage : ''
+            }
+          />
           <SelectInput
             onChange={changeHandler}
             error={inputValues.type.error}
