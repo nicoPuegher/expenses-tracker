@@ -14,8 +14,9 @@ function AmountInput({ onChange }) {
       InputProps={{
         startAdornment: <InputAdornment position="start">$</InputAdornment>,
       }}
-      onChange={onChange}
+      onChange={(e) => onChange(e.target)}
       fullWidth
+      required
     />
   );
 }

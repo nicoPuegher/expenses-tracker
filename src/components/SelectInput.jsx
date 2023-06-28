@@ -19,9 +19,10 @@ function SelectInput({ onChange }) {
       variant="outlined"
       size="small"
       defaultValue=""
-      onChange={onChange}
+      onChange={(e) => onChange(e.target)}
       fullWidth
       select
+      required
     >
       {selectList}
     </TextField>

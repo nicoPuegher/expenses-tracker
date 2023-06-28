@@ -8,7 +8,7 @@ import SelectInput from './SelectInput';
 import FormButtons from './FormButtons';
 
 function SubmitForm({ onCloseModal }) {
-  const [formValues, setFormValues] = useState({
+  const [inputValues, setInputValues] = useState({
     title: {
       value: '',
       error: false,
@@ -16,7 +16,7 @@ function SubmitForm({ onCloseModal }) {
     },
     amount: {
       value: '',
-      error: false,
+      error: true,
       errorMessage: 'You must enter an amount.',
     },
     date: {
@@ -33,22 +33,43 @@ function SubmitForm({ onCloseModal }) {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    onCloseModal();
+    let updatedValues = { ...inputValues };
+    const keys = Object.keys(inputValues);
+
+    keys.forEach((key, i) => {
+      const currKey = keys[i];
+      const currVal = inputValues[currKey].value;
+
+      if (currVal === '') {
+        const updatedKey = {
+          ...updatedValues[currKey],
+          error: true,
+        };
+
+        updatedValues = {
+          ...updatedValues,
+          [currKey]: updatedKey,
+        };
+      }
+    });
+
+    setInputValues(updatedValues);
+    // onCloseModal();
   };
 
   const changeHandler = (event) => {
-    const { name, value } = event.target;
-    setFormValues({
-      ...formValues,
-      [name]: {
-        ...formValues[name],
-        value,
-      },
-    });
+    // const { name, value } = event;
+    // setFormValues({
+    //   ...formValues,
+    //   [name]: {
+    //     ...formValues[name],
+    //     value,
+    //   },
+    // });
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form noValidate onSubmit={submitHandler}>
       <div className="mb-3 bg-white text-center">
         <Dialog.Title
           as="h3"
@@ -57,7 +78,13 @@ function SubmitForm({ onCloseModal }) {
           New Expense
         </Dialog.Title>
         <div className="flex flex-col gap-3">
-          <TitleInput onChange={changeHandler} />
+          <TitleInput
+            onChange={changeHandler}
+            error={inputValues.title.error}
+            helperText={
+              inputValues.title.error ? inputValues.title.errorMessage : ''
+            }
+          />
           <AmountInput onChange={changeHandler} />
           <DateInput onChange={changeHandler} />
           <SelectInput onChange={changeHandler} />
