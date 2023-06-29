@@ -58,14 +58,15 @@ function SubmitForm({ onCloseModal }) {
   };
 
   const changeHandler = (event) => {
-    // const { name, value } = event;
-    // setFormValues({
-    //   ...formValues,
-    //   [name]: {
-    //     ...formValues[name],
-    //     value,
-    //   },
-    // });
+    const { name, value } = event;
+
+    setInputValues((prevValues) => ({
+      ...prevValues,
+      [name]: {
+        ...prevValues[name],
+        value,
+      },
+    }));
   };
 
   return (
