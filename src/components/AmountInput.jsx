@@ -8,6 +8,7 @@ function AmountInput({ onChange, error, helperText }) {
     <TextField
       id="outlined-basic"
       name="amount"
+      type="number"
       label="Amount"
       variant="outlined"
       size="small"
@@ -15,6 +16,7 @@ function AmountInput({ onChange, error, helperText }) {
         startAdornment: <InputAdornment position="start">$</InputAdornment>,
       }}
       onChange={(e) => onChange(e.target)}
+      onBlur={(e) => onChange(e.target)}
       error={error}
       helperText={helperText}
       fullWidth

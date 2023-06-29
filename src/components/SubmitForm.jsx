@@ -7,7 +7,7 @@ import DateInput from './DateInput';
 import SelectInput from './SelectInput';
 import FormButtons from './FormButtons';
 
-function SubmitForm({ onCloseModal }) {
+const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
   const [inputValues, setInputValues] = useState({
     title: {
       value: '',
@@ -58,14 +58,16 @@ function SubmitForm({ onCloseModal }) {
   };
 
   const changeHandler = (event) => {
-    // const { name, value } = event;
-    // setFormValues({
-    //   ...formValues,
-    //   [name]: {
-    //     ...formValues[name],
-    //     value,
-    //   },
-    // });
+    const { name, value } = event;
+
+    setInputValues((prevValues) => ({
+      ...prevValues,
+      [name]: {
+        ...prevValues[name],
+        value,
+        error: value === '',
+      },
+    }));
   };
 
   return (
@@ -108,10 +110,10 @@ function SubmitForm({ onCloseModal }) {
           />
         </div>
       </div>
-      <FormButtons onCloseModal={() => onCloseModal()} />
+      <FormButtons onCloseModal={() => onCloseModal()} ref={ref} />
     </form>
   );
-}
+});
 
 SubmitForm.propTypes = {
   onCloseModal: PropTypes.func,

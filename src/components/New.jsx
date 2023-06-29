@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { createPortal } from 'react-dom';
 import Modal from './Modal';
 import SubmitForm from './SubmitForm';
 import Add from './Add';
@@ -12,12 +11,9 @@ function New() {
 
   return (
     <>
-      {createPortal(
-        <Modal isOpen={isOpen} onCloseModal={closeModalHandler}>
-          <SubmitForm />
-        </Modal>,
-        document.getElementById('modal')
-      )}
+      <Modal isOpen={isOpen} onCloseModal={closeModalHandler}>
+        <SubmitForm />
+      </Modal>
       <Add onOpenModal={openModalHandler} />
     </>
   );
