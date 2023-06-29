@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Modal from './Modal';
-import Form from './Form';
+import SubmitForm from './SubmitForm';
 import Add from './Add';
 
 function New() {
@@ -14,7 +14,7 @@ function New() {
     <>
       {createPortal(
         <Modal isOpen={isOpen} onCloseModal={closeModalHandler}>
-          <Form />
+          <SubmitForm />
         </Modal>,
         document.getElementById('modal')
       )}

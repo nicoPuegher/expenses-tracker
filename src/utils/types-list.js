@@ -1,4 +1,4 @@
-const types = [
+const typesList = [
   {
     id: 'type01',
     value: 'Debt',
@@ -49,4 +49,4 @@ const types = [
   },
 ];
 
-export default types;
+export default typesList;
