@@ -11,6 +11,7 @@ function TitleInput({ onChange, error, helperText }) {
       variant="outlined"
       size="small"
       onChange={(e) => onChange(e.target)}
+      onBlur={(e) => onChange(e.target)}
       error={error}
       helperText={helperText}
       fullWidth

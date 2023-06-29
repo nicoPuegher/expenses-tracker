@@ -20,6 +20,7 @@ function SelectInput({ onChange, error, helperText }) {
       size="small"
       defaultValue=""
       onChange={(e) => onChange(e.target)}
+      onBlur={(e) => onChange(e.target)}
       error={error}
       helperText={helperText}
       fullWidth

@@ -12,6 +12,7 @@ function DateInput({ onChange, error, helperText }) {
         slotProps={{
           textField: {
             size: 'small',
+            onBlur: (e) => onChange({ name: 'date', value: e.target.value }),
             error,
             helperText,
             fullWidth: true,

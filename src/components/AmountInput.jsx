@@ -15,6 +15,7 @@ function AmountInput({ onChange, error, helperText }) {
         startAdornment: <InputAdornment position="start">$</InputAdornment>,
       }}
       onChange={(e) => onChange(e.target)}
+      onBlur={(e) => onChange(e.target)}
       error={error}
       helperText={helperText}
       fullWidth
