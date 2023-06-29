@@ -8,6 +8,7 @@ function AmountInput({ onChange, error, helperText }) {
     <TextField
       id="outlined-basic"
       name="amount"
+      type="number"
       label="Amount"
       variant="outlined"
       size="small"
