@@ -65,6 +65,7 @@ function SubmitForm({ onCloseModal }) {
       [name]: {
         ...prevValues[name],
         value,
+        error: value === '',
       },
     }));
   };
