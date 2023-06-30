@@ -9,6 +9,20 @@ function DateInput({ onChange, error, helperText }) {
   const min = dayjs(new Date(2021, 0, 1));
   const max = dayjs(new Date(2023, 11, 31));
 
+  const checkDate = (date) => {
+    const isValid = dayjs(date).isValid();
+    if (!isValid) {
+      onChange({ name: 'date', value: '' });
+      return;
+    }
+    const year = dayjs(date).year();
+    if (year < 2021 || year > 2023) {
+      onChange({ name: 'date', value: '' });
+      return;
+    }
+    onChange({ name: 'date', value: date });
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
@@ -19,15 +33,14 @@ function DateInput({ onChange, error, helperText }) {
         slotProps={{
           textField: {
             size: 'small',
-            onBlur: (e) => onChange({ name: 'date', value: e.target.value }),
+            onBlur: (e) => checkDate(e.target.value),
             error,
             helperText,
-            minDate: min,
             fullWidth: true,
             required: true,
           },
         }}
-        onChange={(e) => onChange({ name: 'date', value: e ? e.$d : '' })}
+        onChange={(e) => checkDate(e ? e.$d : '')}
       />
     </LocalizationProvider>
   );
