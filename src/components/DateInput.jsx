@@ -15,12 +15,15 @@ function DateInput({ onChange, error, helperText }) {
       onChange({ name: 'date', value: '' });
       return;
     }
-    const year = dayjs(date).year();
-    if (year < 2021 || year > 2023) {
+
+    const selectedYear = dayjs(date).year();
+    if (selectedYear < 2021 || selectedYear > 2023) {
       onChange({ name: 'date', value: '' });
       return;
     }
-    onChange({ name: 'date', value: date });
+
+    const { $M: month, $D: day, $y: year } = dayjs(date);
+    onChange({ name: 'date', value: `${month + 1}-${day}-${year}` });
   };
 
   return (

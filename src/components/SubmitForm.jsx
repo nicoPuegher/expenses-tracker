@@ -40,7 +40,7 @@ const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
       const currKey = keys[i];
       const currVal = inputValues[currKey].value;
 
-      if (currVal === '') {
+      if (currVal.trim() === '') {
         const updatedKey = {
           ...updatedValues[currKey],
           error: true,
@@ -65,7 +65,7 @@ const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
       [name]: {
         ...prevValues[name],
         value,
-        error: value === '',
+        error: value.trim() === '',
       },
     }));
   };
