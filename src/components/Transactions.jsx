@@ -5,7 +5,7 @@ import ExpenseDate from './ExpenseDate';
 import Tag from '../Tag/Tag';
 import expenses from './expenses';
 
-function Transactions({ currentFilter }) {
+function Expenses({ currentFilter }) {
   const filteredTransactions = expenses.filter(
     (transaction) => transaction.date.getFullYear() === Number(currentFilter)
   );
@@ -40,8 +40,8 @@ function Transactions({ currentFilter }) {
   );
 }
 
-Transactions.propTypes = {
+Expenses.propTypes = {
   currentFilter: PropTypes.string.isRequired,
 };
 
-export default Transactions;
+export default Expenses;
