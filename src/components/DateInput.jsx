@@ -4,10 +4,13 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
+import checkDate from '../utils/submission-validation/check-date';
 
 function DateInput({ onChange, error, helperText }) {
   const min = dayjs(new Date(2021, 0, 1));
   const max = dayjs(new Date(2023, 11, 31));
+
+  const validateHandler = (date) => onChange(checkDate(date));
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -19,15 +22,14 @@ function DateInput({ onChange, error, helperText }) {
         slotProps={{
           textField: {
             size: 'small',
-            onBlur: (e) => onChange({ name: 'date', value: e.target.value }),
+            onBlur: (e) => validateHandler(e.target.value),
             error,
             helperText,
-            minDate: min,
             fullWidth: true,
             required: true,
           },
         }}
-        onChange={(e) => onChange({ name: 'date', value: e ? e.$d : '' })}
+        onChange={(e) => validateHandler(e ? e.$d : '')}
       />
     </LocalizationProvider>
   );

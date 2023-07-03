@@ -1,74 +1,24 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
-import TitleInput from './TitleInput';
-import AmountInput from './AmountInput';
-import DateInput from './DateInput';
-import SelectInput from './SelectInput';
+import inputState from '../utils/submission-validation/input-state';
+import checkSubmit from '../utils/submission-validation/check-submit';
+import validateSubmit from '../utils/submission-validation/validate-submit';
+import inputChange from '../utils/submission-validation/input-change';
+import SubmitInputs from './SubmitInputs';
 import FormButtons from './FormButtons';
 
 const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
-  const [inputValues, setInputValues] = useState({
-    title: {
-      value: '',
-      error: false,
-      errorMessage: 'You must enter a title.',
-    },
-    amount: {
-      value: '',
-      error: false,
-      errorMessage: 'You must enter an amount.',
-    },
-    date: {
-      value: '',
-      error: false,
-      errorMessage: 'You must select a date.',
-    },
-    type: {
-      value: '',
-      error: false,
-      errorMessage: 'You must select a type.',
-    },
-  });
+  const [inputValues, setInputValues] = useState(inputState);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    let updatedValues = { ...inputValues };
-    const keys = Object.keys(inputValues);
-
-    keys.forEach((key, i) => {
-      const currKey = keys[i];
-      const currVal = inputValues[currKey].value;
-
-      if (currVal === '') {
-        const updatedKey = {
-          ...updatedValues[currKey],
-          error: true,
-        };
-
-        updatedValues = {
-          ...updatedValues,
-          [currKey]: updatedKey,
-        };
-      }
-    });
-
-    setInputValues(updatedValues);
-    // onCloseModal();
+    checkSubmit(setInputValues);
+    if (!validateSubmit(inputValues)) return;
+    onCloseModal();
   };
 
-  const changeHandler = (event) => {
-    const { name, value } = event;
-
-    setInputValues((prevValues) => ({
-      ...prevValues,
-      [name]: {
-        ...prevValues[name],
-        value,
-        error: value === '',
-      },
-    }));
-  };
+  const changeHandler = (event) => inputChange(event, setInputValues);
 
   return (
     <form noValidate onSubmit={submitHandler}>
@@ -79,36 +29,7 @@ const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
         >
           New Expense
         </Dialog.Title>
-        <div className="flex flex-col gap-3">
-          <TitleInput
-            onChange={changeHandler}
-            error={inputValues.title.error}
-            helperText={
-              inputValues.title.error ? inputValues.title.errorMessage : ''
-            }
-          />
-          <AmountInput
-            onChange={changeHandler}
-            error={inputValues.amount.error}
-            helperText={
-              inputValues.amount.error ? inputValues.amount.errorMessage : ''
-            }
-          />
-          <DateInput
-            onChange={changeHandler}
-            error={inputValues.date.error}
-            helperText={
-              inputValues.date.error ? inputValues.date.errorMessage : ''
-            }
-          />
-          <SelectInput
-            onChange={changeHandler}
-            error={inputValues.type.error}
-            helperText={
-              inputValues.type.error ? inputValues.type.errorMessage : ''
-            }
-          />
-        </div>
+        <SubmitInputs changeHandler={changeHandler} inputValues={inputValues} />
       </div>
       <FormButtons onCloseModal={() => onCloseModal()} ref={ref} />
     </form>
