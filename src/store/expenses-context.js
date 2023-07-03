@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ExpenseContext = React.createContext({
+const ExpensesContext = React.createContext({
   expenses: {
     2023: [],
     2022: [],
@@ -9,4 +9,4 @@ const ExpenseContext = React.createContext({
   totalExpenses: 0,
 });
 
-export default ExpenseContext;
+export default ExpensesContext;
