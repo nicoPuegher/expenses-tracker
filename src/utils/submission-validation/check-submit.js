@@ -1,25 +1,29 @@
-const checkSubmit = (inputValues, setInputValues) => {
-  let updatedValues = { ...inputValues };
-  const keys = Object.keys(inputValues);
+const checkSubmit = (setInputValues) => {
+  let updatedValues;
 
-  keys.forEach((key, i) => {
-    const currKey = keys[i];
-    const currVal = inputValues[currKey].value;
+  setInputValues((prevValues) => {
+    updatedValues = { ...prevValues };
+    const keys = Object.keys(prevValues);
 
-    if (currVal.trim() === '') {
-      const updatedKey = {
-        ...updatedValues[currKey],
-        error: true,
-      };
+    keys.forEach((key, i) => {
+      const currKey = keys[i];
+      const currVal = prevValues[currKey].value;
 
-      updatedValues = {
-        ...updatedValues,
-        [currKey]: updatedKey,
-      };
-    }
+      if (currVal.trim() === '') {
+        const updatedKey = {
+          ...updatedValues[currKey],
+          error: true,
+        };
+
+        updatedValues = {
+          ...updatedValues,
+          [currKey]: updatedKey,
+        };
+      }
+    });
+
+    return updatedValues;
   });
-
-  setInputValues(updatedValues);
 };
 
 export default checkSubmit;

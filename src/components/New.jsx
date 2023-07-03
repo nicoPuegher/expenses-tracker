@@ -12,7 +12,7 @@ function New() {
   return (
     <>
       <Modal isOpen={isOpen} onCloseModal={closeModalHandler}>
-        <SubmitForm />
+        <SubmitForm onCloseModal={closeModalHandler} />
       </Modal>
       <Add onOpenModal={openModalHandler} />
     </>
