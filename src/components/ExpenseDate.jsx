@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TransactionDate({ date }) {
+function ExpenseDate({ date }) {
   const month = date.toLocaleString('en-US', { month: 'short' });
   const day = date.toLocaleString('en-US', { day: '2-digit' });
   const year = date.getFullYear();
@@ -15,8 +15,8 @@ function TransactionDate({ date }) {
   );
 }
 
-TransactionDate.propTypes = {
+ExpenseDate.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
 };
 
-export default TransactionDate;
+export default ExpenseDate;

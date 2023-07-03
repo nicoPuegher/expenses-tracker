@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
-import TransactionDate from '../TransactionDate/TransactionDate';
+import ExpenseDate from './ExpenseDate';
 import Tag from '../Tag/Tag';
 import expenses from './expenses';
 
@@ -13,7 +13,7 @@ function Transactions({ currentFilter }) {
   const transactions = filteredTransactions.map((transaction) => (
     <li key={transaction.id} className="py-3">
       <div className="flex gap-x-4">
-        <TransactionDate date={transaction.date} />
+        <ExpenseDate date={transaction.date} />
         <div className="flex flex-auto items-center justify-between">
           <div>
             <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
