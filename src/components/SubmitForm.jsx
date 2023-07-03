@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
+import inputState from '../utils/submission-validation/input-state';
+import checkSubmit from '../utils/submission-validation/check-submit';
 import TitleInput from './TitleInput';
 import AmountInput from './AmountInput';
 import DateInput from './DateInput';
@@ -8,54 +10,15 @@ import SelectInput from './SelectInput';
 import FormButtons from './FormButtons';
 
 const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
-  const [inputValues, setInputValues] = useState({
-    title: {
-      value: '',
-      error: false,
-      errorMessage: 'You must enter a title.',
-    },
-    amount: {
-      value: '',
-      error: false,
-      errorMessage: 'You must enter an amount.',
-    },
-    date: {
-      value: '',
-      error: false,
-      errorMessage: 'You must select a date.',
-    },
-    type: {
-      value: '',
-      error: false,
-      errorMessage: 'You must select a type.',
-    },
-  });
+  const [inputValues, setInputValues] = useState(inputState);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    let updatedValues = { ...inputValues };
-    const keys = Object.keys(inputValues);
-
-    keys.forEach((key, i) => {
-      const currKey = keys[i];
-      const currVal = inputValues[currKey].value;
-
-      if (currVal.trim() === '') {
-        const updatedKey = {
-          ...updatedValues[currKey],
-          error: true,
-        };
-
-        updatedValues = {
-          ...updatedValues,
-          [currKey]: updatedKey,
-        };
-      }
-    });
-
-    setInputValues(updatedValues);
+    checkSubmit(inputValues, setInputValues);
     // onCloseModal();
   };
+
+  console.log(inputValues);
 
   const changeHandler = (event) => {
     const { name, value } = event;
