@@ -1,6 +1,6 @@
 import React from 'react';
-import ChartBar from '../ChartBar/ChartBar';
-import monthsData from './monthsData';
+import ChartBar from './ChartBar';
+import monthsData from '../../utils/months-data';
 
 function Chart() {
   const yearlyExpenses = monthsData.reduce(

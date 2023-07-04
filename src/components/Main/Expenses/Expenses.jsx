@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
 import ExpenseDate from './ExpenseDate';
-import Tag from '../Tag/Tag';
-import expenses from './expenses';
+import Tag from './Tag';
+import dummyExpenses from '../../../utils/dummy-expenses';
 
 function Expenses({ currentFilter }) {
-  const filteredTransactions = expenses.filter(
+  const filteredTransactions = dummyExpenses.filter(
     (transaction) => transaction.date.getFullYear() === Number(currentFilter)
   );
 
@@ -34,7 +34,7 @@ function Expenses({ currentFilter }) {
   }
 
   return (
-    <section className="flex-1 overflow-hidden overflow-y-scroll rounded bg-gray-300 px-2">
+    <section className="overflow-y-scroll rounded bg-gray-300 px-2">
       <ul className="divide-y divide-gray-100">{transactions}</ul>
     </section>
   );

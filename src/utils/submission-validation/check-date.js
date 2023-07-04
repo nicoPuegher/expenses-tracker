@@ -7,7 +7,7 @@ const checkDate = (date) => {
   }
 
   const selectedYear = dayjs(date).year();
-  if (selectedYear < 2021 || selectedYear > 2023) {
+  if (selectedYear < 2022 || selectedYear > 2023) {
     return { name: 'date', value: '' };
   }
 

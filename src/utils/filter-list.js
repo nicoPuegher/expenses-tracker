@@ -7,10 +7,6 @@ const filterList = [
     id: 'fl2',
     value: 2022,
   },
-  {
-    id: 'fl3',
-    value: 2021,
-  },
 ];
 
 export default filterList;
