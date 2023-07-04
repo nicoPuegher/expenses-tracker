@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
 import ExpenseDate from './ExpenseDate';
-import Tag from '../Tag/Tag';
-import expenses from './expenses';
+import Tag from './Tag';
+import dummyExpenses from '../../../utils/dummy-expenses';
 
 function Expenses({ currentFilter }) {
-  const filteredTransactions = expenses.filter(
+  const filteredTransactions = dummyExpenses.filter(
     (transaction) => transaction.date.getFullYear() === Number(currentFilter)
   );
 
