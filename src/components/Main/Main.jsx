@@ -7,7 +7,7 @@ function Main() {
   const changeFilterHandler = () => {};
 
   return (
-    <main>
+    <main className="flex flex-1 flex-col overflow-y-hidden">
       <Filter title="Filter by year" onChangeFilter={changeFilterHandler} />
       <Chart />
       <Expenses currentFilter={2023} />
