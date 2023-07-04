@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 import checkDate from '../../utils/submission-validation/check-date';
 
 function DateInput({ onChange, error, helperText }) {
-  const min = dayjs(new Date(2021, 0, 1));
+  const min = dayjs(new Date(2022, 0, 1));
   const max = dayjs(new Date(2023, 11, 31));
 
   const validateHandler = (date) => onChange(checkDate(date));

@@ -12,7 +12,7 @@ const inputState = () => ({
   date: {
     value: '',
     error: false,
-    errorMessage: ' 2020 > date < 2024.',
+    errorMessage: ' 2021 > date < 2024.',
   },
   type: {
     value: '',

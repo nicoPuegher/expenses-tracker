@@ -17,10 +17,11 @@ function ExpensesProvider({ children }) {
   const expensesContext = useMemo(
     () => ({
       expenses: expensesState.expenses,
-      totalExpenses: expensesState.totalExpenses,
+      total2023: expensesState.total2023,
+      total2022: expensesState.total2022,
       addExpense,
     }),
-    [expensesState.expenses, expensesState.totalExpenses]
+    [expensesState.expenses, expensesState.total2023, expensesState.total2022]
   );
 
   return (
