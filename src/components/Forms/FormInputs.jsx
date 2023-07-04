@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TitleInput from './TitleInput';
-import AmountInput from './AmountInput';
-import DateInput from './DateInput';
-import SelectInput from './SelectInput';
+import TitleInput from '../Inputs/TitleInput';
+import AmountInput from '../Inputs/AmountInput';
+import DateInput from '../Inputs/DateInput';
+import SelectInput from '../Inputs/SelectInput';
 
-function SubmitInputs({ changeHandler, inputValues }) {
+function FormInputs({ changeHandler, inputValues }) {
   return (
     <div className="flex flex-col gap-3">
       <TitleInput
@@ -36,9 +36,9 @@ function SubmitInputs({ changeHandler, inputValues }) {
   );
 }
 
-SubmitInputs.propTypes = {
+FormInputs.propTypes = {
   changeHandler: PropTypes.func.isRequired,
   inputValues: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default SubmitInputs;
+export default FormInputs;
