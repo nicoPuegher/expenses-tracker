@@ -2,22 +2,22 @@ const inputState = () => ({
   title: {
     value: '',
     error: false,
-    errorMessage: 'You must enter a title.',
+    errorMessage: 'Enter a title.',
   },
   amount: {
     value: '',
     error: false,
-    errorMessage: 'You must enter an amount.',
+    errorMessage: 'Enter an amount.',
   },
   date: {
     value: '',
     error: false,
-    errorMessage: 'You must select a date.',
+    errorMessage: ' 2020 > date < 2024.',
   },
   type: {
     value: '',
     error: false,
-    errorMessage: 'You must select a type.',
+    errorMessage: 'Select a type.',
   },
 });
 
