@@ -4,7 +4,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
-import checkDate from '../utils/submission-validation/check-date';
+import checkDate from '../../utils/submission-validation/check-date';
 
 function DateInput({ onChange, error, helperText }) {
   const min = dayjs(new Date(2021, 0, 1));

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
-import inputState from '../utils/submission-validation/input-state';
-import checkSubmit from '../utils/submission-validation/check-submit';
-import validateSubmit from '../utils/submission-validation/validate-submit';
-import inputChange from '../utils/submission-validation/input-change';
-import SubmitInputs from './SubmitInputs';
+import inputState from '../../utils/submission-validation/input-state';
+import checkSubmit from '../../utils/submission-validation/check-submit';
+import validateSubmit from '../../utils/submission-validation/validate-submit';
+import inputChange from '../../utils/submission-validation/input-change';
+import FormInputs from './FormInputs';
 import FormButtons from './FormButtons';
 
 const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
@@ -29,7 +29,7 @@ const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
         >
           New Expense
         </Dialog.Title>
-        <SubmitInputs changeHandler={changeHandler} inputValues={inputValues} />
+        <FormInputs changeHandler={changeHandler} inputValues={inputValues} />
       </div>
       <FormButtons onCloseModal={() => onCloseModal()} ref={ref} />
     </form>
