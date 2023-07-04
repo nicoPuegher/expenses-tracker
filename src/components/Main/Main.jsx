@@ -10,7 +10,7 @@ function Main() {
     <main className="flex flex-1 flex-col overflow-y-hidden">
       <Filter title="Filter by year" onChangeFilter={changeFilterHandler} />
       <Chart />
-      <Expenses currentFilter={2023} />
+      <Expenses currentFilter="2023" />
     </main>
   );
 }
