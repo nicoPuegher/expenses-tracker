@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Modal from './Modal/Modal';
-import SubmitForm from './Forms/SubmitForm';
+import Modal from '../Modal/Modal';
+import SubmitForm from '../Forms/SubmitForm';
 import Add from './Add';
 
 function New() {
