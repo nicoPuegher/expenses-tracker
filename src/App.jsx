@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 // import React, { useState } from 'react';
 // import New from './components/New/New';
 // import Filter from './components/Filter/Filter';
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="flex h-full flex-col px-2 py-3">
       <Header />
+      <Main />
       {/* <New />
       <Filter title="Filter by year" onChangeFilter={changeFilterHandler} />
       <Chart />
