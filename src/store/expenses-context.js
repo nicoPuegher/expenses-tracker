@@ -7,6 +7,7 @@ const ExpensesContext = React.createContext({
     2021: [],
   },
   totalExpenses: 0,
+  addExpense: () => {},
 });
 
 export default ExpensesContext;
