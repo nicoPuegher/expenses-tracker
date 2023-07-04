@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import PropTypes from 'prop-types';
-import typesList from '../utils/types-list';
+import typesList from '../../utils/types-list';
 
 function SelectInput({ onChange, error, helperText }) {
   const selectList = typesList.map((type) => (
