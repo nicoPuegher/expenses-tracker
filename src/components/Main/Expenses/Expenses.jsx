@@ -1,39 +1,39 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
+import ExpensesContext from '../../../store/expenses-context';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
-import dummyExpenses from '../../../utils/dummy-expenses';
-
-import ExpensesContext from '../../../store/expenses-context';
 
 function Expenses({ currentFilter }) {
   const expensesCtx = useContext(ExpensesContext);
+  const { expenses } = expensesCtx;
 
-  // const filteredTransactions = dummyExpenses.filter(
-  //   (transaction) => transaction.date.getFullYear() === Number(currentFilter)
-  // );
+  const yearlyExpenses = Object.values(expenses[Number(currentFilter)]);
+  let displayExpenses = [];
 
-  // const transactions = filteredTransactions.map((transaction) => (
-  //   <li key={transaction.id} className="py-3">
-  //     <div className="flex gap-x-4">
-  //       <ExpenseDate date={transaction.date} />
-  //       <div className="flex flex-auto items-center justify-between">
-  //         <div>
-  //           <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
-  //             {transaction.name}
-  //           </p>
-  //           <Tag name={transaction.type} color="bg-gray-50" />
-  //         </div>
-  //         <p className="text-base text-gray-500">${transaction.amount}</p>
-  //       </div>
-  //     </div>
-  //   </li>
-  // ));
+  yearlyExpenses.forEach((month) => {
+    const monthlyExpenses = month.map((singleExpense) => (
+      <li key={singleExpense.id} className="py-3">
+        <div className="flex gap-x-4">
+          <ExpenseDate date={singleExpense.date} />
+          <div className="flex flex-auto items-center justify-between">
+            <div>
+              <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
+                {singleExpense.name}
+              </p>
+              <Tag name={singleExpense.type} color="bg-gray-50" />
+            </div>
+            <p className="text-base text-gray-500">${singleExpense.amount}</p>
+          </div>
+        </div>
+      </li>
+    ));
 
-  const transactions = [];
+    displayExpenses = [...displayExpenses, ...monthlyExpenses];
+  });
 
-  if (transactions.length === 0) {
+  if (displayExpenses.length === 0) {
     return (
       <Alert severity="error">No transactions found in {currentFilter}.</Alert>
     );
@@ -41,7 +41,7 @@ function Expenses({ currentFilter }) {
 
   return (
     <section className="overflow-y-scroll rounded bg-gray-300 px-2">
-      <ul className="divide-y divide-gray-100">{transactions}</ul>
+      <ul className="divide-y divide-gray-100">{displayExpenses}</ul>
     </section>
   );
 }
