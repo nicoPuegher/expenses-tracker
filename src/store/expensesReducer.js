@@ -9,15 +9,25 @@ const expensesReducer = (state, action) => {
 
     const year = dayjs(date).year();
     const month = dayjs(date).month();
-    const arr = state.expenses[year][month];
 
-    arr.push({
+    const newExpense = {
       id: uniqueId(`${year}-${month}_`),
       title,
       numAmount,
       date,
       type,
-    });
+    };
+
+    return {
+      ...state,
+      expenses: {
+        ...state.expenses,
+        [year]: {
+          ...state.expenses[year],
+          [month]: [...state.expenses[year][month], newExpense],
+        },
+      },
+    };
   }
 
   return defaultState;

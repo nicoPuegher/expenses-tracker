@@ -6,26 +6,28 @@ import Tag from './Tag';
 import dummyExpenses from '../../../utils/dummy-expenses';
 
 function Expenses({ currentFilter }) {
-  const filteredTransactions = dummyExpenses.filter(
-    (transaction) => transaction.date.getFullYear() === Number(currentFilter)
-  );
+  // const filteredTransactions = dummyExpenses.filter(
+  //   (transaction) => transaction.date.getFullYear() === Number(currentFilter)
+  // );
 
-  const transactions = filteredTransactions.map((transaction) => (
-    <li key={transaction.id} className="py-3">
-      <div className="flex gap-x-4">
-        <ExpenseDate date={transaction.date} />
-        <div className="flex flex-auto items-center justify-between">
-          <div>
-            <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
-              {transaction.name}
-            </p>
-            <Tag name={transaction.type} color="bg-gray-50" />
-          </div>
-          <p className="text-base text-gray-500">${transaction.amount}</p>
-        </div>
-      </div>
-    </li>
-  ));
+  // const transactions = filteredTransactions.map((transaction) => (
+  //   <li key={transaction.id} className="py-3">
+  //     <div className="flex gap-x-4">
+  //       <ExpenseDate date={transaction.date} />
+  //       <div className="flex flex-auto items-center justify-between">
+  //         <div>
+  //           <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
+  //             {transaction.name}
+  //           </p>
+  //           <Tag name={transaction.type} color="bg-gray-50" />
+  //         </div>
+  //         <p className="text-base text-gray-500">${transaction.amount}</p>
+  //       </div>
+  //     </div>
+  //   </li>
+  // ));
+
+  const transactions = [];
 
   if (transactions.length === 0) {
     return (
