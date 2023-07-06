@@ -1,13 +1,33 @@
 import dayjs from 'dayjs';
+import { uniqueId } from 'lodash';
 import defaultState from './expenses-default';
 
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
-    // console.log(action);
     const { title, amount, date, type } = action.expense;
-    // console.log(Number(amount).toFixed(2));
+    const numAmount = Number(amount).toFixed(2);
+
     const year = dayjs(date).year();
-    console.log(state.expenses[year]);
+    const month = dayjs(date).month();
+
+    const newExpense = {
+      id: uniqueId(`${year}-${month}_`),
+      title,
+      numAmount,
+      date,
+      type,
+    };
+
+    return {
+      ...state,
+      expenses: {
+        ...state.expenses,
+        [year]: {
+          ...state.expenses[year],
+          [month]: [...state.expenses[year][month], newExpense],
+        },
+      },
+    };
   }
 
   return defaultState;
