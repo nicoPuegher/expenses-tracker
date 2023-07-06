@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 import dummyExpenses from '../../../utils/dummy-expenses';
 
+import ExpensesContext from '../../../store/expenses-context';
+
 function Expenses({ currentFilter }) {
+  const expensesCtx = useContext(ExpensesContext);
+
   // const filteredTransactions = dummyExpenses.filter(
   //   (transaction) => transaction.date.getFullYear() === Number(currentFilter)
   // );
