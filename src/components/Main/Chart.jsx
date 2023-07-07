@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { uniqueId } from 'lodash';
+import dayjs from 'dayjs';
+import ExpensesContext from '../../store/expenses-context';
 import ChartBar from './ChartBar';
-import monthsData from '../../utils/months-data';
 
 function Chart() {
-  const yearlyExpenses = monthsData.reduce(
-    (acc, curr) => acc + curr.expenses,
-    0
-  );
+  const expensesCtx = useContext(ExpensesContext);
+  const { expenses, currentFilter, total } = expensesCtx;
 
-  const chartBars = monthsData.map((monthData) => (
-    <ChartBar
-      key={monthData.id}
-      name={monthData.name}
-      expenses={monthData.expenses}
-      yearlyExpenses={yearlyExpenses}
-    />
-  ));
+  const months = Object.values(expenses[currentFilter]);
+
+  const chartBars = months.map((month, i) => {
+    const date = dayjs().month(i).$d;
+    const monthName = date.toLocaleString('en-US', { month: 'short' });
+
+    return (
+      <ChartBar
+        key={uniqueId('chartbar_')}
+        name={monthName}
+        expenses={month.total}
+        yearlyExpenses={total[currentFilter]}
+      />
+    );
+  });
 
   return (
     <section className="mb-3 rounded bg-gray-200 py-2">

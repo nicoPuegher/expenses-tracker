@@ -1,19 +1,18 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import Alert from '@mui/material/Alert';
 import ExpensesContext from '../../../store/expenses-context';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
-function Expenses({ currentFilter }) {
+function Expenses() {
   const expensesCtx = useContext(ExpensesContext);
-  const { expenses } = expensesCtx;
+  const { expenses, currentFilter } = expensesCtx;
 
-  const yearlyExpenses = Object.values(expenses[Number(currentFilter)]);
   let displayExpenses = [];
+  const yearlyExpenses = Object.values(expenses[currentFilter]);
 
   yearlyExpenses.forEach((month) => {
-    const monthlyExpenses = month.map((singleExpense) => (
+    const monthlyExpenses = month.expensesArr.map((singleExpense) => (
       <li key={singleExpense.id} className="py-3">
         <div className="flex gap-x-4">
           <ExpenseDate date={singleExpense.date} />
@@ -47,9 +46,5 @@ function Expenses({ currentFilter }) {
     </section>
   );
 }
-
-Expenses.propTypes = {
-  currentFilter: PropTypes.string.isRequired,
-};
 
 export default Expenses;

@@ -1,18 +1,19 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import ExpensesContext from '../../store/expenses-context';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-function Dropdown({ filterList, onChangeFilter }) {
-  const [currentSelection, setCurrentSelection] = useState('2023');
+function Dropdown({ filterList }) {
+  const expensesCtx = useContext(ExpensesContext);
+  const { currentFilter, changeFilter } = expensesCtx;
 
   const clickHandler = (event) => {
-    setCurrentSelection(event.target.value);
-    onChangeFilter(event.target.value);
+    changeFilter(event.target.value);
   };
 
   const items = filterList.map((item) => (
@@ -37,7 +38,7 @@ function Dropdown({ filterList, onChangeFilter }) {
     <Menu as="div">
       <div>
         <Menu.Button className="inline-flex gap-x-1.5 rounded bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {currentSelection}
+          {currentFilter}
           <ChevronDownIcon
             className="-mr-1 h-5 w-5 text-gray-400"
             aria-hidden="true"
@@ -64,7 +65,6 @@ function Dropdown({ filterList, onChangeFilter }) {
 
 Dropdown.propTypes = {
   filterList: PropTypes.instanceOf(Object).isRequired,
-  onChangeFilter: PropTypes.func.isRequired,
 };
 
 export default Dropdown;

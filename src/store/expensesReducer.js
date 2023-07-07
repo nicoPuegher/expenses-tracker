@@ -18,15 +18,34 @@ const expensesReducer = (state, action) => {
       type,
     };
 
+    const newMonth = {
+      total: state.expenses[year][month].total + Number(newExpense.numAmount),
+      expensesArr: [...state.expenses[year][month].expensesArr, newExpense],
+    };
+
+    const newTotal = state.total[year] + Number(newExpense.numAmount);
+
     return {
       ...state,
       expenses: {
         ...state.expenses,
         [year]: {
           ...state.expenses[year],
-          [month]: [...state.expenses[year][month], newExpense],
+          [month]: newMonth,
         },
       },
+      total: {
+        ...state.total,
+        [year]: newTotal,
+      },
+    };
+  }
+
+  if (action.type === 'FILTER') {
+    const { year } = action;
+    return {
+      ...state,
+      currentFilter: Number(year),
     };
   }
 
