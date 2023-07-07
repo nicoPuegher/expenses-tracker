@@ -4,13 +4,11 @@ import Chart from './Chart';
 import Expenses from './Expenses/Expenses';
 
 function Main() {
-  const changeFilterHandler = () => {};
-
   return (
     <main className="flex flex-1 flex-col overflow-y-hidden">
-      <Filter title="Filter by year" onChangeFilter={changeFilterHandler} />
+      <Filter title="Filter by year" />
       <Chart />
-      <Expenses currentFilter="2023" />
+      <Expenses />
     </main>
   );
 }

@@ -30,6 +30,14 @@ const expensesReducer = (state, action) => {
     };
   }
 
+  if (action.type === 'FILTER') {
+    const { year } = action;
+    return {
+      ...state,
+      currentFilter: Number(year),
+    };
+  }
+
   return defaultState;
 };
 

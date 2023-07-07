@@ -29,9 +29,11 @@ const defaultState = {
       11: [],
     },
   },
+  currentFilter: 2023,
   total2023: 0,
   total2022: 0,
   addExpense: () => {},
+  changeFilter: () => {},
 };
 
 export default defaultState;
