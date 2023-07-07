@@ -12,7 +12,7 @@ function Expenses() {
   const yearlyExpenses = Object.values(expenses[currentFilter]);
 
   yearlyExpenses.forEach((month) => {
-    const monthlyExpenses = month.map((singleExpense) => (
+    const monthlyExpenses = month.expensesArr.map((singleExpense) => (
       <li key={singleExpense.id} className="py-3">
         <div className="flex gap-x-4">
           <ExpenseDate date={singleExpense.date} />
