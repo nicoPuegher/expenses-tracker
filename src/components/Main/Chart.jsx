@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import ExpensesContext from '../../store/expenses-context';
 import ChartBar from './ChartBar';
 import monthsData from '../../utils/months-data';
 
 function Chart() {
-  const yearlyExpenses = monthsData.reduce(
-    (acc, curr) => acc + curr.expenses,
-    0
-  );
+  const expensesCtx = useContext(ExpensesContext);
+  const { total, currentFilter } = expensesCtx;
+
+  console.log(total);
 
   const chartBars = monthsData.map((monthData) => (
     <ChartBar
       key={monthData.id}
       name={monthData.name}
       expenses={monthData.expenses}
-      yearlyExpenses={yearlyExpenses}
+      yearlyExpenses={Number(total[currentFilter])}
     />
   ));
 

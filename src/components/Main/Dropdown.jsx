@@ -2,7 +2,6 @@ import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-
 import ExpensesContext from '../../store/expenses-context';
 
 function classNames(...classes) {
