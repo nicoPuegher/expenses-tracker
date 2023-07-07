@@ -22,17 +22,11 @@ function ExpensesProvider({ children }) {
     () => ({
       expenses: expensesState.expenses,
       currentFilter: expensesState.currentFilter,
-      total2023: expensesState.total2023,
-      total2022: expensesState.total2022,
+      total: expensesState.total,
       addExpense,
       changeFilter,
     }),
-    [
-      expensesState.expenses,
-      expensesState.currentFilter,
-      expensesState.total2023,
-      expensesState.total2022,
-    ]
+    [expensesState.expenses, expensesState.currentFilter, expensesState.total]
   );
 
   return (

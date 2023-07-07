@@ -32,8 +32,10 @@ const ExpensesContext = React.createContext({
     },
   },
   currentFilter: 2023,
-  total2023: 0,
-  total2022: 0,
+  total: {
+    2023: 0,
+    2022: 0,
+  },
   addExpense: () => {},
   changeFilter: () => {},
 });
