@@ -18,19 +18,18 @@ const expensesReducer = (state, action) => {
       type,
     };
 
+    const newMonth = {
+      total: state.expenses[year][month].total + newExpense.numAmount,
+      expensesArr: [...state.expenses[year][month].expensesArr, newExpense],
+    };
+
     return {
       ...state,
       expenses: {
         ...state.expenses,
         [year]: {
           ...state.expenses[year],
-          [month]: {
-            ...state.expenses[year][month],
-            expensesArr: [
-              ...state.expenses[year][month].expensesArr,
-              newExpense,
-            ],
-          },
+          [month]: newMonth,
         },
       },
     };
