@@ -3,7 +3,7 @@ import { Menu } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import classNames from '../../../utils/dropdown/class-names';
 
-function Items({ filterList, clickHandler }) {
+function DropdownItems({ filterList, clickHandler }) {
   return filterList.map((item) => (
     <Menu.Item key={item.id}>
       {({ active }) => (
@@ -23,9 +23,9 @@ function Items({ filterList, clickHandler }) {
   ));
 }
 
-Items.propTypes = {
+DropdownItems.propTypes = {
   filterList: PropTypes.instanceOf(Object).isRequired,
   clickHandler: PropTypes.func.isRequired,
 };
 
-export default Items;
+export default DropdownItems;

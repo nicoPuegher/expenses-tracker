@@ -1,9 +1,9 @@
 import React, { Fragment, useContext } from 'react';
 import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import PropTypes from 'prop-types';
 import ExpensesContext from '../../../store/expenses-context';
-import Items from './Items';
+import DropdownBtn from './DropdownBtn';
+import DropdownItems from './DropdownItems';
 
 function Dropdown({ filterList }) {
   const { currentFilter, changeFilter } = useContext(ExpensesContext);
@@ -12,16 +12,7 @@ function Dropdown({ filterList }) {
 
   return (
     <Menu as="div">
-      <div>
-        <Menu.Button className="inline-flex gap-x-1.5 rounded bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {currentFilter}
-          <ChevronDownIcon
-            className="-mr-1 h-5 w-5 text-gray-400"
-            aria-hidden="true"
-          />
-        </Menu.Button>
-      </div>
-
+      <DropdownBtn currentFilter={currentFilter} />
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -33,7 +24,10 @@ function Dropdown({ filterList }) {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-44 origin-top-right rounded bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
           <div className="py-1">
-            <Items filterList={filterList} clickHandler={clickHandler} />
+            <DropdownItems
+              filterList={filterList}
+              clickHandler={clickHandler}
+            />
           </div>
         </Menu.Items>
       </Transition>
