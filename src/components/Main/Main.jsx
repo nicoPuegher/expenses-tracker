@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import ExpensesContext from '../../store/expenses-context';
 import Filter from './Filter';
+import yearList from '../../utils/dropdown/filter-year';
 import Chart from './Chart';
 import Expenses from './Expenses/Expenses';
-import yearList from '../../utils/dropdown/filter-year';
 
 function Main() {
   const { currentYearFilter } = useContext(ExpensesContext);
