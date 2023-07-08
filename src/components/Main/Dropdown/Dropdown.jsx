@@ -2,34 +2,12 @@ import React, { Fragment, useContext } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import PropTypes from 'prop-types';
-import ExpensesContext from '../../store/expenses-context';
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+import ExpensesContext from '../../../store/expenses-context';
 
 function Dropdown({ filterList }) {
   const { currentFilter, changeFilter } = useContext(ExpensesContext);
 
   const clickHandler = (e) => changeFilter('year', e.target.value);
-
-  const items = filterList.map((item) => (
-    <Menu.Item key={item.id}>
-      {({ active }) => (
-        <button
-          className={classNames(
-            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-            'w-full block px-4 py-2 text-sm text-left'
-          )}
-          type="button"
-          value={item.value}
-          onClick={clickHandler}
-        >
-          {item.value}
-        </button>
-      )}
-    </Menu.Item>
-  ));
 
   return (
     <Menu as="div">

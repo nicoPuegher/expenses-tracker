@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dropdown from './Dropdown';
-import filterList from '../../utils/filter-list';
+import Dropdown from './Dropdown/Dropdown';
+import filterList from '../../utils/dropdown/filter-year';
 
 function Filter({ title }) {
   return (
