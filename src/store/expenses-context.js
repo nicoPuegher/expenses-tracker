@@ -36,6 +36,10 @@ const ExpensesContext = React.createContext({
     visibility: false,
     current: null,
   },
+  currentView: {
+    filter: true,
+    month: false,
+  },
   total: {
     2023: 0,
     2022: 0,
