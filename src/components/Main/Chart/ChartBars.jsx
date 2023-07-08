@@ -4,10 +4,14 @@ import { uniqueId } from 'lodash';
 import ExpensesContext from '../../../store/expenses-context';
 import ChartBar from './ChartBar';
 
+import yearHash from '../../../utils/expenses-reducer/year-hash';
+
 function ChartBars() {
   const { expenses, currentYearFilter, total } = useContext(ExpensesContext);
 
-  const months = Object.values(expenses[Number(currentYearFilter)]);
+  const hash = yearHash(currentYearFilter);
+
+  console.log(expenses[hash]);
 
   const chartBars = months.map((month, i) => {
     const date = dayjs().month(i).$d;

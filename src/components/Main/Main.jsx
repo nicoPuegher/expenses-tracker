@@ -15,7 +15,7 @@ function Main() {
         currentFilter={currentYearFilter}
         filterList={yearList}
       />
-      {/* <Chart /> */}
+      <Chart />
       {/* <Expenses /> */}
     </main>
   );
