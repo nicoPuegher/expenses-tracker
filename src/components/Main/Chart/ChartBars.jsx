@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-import { uniqueId } from 'lodash';
 import dayjs from 'dayjs';
-import ExpensesContext from '../../store/expenses-context';
+import { uniqueId } from 'lodash';
+import ExpensesContext from '../../../store/expenses-context';
 import ChartBar from './ChartBar';
 
-function Chart() {
-  const expensesCtx = useContext(ExpensesContext);
-  const { expenses, currentYearFilter, total } = expensesCtx;
+function ChartBars() {
+  const { expenses, currentYearFilter, total } = useContext(ExpensesContext);
 
   const months = Object.values(expenses[Number(currentYearFilter)]);
 
@@ -25,11 +24,7 @@ function Chart() {
     );
   });
 
-  return (
-    <div className="mb-3 rounded bg-gray-200 py-2">
-      <div className="grid grid-cols-2">{chartBars}</div>
-    </div>
-  );
+  return chartBars;
 }
 
-export default Chart;
+export default ChartBars;

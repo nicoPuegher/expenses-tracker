@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import ExpensesContext from '../../store/expenses-context';
+import ExpensesContext from '../../../store/expenses-context';
 
 function ChartBar({ name, month, expenses, yearlyExpenses }) {
   const expensesCtx = useContext(ExpensesContext);
