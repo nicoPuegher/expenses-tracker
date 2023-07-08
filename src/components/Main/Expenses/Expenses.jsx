@@ -7,13 +7,14 @@ import Tag from './Tag';
 
 function Expenses() {
   const expensesCtx = useContext(ExpensesContext);
-  const { expenses, currentFilter, displayMonth } = expensesCtx;
+  const { expenses, currentYearFilter, displayMonth } = expensesCtx;
   const { visibility, current } = displayMonth;
 
   let displayExpenses = [];
 
   if (visibility) {
-    const selectedMonth = expenses[currentFilter][current].expensesArr;
+    const selectedMonth =
+      expenses[Number(currentYearFilter)][current].expensesArr;
     const monthlyExpenses = selectedMonth.map((singleExpense) => (
       <li key={singleExpense.id} className="py-3">
         <div className="flex gap-x-4">
@@ -34,7 +35,7 @@ function Expenses() {
     ));
     displayExpenses = monthlyExpenses;
   } else {
-    const yearlyExpenses = Object.values(expenses[currentFilter]);
+    const yearlyExpenses = Object.values(expenses[Number(currentYearFilter)]);
     yearlyExpenses.forEach((month) => {
       const monthlyExpenses = month.expensesArr.map((singleExpense) => (
         <li key={singleExpense.id} className="py-3">
@@ -69,7 +70,9 @@ function Expenses() {
       );
     }
     return (
-      <Alert severity="error">No transactions found in {currentFilter}.</Alert>
+      <Alert severity="error">
+        No transactions found in {currentYearFilter}.
+      </Alert>
     );
   }
 
