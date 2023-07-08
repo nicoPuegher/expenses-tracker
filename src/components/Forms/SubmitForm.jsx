@@ -12,17 +12,17 @@ import FormButtons from './FormButtons';
 
 const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
   const [inputValues, setInputValues] = useState(inputState);
-  const expenseCtx = useContext(ExpensesContext);
+  const { addExpense } = useContext(ExpensesContext);
 
-  const submitHandler = (event) => {
-    event.preventDefault();
+  const submitHandler = (e) => {
+    e.preventDefault();
     checkSubmit(setInputValues);
     if (!validateSubmit(inputValues)) return;
-    expenseCtx.addExpense(formatExpense(inputValues));
+    addExpense(formatExpense(inputValues));
     onCloseModal();
   };
 
-  const changeHandler = (event) => inputChange(event, setInputValues);
+  const changeHandler = (e) => inputChange(e, setInputValues);
 
   return (
     <form noValidate onSubmit={submitHandler}>
