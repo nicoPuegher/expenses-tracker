@@ -6,9 +6,9 @@ import ChartBar from './ChartBar';
 
 function Chart() {
   const expensesCtx = useContext(ExpensesContext);
-  const { expenses, currentFilter, total } = expensesCtx;
+  const { expenses, currentYearFilter, total } = expensesCtx;
 
-  const months = Object.values(expenses[currentFilter]);
+  const months = Object.values(expenses[Number(currentYearFilter)]);
 
   const chartBars = months.map((month, i) => {
     const date = dayjs().month(i).$d;
@@ -18,8 +18,9 @@ function Chart() {
       <ChartBar
         key={uniqueId('chartbar_')}
         name={monthName}
+        month={i}
         expenses={month.total}
-        yearlyExpenses={total[currentFilter]}
+        yearlyExpenses={total[Number(currentYearFilter)]}
       />
     );
   });

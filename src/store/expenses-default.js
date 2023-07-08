@@ -29,7 +29,15 @@ const defaultState = {
       11: { total: 0, expensesArr: [] },
     },
   },
-  currentFilter: 2023,
+  currentYearFilter: '2023',
+  displayMonth: {
+    visibility: false,
+    current: null,
+  },
+  currentView: {
+    filter: true,
+    month: false,
+  },
   total: {
     2023: 0,
     2022: 0,

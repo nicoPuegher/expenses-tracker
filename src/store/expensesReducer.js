@@ -25,27 +25,78 @@ const expensesReducer = (state, action) => {
 
     const newTotal = state.total[year] + Number(newExpense.numAmount);
 
-    return {
-      ...state,
-      expenses: {
-        ...state.expenses,
-        [year]: {
-          ...state.expenses[year],
-          [month]: newMonth,
+    const { filter: isFilter, month: isMonth } = state.currentView;
+
+    if (isMonth) {
+      return {
+        ...state,
+        expenses: {
+          ...state.expenses,
+          [year]: {
+            ...state.expenses[year],
+            [month]: newMonth,
+          },
         },
-      },
-      total: {
-        ...state.total,
-        [year]: newTotal,
-      },
-    };
+        displayMonth: {
+          visibility: true,
+          current: month,
+        },
+        total: {
+          ...state.total,
+          [year]: newTotal,
+        },
+      };
+    }
+
+    if (isFilter) {
+      return {
+        ...state,
+        expenses: {
+          ...state.expenses,
+          [year]: {
+            ...state.expenses[year],
+            [month]: newMonth,
+          },
+        },
+        displayMonth: {
+          visibility: false,
+          current: null,
+        },
+        total: {
+          ...state.total,
+          [year]: newTotal,
+        },
+      };
+    }
   }
 
   if (action.type === 'FILTER') {
-    const { year } = action;
+    const { mode, year = '', current = '' } = action;
+    if (mode === 'Filter by year') {
+      return {
+        ...state,
+        currentYearFilter: year,
+        displayMonth: {
+          visibility: false,
+          current: '',
+        },
+        currentView: {
+          filter: true,
+          month: false,
+        },
+      };
+    }
+
     return {
       ...state,
-      currentFilter: Number(year),
+      displayMonth: {
+        visibility: true,
+        current,
+      },
+      currentView: {
+        filter: false,
+        month: true,
+      },
     };
   }
 
