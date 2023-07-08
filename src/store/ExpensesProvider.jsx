@@ -14,19 +14,25 @@ function ExpensesProvider({ children }) {
     dispatchExpense({ type: 'ADD', expense });
   };
 
-  const changeFilter = (year) => {
-    dispatchExpense({ type: 'FILTER', year });
+  const changeFilter = (mode, year, current) => {
+    dispatchExpense({ type: 'FILTER', mode, year, current });
   };
 
   const expensesContext = useMemo(
     () => ({
       expenses: expensesState.expenses,
       currentFilter: expensesState.currentFilter,
+      displayMonth: expensesState.displayMonth,
       total: expensesState.total,
       addExpense,
       changeFilter,
     }),
-    [expensesState.expenses, expensesState.currentFilter, expensesState.total]
+    [
+      expensesState.expenses,
+      expensesState.displayMonth,
+      expensesState.currentFilter,
+      expensesState.total,
+    ]
   );
 
   return (

@@ -13,7 +13,7 @@ function Dropdown({ filterList }) {
   const { currentFilter, changeFilter } = expensesCtx;
 
   const clickHandler = (event) => {
-    changeFilter(event.target.value);
+    changeFilter('year', event.target.value);
   };
 
   const items = filterList.map((item) => (

@@ -18,6 +18,7 @@ function Chart() {
       <ChartBar
         key={uniqueId('chartbar_')}
         name={monthName}
+        month={i}
         expenses={month.total}
         yearlyExpenses={total[currentFilter]}
       />
