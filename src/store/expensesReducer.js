@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import { uniqueId } from 'lodash';
 import defaultState from './expenses-default';
 import yearlyFilter from '../utils/expenses-reducer/yearly-filter';
+import monthlyFilter from '../utils/expenses-reducer/monthly-filter';
 
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
@@ -75,18 +76,7 @@ const expensesReducer = (state, action) => {
     const { mode, value } = action;
 
     if (mode === 'Filter by year') return yearlyFilter(state, value);
-
-    return {
-      ...state,
-      displayMonth: {
-        visibility: true,
-        current,
-      },
-      currentView: {
-        filter: false,
-        month: true,
-      },
-    };
+    if (mode === 'Filter by month') return monthlyFilter(state, value);
   }
 
   return defaultState;
