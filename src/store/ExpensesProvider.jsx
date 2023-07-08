@@ -14,8 +14,8 @@ function ExpensesProvider({ children }) {
     dispatchExpense({ type: 'ADD', expense });
   };
 
-  const changeFilter = (mode, current) => {
-    dispatchExpense({ type: 'FILTER', mode, current });
+  const changeFilter = (mode, value) => {
+    dispatchExpense({ type: 'FILTER', mode, value });
   };
 
   const expensesContext = useMemo(
