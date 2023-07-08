@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ExpensesContext from '../../../store/expenses-context';
-import barSize from '../../../utils/bar-size';
+import barSize from '../../../utils/chart/bar-size';
 
 function ChartBar({ name, month, expenses, yearlyExpenses }) {
   const { changeFilter } = useContext(ExpensesContext);
