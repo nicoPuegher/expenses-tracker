@@ -23,14 +23,16 @@ function ExpensesProvider({ children }) {
       expenses: expensesState.expenses,
       currentFilter: expensesState.currentFilter,
       displayMonth: expensesState.displayMonth,
+      currentView: expensesState.currentView,
       total: expensesState.total,
       addExpense,
       changeFilter,
     }),
     [
       expensesState.expenses,
-      expensesState.displayMonth,
       expensesState.currentFilter,
+      expensesState.displayMonth,
+      expensesState.currentView,
       expensesState.total,
     ]
   );
