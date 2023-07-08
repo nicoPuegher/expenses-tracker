@@ -1,17 +1,14 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import ExpensesContext from '../../../store/expenses-context';
+import barSize from '../../../utils/bar-size';
 
 function ChartBar({ name, month, expenses, yearlyExpenses }) {
-  const expensesCtx = useContext(ExpensesContext);
-  const { changeFilter } = expensesCtx;
+  const { changeFilter } = useContext(ExpensesContext);
 
-  let barSize = '0%';
-  if (yearlyExpenses > 0) {
-    barSize = `${Math.floor((expenses / yearlyExpenses) * 100)}%`;
-  }
+  const clickHandler = () => changeFilter('Filter by month', month);
 
-  const clickHandler = () => changeFilter('month', '', month);
+  const size = barSize(expenses, yearlyExpenses);
 
   return (
     <button
@@ -21,7 +18,7 @@ function ChartBar({ name, month, expenses, yearlyExpenses }) {
     >
       <div>{name}</div>
       <div className="flex h-3.5 w-2/3 items-center bg-slate-400">
-        <div className="mx-0.5 h-2 bg-black" style={{ width: barSize }} />
+        <div className="mx-0.5 h-2 bg-black" style={{ width: size }} />
       </div>
     </button>
   );
