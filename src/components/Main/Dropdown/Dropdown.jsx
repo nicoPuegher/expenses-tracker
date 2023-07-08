@@ -5,10 +5,10 @@ import ExpensesContext from '../../../store/expenses-context';
 import DropdownBtn from './DropdownBtn';
 import DropTransition from './DropTransition';
 
-function Dropdown({ filterList }) {
-  const { currentFilter, changeFilter } = useContext(ExpensesContext);
+function Dropdown({ title, currentFilter, filterList }) {
+  const { changeFilter } = useContext(ExpensesContext);
 
-  const clickHandler = (e) => changeFilter('year', e.target.value);
+  const clickHandler = (e) => changeFilter(title, e.target.value);
 
   return (
     <Menu as="div">
@@ -19,6 +19,8 @@ function Dropdown({ filterList }) {
 }
 
 Dropdown.propTypes = {
+  title: PropTypes.string.isRequired,
+  currentFilter: PropTypes.string.isRequired,
   filterList: PropTypes.instanceOf(Object).isRequired,
 };
 

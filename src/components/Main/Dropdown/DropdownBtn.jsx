@@ -18,7 +18,7 @@ function DropdownBtn({ currentFilter }) {
 }
 
 DropdownBtn.propTypes = {
-  currentFilter: PropTypes.number.isRequired,
+  currentFilter: PropTypes.string.isRequired,
 };
 
 export default DropdownBtn;

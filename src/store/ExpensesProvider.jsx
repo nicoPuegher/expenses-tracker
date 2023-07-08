@@ -21,7 +21,7 @@ function ExpensesProvider({ children }) {
   const expensesContext = useMemo(
     () => ({
       expenses: expensesState.expenses,
-      currentFilter: expensesState.currentFilter,
+      currentYearFilter: expensesState.currentYearFilter,
       displayMonth: expensesState.displayMonth,
       currentView: expensesState.currentView,
       total: expensesState.total,
@@ -30,7 +30,7 @@ function ExpensesProvider({ children }) {
     }),
     [
       expensesState.expenses,
-      expensesState.currentFilter,
+      expensesState.currentYearFilter,
       expensesState.displayMonth,
       expensesState.currentView,
       expensesState.total,

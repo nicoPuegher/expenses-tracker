@@ -31,7 +31,7 @@ const ExpensesContext = React.createContext({
       11: { total: 0, expensesArr: [] },
     },
   },
-  currentFilter: 2023,
+  currentYearFilter: '2023',
   displayMonth: {
     visibility: false,
     current: null,

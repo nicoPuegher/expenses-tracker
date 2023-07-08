@@ -72,10 +72,10 @@ const expensesReducer = (state, action) => {
 
   if (action.type === 'FILTER') {
     const { mode, year = '', current = '' } = action;
-    if (mode === 'year') {
+    if (mode === 'Filter by year') {
       return {
         ...state,
-        currentFilter: Number(year),
+        currentYearFilter: year,
         displayMonth: {
           visibility: false,
           current: '',
