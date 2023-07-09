@@ -16,7 +16,7 @@ function Main() {
         filterList={yearList}
       />
       <Chart />
-      {/* <Expenses /> */}
+      <Expenses />
     </main>
   );
 }

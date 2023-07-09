@@ -5,80 +5,86 @@ import ExpensesContext from '../../../store/expenses-context';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
+import yearHash from '../../../utils/expenses-reducer/year-hash';
+
 function Expenses() {
-  const expensesCtx = useContext(ExpensesContext);
-  const { expenses, currentYearFilter, displayMonth } = expensesCtx;
-  const { visibility, current } = displayMonth;
+  const {
+    expenses,
+    currentYearFilter,
+    currentView: { current: currentMonth },
+  } = useContext(ExpensesContext);
 
-  let displayExpenses = [];
+  const activeExpenses = [];
 
-  if (visibility) {
-    const selectedMonth =
-      expenses[Number(currentYearFilter)][current].expensesArr;
-    const monthlyExpenses = selectedMonth.map((singleExpense) => (
-      <li key={singleExpense.id} className="py-3">
-        <div className="flex gap-x-4">
-          <ExpenseDate date={singleExpense.date} />
-          <div className="flex flex-auto items-center justify-between">
-            <div>
-              <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
-                {singleExpense.title}
-              </p>
-              <Tag name={singleExpense.type} color="bg-gray-50" />
-            </div>
-            <p className="text-base text-gray-500">
-              ${singleExpense.numAmount}
-            </p>
-          </div>
-        </div>
-      </li>
-    ));
-    displayExpenses = monthlyExpenses;
-  } else {
-    const yearlyExpenses = Object.values(expenses[Number(currentYearFilter)]);
-    yearlyExpenses.forEach((month) => {
-      const monthlyExpenses = month.expensesArr.map((singleExpense) => (
-        <li key={singleExpense.id} className="py-3">
-          <div className="flex gap-x-4">
-            <ExpenseDate date={singleExpense.date} />
-            <div className="flex flex-auto items-center justify-between">
-              <div>
-                <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
-                  {singleExpense.title}
-                </p>
-                <Tag name={singleExpense.type} color="bg-gray-50" />
-              </div>
-              <p className="text-base text-gray-500">
-                ${singleExpense.numAmount}
-              </p>
-            </div>
-          </div>
-        </li>
-      ));
+  const hash = yearHash(currentYearFilter);
 
-      displayExpenses = [...displayExpenses, ...monthlyExpenses];
-    });
-  }
+  // if (currentView.month) {
+  //   const selectedMonth =
+  //     expenses[Number(currentYearFilter)][current].expensesArr;
+  //   const monthlyExpenses = selectedMonth.map((singleExpense) => (
+  //     <li key={singleExpense.id} className="py-3">
+  //       <div className="flex gap-x-4">
+  //         <ExpenseDate date={singleExpense.date} />
+  //         <div className="flex flex-auto items-center justify-between">
+  //           <div>
+  //             <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
+  //               {singleExpense.title}
+  //             </p>
+  //             <Tag name={singleExpense.type} color="bg-gray-50" />
+  //           </div>
+  //           <p className="text-base text-gray-500">
+  //             ${singleExpense.numAmount}
+  //           </p>
+  //         </div>
+  //       </div>
+  //     </li>
+  //   ));
+  //   displayExpenses = monthlyExpenses;
+  // } else {
+  //   const yearlyExpenses = Object.values(expenses[Number(currentYearFilter)]);
+  //   yearlyExpenses.forEach((month) => {
+  //     const monthlyExpenses = month.expensesArr.map((singleExpense) => (
+  //       <li key={singleExpense.id} className="py-3">
+  //         <div className="flex gap-x-4">
+  //           <ExpenseDate date={singleExpense.date} />
+  //           <div className="flex flex-auto items-center justify-between">
+  //             <div>
+  //               <p className="pb-1.5 text-sm font-semibold leading-none text-gray-900">
+  //                 {singleExpense.title}
+  //               </p>
+  //               <Tag name={singleExpense.type} color="bg-gray-50" />
+  //             </div>
+  //             <p className="text-base text-gray-500">
+  //               ${singleExpense.numAmount}
+  //             </p>
+  //           </div>
+  //         </div>
+  //       </li>
+  //     ));
 
-  if (displayExpenses.length === 0) {
-    if (visibility) {
-      const date = dayjs().month(current).$d;
-      const monthName = date.toLocaleString('en-US', { month: 'short' });
+  //     displayExpenses = [...displayExpenses, ...monthlyExpenses];
+  //   });
+  // }
 
-      return (
-        <Alert severity="error">No transactions found in {monthName}.</Alert>
-      );
-    }
-    return (
-      <Alert severity="error">
-        No transactions found in {currentYearFilter}.
-      </Alert>
-    );
-  }
+  // if (displayExpenses.length === 0) {
+  //   if (visibility) {
+  //     const date = dayjs().month(current).$d;
+  //     const monthName = date.toLocaleString('en-US', { month: 'short' });
+
+  //     return (
+  //       <Alert severity="error">No transactions found in {monthName}.</Alert>
+  //     );
+  //   }
+  //   return (
+  //     <Alert severity="error">
+  //       No transactions found in {currentYearFilter}.
+  //     </Alert>
+  //   );
+  // }
 
   return (
     <section className="overflow-y-scroll rounded bg-gray-300 px-2">
-      <ul className="divide-y divide-gray-100">{displayExpenses}</ul>
+      <ul className="divide-y divide-gray-100">{activeExpenses}</ul>
     </section>
   );
 }
