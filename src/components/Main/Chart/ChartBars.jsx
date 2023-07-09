@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { uniqueId } from 'lodash';
 import ExpensesContext from '../../../store/expenses-context';
-import yearHash from '../../../utils/expenses-reducer/year-hash';
+import yearHash from '../../../utils/hash/year-hash';
 import monthName from '../../../utils/format-helpers/month-name';
 import ChartBar from './ChartBar';
 

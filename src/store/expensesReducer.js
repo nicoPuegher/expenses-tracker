@@ -4,7 +4,7 @@ import defaultState from './expenses-default';
 import yearlyFilter from '../utils/expenses-reducer/yearly-filter';
 import monthlyFilter from '../utils/expenses-reducer/monthly-filter';
 
-// import formatExpense from '../utils/format-helpers/format-onreducer';
+import formatExpense from '../utils/format-helpers/format-onreduce';
 
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
