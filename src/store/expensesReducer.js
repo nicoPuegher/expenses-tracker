@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-import { uniqueId } from 'lodash';
 import defaultState from './expenses-default';
 import yearlyFilter from '../utils/expenses-reducer/yearly-filter';
 import monthlyFilter from '../utils/expenses-reducer/monthly-filter';
@@ -7,6 +5,7 @@ import monthlyFilter from '../utils/expenses-reducer/monthly-filter';
 import formatExpense from '../utils/format-helpers/format-onreduce';
 import formatDate from '../utils/format-helpers/format-date';
 import newMonth from '../utils/expenses-reducer/new-month';
+import newTotal from '../utils/expenses-reducer/new-total';
 
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
@@ -18,6 +17,7 @@ const expensesReducer = (state, action) => {
     const newDate = formatDate(action.expense.date);
 
     newMonth(state, newDate, newExpense);
+    newTotal(state, newDate, newExpense);
   }
 
   // if (action.type === 'ADD') {
