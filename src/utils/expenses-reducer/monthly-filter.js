@@ -3,7 +3,7 @@ const monthlyFilter = (state, value) => ({
   currentView: {
     filter: false,
     month: true,
-    value,
+    current: value,
   },
 });
 
