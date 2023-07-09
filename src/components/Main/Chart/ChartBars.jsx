@@ -10,21 +10,15 @@ function ChartBars() {
 
   const hash = yearHash(currentYearFilter);
 
-  const chartBars = expenses[hash].map((month, i) => {
-    const name = monthName(i);
-    const unique = uniqueId('chartbar_');
-
-    return (
-      <ChartBar
-        key={unique}
-        id={unique}
-        name={name}
-        month={i}
-        expenses={month.total}
-        yearlyExpenses={total[hash]}
-      />
-    );
-  });
+  const chartBars = expenses[hash].map((month, i) => (
+    <ChartBar
+      key={uniqueId('chartbar_')}
+      name={monthName(i)}
+      month={i}
+      expenses={month.total}
+      yearlyExpenses={total[hash]}
+    />
+  ));
 
   return chartBars;
 }
