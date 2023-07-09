@@ -17,6 +17,7 @@ function ChartBars() {
     return (
       <ChartBar
         key={unique}
+        id={unique}
         name={name}
         month={i}
         expenses={month.total}
