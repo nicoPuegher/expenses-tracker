@@ -5,14 +5,16 @@ import yearlyFilter from '../utils/expenses-reducer/yearly-filter';
 import monthlyFilter from '../utils/expenses-reducer/monthly-filter';
 
 import formatExpense from '../utils/format-helpers/format-onreduce';
+import formatDate from '../utils/format-helpers/format-date';
 
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
     // const { title, amount, date, type } = action.expense;
-    // const newExpense = formatExpense(action.expense);
-    // console.log(typeof newExpense.amount);
     // const year = dayjs(date).year();
     // const month = dayjs(date).month();
+
+    const newExpense = formatExpense(action.expense);
+    const { month, year } = formatDate(action.expense.date);
   }
 
   // if (action.type === 'ADD') {
