@@ -6,6 +6,7 @@ import formatExpense from '../utils/format-helpers/format-onreduce';
 import formatDate from '../utils/format-helpers/format-date';
 import newMonth from '../utils/expenses-reducer/new-month';
 import newTotal from '../utils/expenses-reducer/new-total';
+import newView from '../utils/expenses-reducer/new-view';
 
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
@@ -13,11 +14,14 @@ const expensesReducer = (state, action) => {
     // const year = dayjs(date).year();
     // const month = dayjs(date).month();
 
+    const newState = {};
     const newExpense = formatExpense(action.expense);
     const newDate = formatDate(action.expense.date);
 
     newMonth(state, newDate, newExpense);
     newTotal(state, newDate, newExpense);
+
+    newView(state.currentView, newDate);
   }
 
   // if (action.type === 'ADD') {
