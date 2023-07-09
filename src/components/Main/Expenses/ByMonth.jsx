@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
-function ByMonth(expenses, hash, month) {
+function ByMonth({ expenses, hash, month }) {
   return expenses[hash][month].arr.map((singleExpense) => (
     <li key={singleExpense.id} className="py-3">
       <div className="flex gap-x-4">

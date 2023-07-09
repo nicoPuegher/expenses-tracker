@@ -6,7 +6,8 @@ import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
 import yearHash from '../../../utils/expenses-reducer/year-hash';
-import ByMonth from "./ByMonth";
+import ByMonth from './ByMonth';
+import ByYear from './ByYear';
 
 function Expenses() {
   const {
@@ -18,7 +19,8 @@ function Expenses() {
   const activeExpenses = [];
 
   const hash = yearHash(currentYearFilter);
-  <ByMonth expenses={} hash={} month={} />
+  // <ByMonth expenses={expenses} hash={hash} month={currentMonth} />;
+  // <ByYear expenses={expenses} hash={hash} />;
 
   // if (currentView.month) {
   //   const selectedMonth =
@@ -86,7 +88,11 @@ function Expenses() {
 
   return (
     <section className="overflow-y-scroll rounded bg-gray-300 px-2">
-      <ul className="divide-y divide-gray-100">{activeExpenses}</ul>
+      {/* <ul className="divide-y divide-gray-100">{activeExpenses}</ul> */}
+      <ul className="divide-y divide-gray-100">
+        {/* <ByMonth expenses={expenses} hash={hash} month={currentMonth} /> */}
+        <ByYear expenses={expenses} hash={hash} />
+      </ul>
     </section>
   );
 }
