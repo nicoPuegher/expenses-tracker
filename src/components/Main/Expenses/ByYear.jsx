@@ -4,7 +4,7 @@ import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
 function ByYear({ expenses, hash }) {
-  expenses[hash].map((month) =>
+  return expenses[hash].map((month) =>
     month.arr.forEach((singleExpense) => {
       <li key={singleExpense.id} className="py-3">
         <div className="flex gap-x-4">

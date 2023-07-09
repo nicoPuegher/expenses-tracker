@@ -6,6 +6,7 @@ const newMonth = ({
   newExpense,
 }) => {
   const hash = yearHash(year);
+
   return {
     total: Number(expenses[hash][month].total) + Number(newExpense.amount),
     arr: [...expenses[hash][month].arr, newExpense],
