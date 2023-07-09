@@ -5,7 +5,7 @@ import ExpensesContext from '../../../store/expenses-context';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
-import yearHash from '../../../utils/hash/year-hash"';
+import yearHash from '../../../utils/hash/year-hash';
 import ByMonth from './ByMonth';
 import ByYear from './ByYear';
 

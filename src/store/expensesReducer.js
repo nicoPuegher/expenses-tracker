@@ -6,6 +6,7 @@ import monthlyFilter from '../utils/expenses-reducer/monthly-filter';
 
 import formatExpense from '../utils/format-helpers/format-onreduce';
 import formatDate from '../utils/format-helpers/format-date';
+import newMonth from '../utils/expenses-reducer/new-month';
 
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
@@ -14,7 +15,9 @@ const expensesReducer = (state, action) => {
     // const month = dayjs(date).month();
 
     const newExpense = formatExpense(action.expense);
-    const { month, year } = formatDate(action.expense.date);
+    const newDate = formatDate(action.expense.date);
+
+    newMonth(state, newDate, newExpense);
   }
 
   // if (action.type === 'ADD') {
