@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import ExpensesContext from '../../store/expenses-context';
 import Filter from './Filter';
 import yearList from '../../utils/dropdown/filter-year';
-import Chart from './Chart';
+import Chart from './Chart/Chart';
 import Expenses from './Expenses/Expenses';
 
 function Main() {
@@ -16,7 +16,7 @@ function Main() {
         filterList={yearList}
       />
       <Chart />
-      <Expenses />
+      {/* <Expenses /> */}
     </main>
   );
 }
