@@ -7,7 +7,10 @@ const newTotal = ({
 }) => {
   const hash = yearHash(year);
 
-  return Number(total[hash]) + Number(amount);
+  return {
+    ...total,
+    [hash]: Number(total[hash]) + Number(amount),
+  };
 };
 
 export default newTotal;
