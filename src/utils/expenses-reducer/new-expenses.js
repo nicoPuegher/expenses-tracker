@@ -2,7 +2,7 @@ import yearHash from '../hash/year-hash';
 
 const newExpenses = ({ expenses }, { year, month }, newMonth) => {
   const hash = yearHash(year);
-  const clone = { ...expenses };
+  const clone = expenses;
 
   const updatedExpenses = {
     expenses: [
