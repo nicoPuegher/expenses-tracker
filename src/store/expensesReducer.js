@@ -7,6 +7,7 @@ import formatDate from '../utils/format-helpers/format-date';
 import newMonth from '../utils/expenses-reducer/new-month';
 import newTotal from '../utils/expenses-reducer/new-total';
 import newView from '../utils/expenses-reducer/new-view';
+import newExpenses from '../utils/expenses-reducer/new-expenses';
 
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
@@ -18,10 +19,10 @@ const expensesReducer = (state, action) => {
     const newExpense = formatExpense(action.expense);
     const newDate = formatDate(action.expense.date);
 
-    newMonth(state, newDate, newExpense);
-    newTotal(state, newDate, newExpense);
-
-    newView(state.currentView, newDate);
+    const updatedMonth = newMonth(state, newDate, newExpense);
+    const updatedTotal = newTotal(state, newDate, newExpense);
+    const updatedView = newView(state.currentView, newDate);
+    const updatedExpenses = newExpenses(state.expenses, newDate, updatedMonth);
   }
 
   // if (action.type === 'ADD') {
