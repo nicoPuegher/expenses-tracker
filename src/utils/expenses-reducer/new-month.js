@@ -2,6 +2,8 @@ import yearHash from '../hash/year-hash';
 
 const newMonth = ({ expenses }, { year, month }, newExpense) => {
   const hash = yearHash(year);
+  console.log(year);
+  console.log(hash);
 
   return {
     total: Number(expenses[hash][month].total) + Number(newExpense.amount),
