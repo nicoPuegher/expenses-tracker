@@ -1,10 +1,6 @@
 import dayjs from 'dayjs';
 
-const formatDate = ({
-  action: {
-    expense: { date },
-  },
-}) => ({
+const formatDate = ({ expense: { date } }) => ({
   month: dayjs(date).month(),
   year: dayjs(date).year(),
 });

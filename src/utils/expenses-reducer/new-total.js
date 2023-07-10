@@ -1,10 +1,6 @@
 import yearHash from '../hash/year-hash';
 
-const newTotal = ({
-  state: { total },
-  newDate: { year },
-  newExpense: { amount },
-}) => {
+const newTotal = ({ total }, { year }, { amount }) => {
   const hash = yearHash(year);
 
   return {

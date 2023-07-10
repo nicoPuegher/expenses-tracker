@@ -1,6 +1,6 @@
 import { uniqueId } from 'lodash';
 
-const formatExpense = ({ action: { expense } }) => ({
+const formatExpense = ({ expense }) => ({
   id: uniqueId('expense_'),
   title: expense.title,
   amount: expense.amount,

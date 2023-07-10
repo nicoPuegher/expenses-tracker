@@ -1,10 +1,6 @@
 import yearHash from '../hash/year-hash';
 
-const newExpenses = ({
-  state: { expenses },
-  newDate: { year, month },
-  newMonth,
-}) => {
+const newExpenses = ({ expenses }, { year, month }, newMonth) => {
   const hash = yearHash(year);
   const clone = { ...expenses };
 

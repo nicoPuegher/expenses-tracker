@@ -14,7 +14,7 @@ const expensesReducer = (state, action) => {
     // const { title, amount, date, type } = action.expense;
     // const year = dayjs(date).year();
     // const month = dayjs(date).month();
-
+    // console.log(action);
     const newExpense = formatExpense(action);
     const newDate = formatDate(action);
 
