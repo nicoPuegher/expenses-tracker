@@ -15,14 +15,22 @@ const expensesReducer = (state, action) => {
     // const year = dayjs(date).year();
     // const month = dayjs(date).month();
 
-    const newState = {};
     const newExpense = formatExpense(action.expense);
     const newDate = formatDate(action.expense.date);
 
     const updatedMonth = newMonth(state, newDate, newExpense);
-    const updatedTotal = newTotal(state, newDate, newExpense);
-    const updatedView = newView(state.currentView, newDate);
     const updatedExpenses = newExpenses(state.expenses, newDate, updatedMonth);
+    const updatedView = newView(state.currentView, newDate);
+    const updatedTotal = newTotal(state, newDate, newExpense);
+
+    const newState = {
+      ...state,
+      expenses: updatedExpenses,
+      currentView: updatedView,
+      total: updatedTotal,
+    };
+
+    return newState;
   }
 
   // if (action.type === 'ADD') {
