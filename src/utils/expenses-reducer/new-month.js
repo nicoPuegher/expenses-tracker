@@ -10,3 +10,6 @@ const newMonth = ({ expenses }, { year, month }, newExpense) => {
 };
 
 export default newMonth;
+
+// FOLLOW HERE, THIS AND NEW EXPENSES SEEM TO ADD DOUBLE THE NUMBER
+// WHEN IN RESTRICT MODE, NOT GOOD

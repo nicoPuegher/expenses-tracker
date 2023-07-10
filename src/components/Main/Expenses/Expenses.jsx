@@ -17,8 +17,11 @@ function Expenses() {
   } = useContext(ExpensesContext);
 
   const activeExpenses = [];
-
   const hash = yearHash(currentYearFilter);
+
+  // console.log(expenses);
+
+  // console.log(expenses);
   // <ByMonth expenses={expenses} hash={hash} month={currentMonth} />;
   // <ByYear expenses={expenses} hash={hash} />;
 

@@ -2,14 +2,15 @@ import yearHash from '../hash/year-hash';
 
 const newExpenses = ({ expenses }, { year, month }, newMonth) => {
   const hash = yearHash(year);
-  const clone = expenses;
 
-  const updatedExpenses = {
-    expenses: [
-      ...clone,
-      (clone[hash] = [...clone[hash], (clone[hash][month] = newMonth)]),
-    ],
-  };
+  const updatedExpenses = expenses.map((arr, i) => {
+    if (i === hash) {
+      const updatedArr = [...arr];
+      updatedArr[month] = newMonth;
+      return updatedArr;
+    }
+    return arr;
+  });
 
   return updatedExpenses;
 };

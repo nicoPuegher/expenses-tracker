@@ -30,6 +30,8 @@ const expensesReducer = (state, action) => {
       total: updatedTotal,
     };
 
+    console.log(newState);
+
     return newState;
   }
 
