@@ -1,11 +1,11 @@
 import { uniqueId } from 'lodash';
 
-const formatExpense = (formatMe) => ({
+const formatExpense = ({ expense }) => ({
   id: uniqueId('expense_'),
-  title: formatMe.title,
-  amount: formatMe.amount,
-  date: formatMe.date,
-  type: formatMe.type,
+  title: expense.title,
+  amount: expense.amount,
+  date: expense.date,
+  type: expense.type,
 });
 
 export default formatExpense;

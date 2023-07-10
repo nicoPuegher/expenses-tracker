@@ -1,10 +1,6 @@
 import yearHash from '../hash/year-hash';
 
-const newMonth = ({
-  state: { expenses },
-  newDate: { year, month },
-  newExpense,
-}) => {
+const newMonth = ({ expenses }, { year, month }, newExpense) => {
   const hash = yearHash(year);
 
   return {
@@ -14,3 +10,6 @@ const newMonth = ({
 };
 
 export default newMonth;
+
+// FOLLOW HERE, THIS AND NEW EXPENSES SEEM TO ADD DOUBLE THE NUMBER
+// WHEN IN RESTRICT MODE, NOT GOOD
