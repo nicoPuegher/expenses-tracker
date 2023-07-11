@@ -1,4 +1,4 @@
-const newView = ({ currentView: { filter }, month: { currentMonth } }) => {
+const newView = ({ currentView: { filter }, month, monthName }) => {
   const filterView = {
     ...filter,
     month: {
@@ -15,8 +15,8 @@ const newView = ({ currentView: { filter }, month: { currentMonth } }) => {
     },
     month: {
       active: true,
-      current: currentMonth,
-      name: '',
+      current: month,
+      name: monthName,
     },
   };
 
