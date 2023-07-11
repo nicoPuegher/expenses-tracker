@@ -20,7 +20,7 @@ function ByMonth({ expensesArr }) {
             </p>
             <Tag name={singleExpense.type} color="bg-gray-50" />
           </div>
-          <p className="text-base text-gray-500">${singleExpense.numAmount}</p>
+          <p className="text-base text-gray-500">${singleExpense.amount}</p>
         </div>
       </div>
     </li>
@@ -28,7 +28,7 @@ function ByMonth({ expensesArr }) {
 }
 
 ByMonth.propTypes = {
-  expenses: PropTypes.instanceOf(Array).isRequired,
+  expensesArr: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default ByMonth;
