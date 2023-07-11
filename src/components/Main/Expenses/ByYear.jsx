@@ -1,20 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import dayjs from 'dayjs';
+import combinedSort from '../../../utils/expenses/combined-sort';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
-function ByYear({ expenses, hash }) {
+function ByYear({ expensesArr }) {
   let expensesByYear = [];
-  const months = expenses[hash];
 
-  months.forEach((month) => {
+  expensesArr.forEach((month) => {
     expensesByYear = [...expensesByYear, ...month.arr];
   });
 
-  expensesByYear.sort(
-    (a, b) => dayjs(b.date) - dayjs(a.date) || a.title.localeCompare(b.title)
-  );
+  combinedSort(expensesByYear);
 
   return expensesByYear.map((singleExpense) => (
     <li key={singleExpense.id} className="py-3">
@@ -35,8 +32,7 @@ function ByYear({ expenses, hash }) {
 }
 
 ByYear.propTypes = {
-  expenses: PropTypes.instanceOf(Array).isRequired,
-  hash: PropTypes.number.isRequired,
+  expensesArr: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default ByYear;
