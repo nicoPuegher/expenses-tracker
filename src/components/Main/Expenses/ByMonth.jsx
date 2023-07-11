@@ -4,8 +4,8 @@ import singleSort from '../../../utils/expenses/single-sort';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
-function ByMonth({ expensesObj }) {
-  const expensesByMonth = [...expensesObj.arr];
+function ByMonth({ expsObj }) {
+  const expensesByMonth = [...expsObj.arr];
 
   singleSort(expensesByMonth);
 
@@ -28,11 +28,11 @@ function ByMonth({ expensesObj }) {
 }
 
 ByMonth.propTypes = {
-  expensesObj: PropTypes.instanceOf(Object).isRequired,
+  expsObj: PropTypes.instanceOf(Object),
 };
 
 ByMonth.defaultProps = {
-  expensesObj: { arr: [] },
+  expsObj: { arr: [] },
 };
 
 export default ByMonth;

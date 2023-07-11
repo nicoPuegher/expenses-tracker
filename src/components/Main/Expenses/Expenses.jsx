@@ -9,22 +9,24 @@ function Expenses() {
   const {
     expenses: exp,
     currentView: {
-      filter: { current: currYear },
-      month: { current: currMonth, name: currName },
+      filter: { active: fActive, current: currYear },
+      month: { active: mActive, current: currMonth, name: currName },
     },
+    total,
   } = useContext(ExpensesContext);
 
-  let exps = [];
   const hash = yearHash(currYear);
-  const isEmpty = exps.length === 0;
 
-  exps = isEmpty && <Empty month={currMonth} name={currName} year={currYear} />;
-  exps = currYear && <ByYear expsArr={exp[hash]} />;
-  exps = currMonth && <ByMonth expsObj={exp[hash][currMonth]} />;
+  const isEmpty = total[hash] === 0 || exp[hash][currMonth].total === 0;
+  const alert = { month: currMonth, name: currName, year: currYear };
+  if (isEmpty) return <Empty alert={alert} />;
 
   return (
     <section className="overflow-y-scroll rounded bg-gray-300 px-2">
-      <ul className="divide-y divide-gray-100">{exps}</ul>
+      <ul className="divide-y divide-gray-100">
+        {fActive && !isEmpty && <ByYear expsArr={exp[hash]} />}
+        {mActive && !isEmpty && <ByMonth expsObj={exp[hash][currMonth]} />}
+      </ul>
     </section>
   );
 }

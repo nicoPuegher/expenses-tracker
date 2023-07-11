@@ -4,10 +4,10 @@ import combinedSort from '../../../utils/expenses/combined-sort';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
-function ByYear({ expensesArr }) {
+function ByYear({ expsArr }) {
   let expensesByYear = [];
 
-  expensesArr.forEach((month) => {
+  expsArr.forEach((month) => {
     expensesByYear = [...expensesByYear, ...month.arr];
   });
 
@@ -32,7 +32,7 @@ function ByYear({ expensesArr }) {
 }
 
 ByYear.propTypes = {
-  expensesArr: PropTypes.instanceOf(Array).isRequired,
+  expsArr: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default ByYear;
