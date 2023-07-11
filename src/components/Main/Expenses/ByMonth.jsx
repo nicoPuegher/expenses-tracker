@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import singleSort from '../../../utils/expenses/single-sort';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
 function ByMonth({ expensesArr }) {
-  return expensesArr.arr.map((singleExpense) => (
+  const expensesByMonth = [...expensesArr.arr];
+
+  singleSort(expensesByMonth);
+
+  return expensesByMonth.map((singleExpense) => (
     <li key={singleExpense.id} className="py-3">
       <div className="flex gap-x-4">
         <ExpenseDate date={singleExpense.date} />
