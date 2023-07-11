@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import singleSort from '../../../utils/expenses/single-sort';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
-function ByMonth({ expenses, hash, month }) {
-  return expenses[hash][month].arr.map((singleExpense) => (
+function ByMonth({ expensesObj }) {
+  const expensesByMonth = [...expensesObj.arr];
+
+  singleSort(expensesByMonth);
+
+  return expensesByMonth.map((singleExpense) => (
     <li key={singleExpense.id} className="py-3">
       <div className="flex gap-x-4">
         <ExpenseDate date={singleExpense.date} />
@@ -15,7 +20,7 @@ function ByMonth({ expenses, hash, month }) {
             </p>
             <Tag name={singleExpense.type} color="bg-gray-50" />
           </div>
-          <p className="text-base text-gray-500">${singleExpense.numAmount}</p>
+          <p className="text-base text-gray-500">${singleExpense.amount}</p>
         </div>
       </div>
     </li>
@@ -23,9 +28,11 @@ function ByMonth({ expenses, hash, month }) {
 }
 
 ByMonth.propTypes = {
-  expenses: PropTypes.instanceOf(Array).isRequired,
-  hash: PropTypes.number.isRequired,
-  month: PropTypes.number.isRequired,
+  expensesObj: PropTypes.instanceOf(Object).isRequired,
+};
+
+ByMonth.defaultProps = {
+  expensesObj: { arr: [] },
 };
 
 export default ByMonth;
