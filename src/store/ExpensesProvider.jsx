@@ -21,18 +21,12 @@ function ExpensesProvider({ children }) {
   const expensesContext = useMemo(
     () => ({
       expenses: expensesState.expenses,
-      currentYearFilter: expensesState.currentYearFilter,
       currentView: expensesState.currentView,
       total: expensesState.total,
       addExpense,
       changeFilter,
     }),
-    [
-      expensesState.expenses,
-      expensesState.currentYearFilter,
-      expensesState.currentView,
-      expensesState.total,
-    ]
+    [expensesState.expenses, expensesState.currentView, expensesState.total]
   );
 
   return (
