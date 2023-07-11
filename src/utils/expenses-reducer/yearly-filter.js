@@ -1,10 +1,15 @@
 const yearlyFilter = (state, value) => ({
   ...state,
-  currentYearFilter: value,
   currentView: {
-    filter: true,
-    month: false,
-    value: null,
+    filter: {
+      active: true,
+      current: value,
+    },
+    month: {
+      active: false,
+      current: null,
+      name: null,
+    },
   },
 });
 

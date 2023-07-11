@@ -6,9 +6,15 @@ import monthName from '../../../utils/format-helpers/month-name';
 import ChartBar from './ChartBar';
 
 function ChartBars() {
-  const { expenses, currentYearFilter, total } = useContext(ExpensesContext);
+  const {
+    expenses,
+    currentView: {
+      filter: { current },
+    },
+    total,
+  } = useContext(ExpensesContext);
 
-  const hash = yearHash(currentYearFilter);
+  const hash = yearHash(current);
 
   const chartBars = expenses[hash].map((month, i) => (
     <ChartBar

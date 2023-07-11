@@ -6,13 +6,17 @@ import Chart from './Chart/Chart';
 import Expenses from './Expenses/Expenses';
 
 function Main() {
-  const { currentYearFilter } = useContext(ExpensesContext);
+  const {
+    currentView: {
+      filter: { current },
+    },
+  } = useContext(ExpensesContext);
 
   return (
     <main className="flex flex-1 flex-col overflow-y-hidden">
       <Filter
         title="Filter by year"
-        currentFilter={currentYearFilter}
+        currentFilter={current}
         filterList={yearList}
       />
       <Chart />

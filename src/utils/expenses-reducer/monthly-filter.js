@@ -1,9 +1,15 @@
-const monthlyFilter = (state, value) => ({
+const monthlyFilter = (state, value, name) => ({
   ...state,
   currentView: {
-    filter: false,
-    month: true,
-    current: value,
+    filter: {
+      ...state.currentView.filter,
+      active: false,
+    },
+    month: {
+      active: true,
+      current: value,
+      name,
+    },
   },
 });
 
