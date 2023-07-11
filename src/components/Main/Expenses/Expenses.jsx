@@ -22,7 +22,7 @@ function Expenses() {
 
   // console.log(activeExpenses.length);
   if (activeExpenses.length === 0) {
-    if (month) {
+    if (month !== null) {
       const date = dayjs().month(month).$d;
       const monthName = date.toLocaleString('en-US', { month: 'short' });
 
