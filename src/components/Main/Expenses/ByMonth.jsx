@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
-function ByMonth({ expenses, hash, month }) {
-  return expenses[hash][month].arr.map((singleExpense) => (
+function ByMonth({ expensesArr }) {
+  return expensesArr.arr.map((singleExpense) => (
     <li key={singleExpense.id} className="py-3">
       <div className="flex gap-x-4">
         <ExpenseDate date={singleExpense.date} />
@@ -24,8 +24,6 @@ function ByMonth({ expenses, hash, month }) {
 
 ByMonth.propTypes = {
   expenses: PropTypes.instanceOf(Array).isRequired,
-  hash: PropTypes.number.isRequired,
-  month: PropTypes.number.isRequired,
 };
 
 export default ByMonth;

@@ -91,7 +91,7 @@ function Expenses() {
     <section className="overflow-y-scroll rounded bg-gray-300 px-2">
       {/* <ul className="divide-y divide-gray-100">{activeExpenses}</ul> */}
       <ul className="divide-y divide-gray-100">
-        {/* <ByMonth expenses={expenses} hash={hash} month={currentMonth} /> */}
+        {/* <ByMonth expenses={expenses[hash][currentMonth]} /> */}
         <ByYear expensesArr={expenses[hash]} />
       </ul>
     </section>
