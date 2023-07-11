@@ -9,31 +9,30 @@ import ByMonth from './ByMonth';
 function Expenses() {
   const {
     expenses,
-    currentYearFilter,
-    currentView: { current: month },
+    currentView: {
+      filter: { current: currentYear },
+      month: { current: currentMonth, name: currentMonthName },
+    },
   } = useContext(ExpensesContext);
 
   const activeExpenses = [];
 
-  const hash = yearHash(currentYearFilter);
+  const hash = yearHash(currentYear);
 
   // const byYear = <ByYear expensesArr={expenses[hash]} />;
   // const byMonth = <ByMonth expensesObj={expenses[hash][month]} />;
 
   // console.log(activeExpenses.length);
   if (activeExpenses.length === 0) {
-    if (month !== null) {
-      const date = dayjs().month(month).$d;
-      const monthName = date.toLocaleString('en-US', { month: 'short' });
-
+    if (currentMonth !== null) {
       return (
-        <Alert severity="error">No transactions found in {monthName}.</Alert>
+        <Alert severity="error">
+          No transactions found in {currentMonthName}.
+        </Alert>
       );
     }
     return (
-      <Alert severity="error">
-        No transactions found in {currentYearFilter}.
-      </Alert>
+      <Alert severity="error">No transactions found in {currentYear}.</Alert>
     );
   }
 
