@@ -5,12 +5,14 @@ import barSize from '../../../utils/chart/bar-size';
 
 function ChartBar({ name, month, expenses, yearlyExpenses }) {
   const {
-    currentView: { current },
+    currentView: {
+      month: { current },
+    },
     changeFilter,
   } = useContext(ExpensesContext);
 
   const clickHandler = () => {
-    changeFilter('Filter by month', month);
+    changeFilter('Filter by month', month, name);
   };
 
   const activeClass = current === month ? 'bg-slate-500' : '';
