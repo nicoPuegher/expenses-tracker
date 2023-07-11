@@ -1,44 +1,30 @@
 import React, { useContext } from 'react';
-import Alert from '@mui/material/Alert';
-import dayjs from 'dayjs';
 import ExpensesContext from '../../../store/expenses-context';
 import yearHash from '../../../utils/hash/year-hash';
+import Empty from './Empty';
 import ByYear from './ByYear';
 import ByMonth from './ByMonth';
 
 function Expenses() {
   const {
-    expenses,
+    expenses: exp,
     currentView: {
-      filter: { current: currentYear },
-      month: { current: currentMonth, name: currentMonthName },
+      filter: { current: currYear },
+      month: { current: currMonth, name: currName },
     },
   } = useContext(ExpensesContext);
 
-  const activeExpenses = [];
+  let exps = [];
+  const hash = yearHash(currYear);
+  const isEmpty = exps.length === 0;
 
-  const hash = yearHash(currentYear);
-
-  // const byYear = <ByYear expensesArr={expenses[hash]} />;
-  // const byMonth = <ByMonth expensesObj={expenses[hash][month]} />;
-
-  // console.log(activeExpenses.length);
-  if (activeExpenses.length === 0) {
-    if (currentMonth !== null) {
-      return (
-        <Alert severity="error">
-          No transactions found in {currentMonthName}.
-        </Alert>
-      );
-    }
-    return (
-      <Alert severity="error">No transactions found in {currentYear}.</Alert>
-    );
-  }
+  exps = isEmpty && <Empty month={currMonth} name={currName} year={currYear} />;
+  exps = currYear && <ByYear expsArr={exp[hash]} />;
+  exps = currMonth && <ByMonth expsObj={exp[hash][currMonth]} />;
 
   return (
     <section className="overflow-y-scroll rounded bg-gray-300 px-2">
-      <ul className="divide-y divide-gray-100">{activeExpenses}</ul>
+      <ul className="divide-y divide-gray-100">{exps}</ul>
     </section>
   );
 }
