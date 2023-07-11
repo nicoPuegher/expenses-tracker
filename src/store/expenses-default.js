@@ -1,7 +1,53 @@
 const defaultState = {
   expenses: [
     [
-      { total: 0, arr: [] },
+      {
+        total: 0,
+        arr: [
+          {
+            id: '01',
+            title: 'FirstItem',
+            amount: '34.00',
+            date: '7-19-2023',
+            type: 'Debt',
+          },
+          {
+            id: '02',
+            title: 'SecondItem',
+            amount: '92.15',
+            date: '7-18-2023',
+            type: 'Debt',
+          },
+          {
+            id: '03',
+            title: 'ThirdItem',
+            amount: '114.00',
+            date: '9-19-2023',
+            type: 'Debt',
+          },
+          {
+            id: '04',
+            title: 'FourthItem',
+            amount: '74.00',
+            date: '2-10-2023',
+            type: 'Debt',
+          },
+          {
+            id: '05',
+            title: 'A',
+            amount: '914.00',
+            date: '9-19-2023',
+            type: 'Debt',
+          },
+          {
+            id: '06',
+            title: 'B',
+            amount: '14.00',
+            date: '9-19-2023',
+            type: 'Debt',
+          },
+        ],
+      },
       { total: 0, arr: [] },
       { total: 0, arr: [] },
       { total: 0, arr: [] },
