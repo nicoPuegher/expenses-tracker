@@ -1,13 +1,18 @@
 import dayjs from 'dayjs';
-import monthName from './month-name';
+import getMonthName from './get-month-name';
 
-const formatDate = ({ expense: { date } }) => {
-  const month = dayjs(date).month();
-  const year = dayjs(date).year().toString();
+const formatDate = ({ date }) => {
+  const formatMe = dayjs(date);
+
+  const day = formatMe.$d.toLocaleString('en-US', { day: '2-digit' });
+  const month = formatMe.month();
+  const monthName = getMonthName(month);
+  const year = formatMe.year().toString();
 
   return {
+    day,
     month,
-    monthName: monthName(month),
+    monthName,
     year,
   };
 };
