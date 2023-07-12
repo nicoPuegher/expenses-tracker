@@ -8,8 +8,9 @@ import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 import TheatersIcon from '@mui/icons-material/Theaters';
-
 import HomeIcon from '@mui/icons-material/Home';
+import SyncAltIcon from '@mui/icons-material/SyncAlt';
+
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
@@ -33,6 +34,8 @@ function CustomIcon({ iconType }) {
       return <TheatersIcon fontSize="inherit" />;
     case 'Rent':
       return <HomeIcon fontSize="inherit" />;
+    case 'Transfer':
+      return <SyncAltIcon fontSize="inherit" />;
     case 'Transport':
       return <DirectionsBusIcon fontSize="inherit" />;
     default:
