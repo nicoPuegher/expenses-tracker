@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import formatDate from '../../../utils/format-helpers/format-date';
+import formatDate from '../../../../utils/format-helpers/format-date';
 
 function ExpenseDate({ date }) {
   const { monthName, day, year } = formatDate(date);
