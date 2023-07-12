@@ -10,7 +10,7 @@ function ByMonth({ expsObj }) {
 
   return expensesByMonth.map((singleExpense) => (
     <li key={singleExpense.id} className="py-3">
-      <ExpenseBtn />
+      <ExpenseBtn singleExpense={singleExpense} />
     </li>
   ));
 }
