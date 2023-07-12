@@ -10,8 +10,8 @@ import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 import TheatersIcon from '@mui/icons-material/Theaters';
 import HomeIcon from '@mui/icons-material/Home';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
-
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
+import PowerIcon from '@mui/icons-material/Power';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 function CustomIcon({ iconType }) {
@@ -38,6 +38,8 @@ function CustomIcon({ iconType }) {
       return <SyncAltIcon fontSize="inherit" />;
     case 'Transport':
       return <DirectionsBusIcon fontSize="inherit" />;
+    case 'Utilities':
+      return <PowerIcon fontSize="inherit" />;
     default:
       return <AttachMoneyIcon fontSize="inherit" />;
   }
