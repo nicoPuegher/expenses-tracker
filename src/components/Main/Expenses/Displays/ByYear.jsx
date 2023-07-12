@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import combinedSort from '../../../utils/expenses/combined-sort';
-import ExpenseBtn from './ExpenseBtn/ExpenseBtn';
+import combinedSort from '../../../../utils/expenses/combined-sort';
+import ExpenseBtn from '../ExpenseBtn/ExpenseBtn';
 
 function ByYear({ expsArr }) {
   let expensesByYear = [];
