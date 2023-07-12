@@ -6,6 +6,7 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import GppGoodIcon from '@mui/icons-material/GppGood';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 
 import HomeIcon from '@mui/icons-material/Home';
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
@@ -25,6 +26,8 @@ function CustomIcon({ iconType }) {
       return <LeaderboardIcon fontSize="inherit" />;
     case 'Miscellaneous':
       return <MiscellaneousServicesIcon fontSize="inherit" />;
+    case 'Personal':
+      return <EmojiFoodBeverageIcon fontSize="inherit" />;
     case 'Rent':
       return <HomeIcon fontSize="inherit" />;
     case 'Transport':
