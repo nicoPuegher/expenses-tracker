@@ -5,7 +5,7 @@ import ExpenseItem from './ExpenseItem';
 function ExpenseBtn({ singleExpense }) {
   return (
     <button className="w-full" type="button">
-      <ExpenseItem />
+      <ExpenseItem singleExpense={singleExpense} />
     </button>
   );
 }
