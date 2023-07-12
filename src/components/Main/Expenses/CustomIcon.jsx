@@ -7,6 +7,7 @@ import GppGoodIcon from '@mui/icons-material/GppGood';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
+import TheatersIcon from '@mui/icons-material/Theaters';
 
 import HomeIcon from '@mui/icons-material/Home';
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
@@ -28,6 +29,8 @@ function CustomIcon({ iconType }) {
       return <MiscellaneousServicesIcon fontSize="inherit" />;
     case 'Personal':
       return <EmojiFoodBeverageIcon fontSize="inherit" />;
+    case 'Recreation':
+      return <TheatersIcon fontSize="inherit" />;
     case 'Rent':
       return <HomeIcon fontSize="inherit" />;
     case 'Transport':
