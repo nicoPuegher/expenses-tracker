@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import singleSort from '../../../utils/expenses/single-sort';
+import combinedSort from '../../../utils/expenses/combined-sort';
 import ExpenseDate from './ExpenseDate';
 import Tag from './Tag';
 
 function ByMonth({ expsObj }) {
   const expensesByMonth = [...expsObj.arr];
 
-  singleSort(expensesByMonth);
+  combinedSort(expensesByMonth);
 
   return expensesByMonth.map((singleExpense) => (
     <li key={singleExpense.id} className="py-3">

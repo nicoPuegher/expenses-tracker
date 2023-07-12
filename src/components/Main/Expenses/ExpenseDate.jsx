@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import dayjs from 'dayjs';
+import formatDate from '../../../utils/format-helpers/format-date';
 
 function ExpenseDate({ date }) {
-  const { $d: expenseDate } = dayjs(date);
-  const month = expenseDate.toLocaleString('en-US', { month: 'short' });
-  const day = expenseDate.toLocaleString('en-US', { day: '2-digit' });
-  const year = expenseDate.getFullYear();
+  const { monthName, day, year } = formatDate(date);
 
   return (
     <div className="flex flex-col items-center justify-center rounded bg-gray-400 px-2 py-0.5 text-xs">
-      <p>{month}</p>
+      <p>{monthName}</p>
       <p>{day}</p>
       <p>{year}</p>
     </div>

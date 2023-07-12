@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { uniqueId } from 'lodash';
 import ExpensesContext from '../../../store/expenses-context';
 import yearHash from '../../../utils/hash/year-hash';
-import monthName from '../../../utils/format-helpers/month-name';
+import getMonthName from '../../../utils/format-helpers/get-month-name';
 import ChartBar from './ChartBar';
 
 function ChartBars() {
@@ -19,7 +19,7 @@ function ChartBars() {
   const chartBars = expenses[hash].map((month, i) => (
     <ChartBar
       key={uniqueId('chartbar_')}
-      name={monthName(i)}
+      name={getMonthName(i)}
       month={i}
       expenses={month.total}
       yearlyExpenses={total[hash]}

@@ -12,7 +12,7 @@ import defaultState from './expenses-default';
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
     const newExpense = formatExpense(action);
-    const newDate = formatDate(action);
+    const newDate = formatDate(action.expense);
 
     const updatedMonth = newMonth(state, newDate, newExpense);
     const updatedExpenses = newExpenses(state, newDate, updatedMonth);
