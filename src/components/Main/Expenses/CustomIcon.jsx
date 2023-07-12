@@ -4,6 +4,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import GppGoodIcon from '@mui/icons-material/GppGood';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 
 import HomeIcon from '@mui/icons-material/Home';
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
@@ -19,6 +20,8 @@ function CustomIcon({ iconType }) {
       return <LocalHospitalIcon fontSize="inherit" />;
     case 'Insurance':
       return <GppGoodIcon fontSize="inherit" />;
+    case 'Investment':
+      return <LeaderboardIcon fontSize="inherit" />;
     case 'Rent':
       return <HomeIcon fontSize="inherit" />;
     case 'Transport':
