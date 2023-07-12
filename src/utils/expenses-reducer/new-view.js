@@ -1,7 +1,8 @@
-const newView = ({ currentView: { filter } }, { month, monthName }) => {
+const newView = ({ currentView: { filter } }, { month, monthName, year }) => {
   const filterView = {
     filter: {
       ...filter,
+      current: year,
     },
     month: {
       active: false,

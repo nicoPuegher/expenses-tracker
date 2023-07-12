@@ -17,7 +17,9 @@ function Expenses() {
 
   const hash = yearHash(currYear);
 
-  const isEmpty = total[hash] === 0 || exp[hash][currMonth].total === 0;
+  let isEmpty = null;
+  isEmpty = fActive ? total[hash] === 0 : exp[hash][currMonth].total === 0;
+
   const alert = { month: currMonth, name: currName, year: currYear };
   if (isEmpty) return <Empty alert={alert} />;
 
