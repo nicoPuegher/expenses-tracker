@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import combinedSort from '../../../../utils/expenses/combined-sort';
-import ExpenseBtn from '../ExpenseBtn/ExpenseBtn';
+import ExpButton from '../ExpButton/ExpButton';
 
 function ByYear({ expsArr }) {
   let expensesByYear = [];
@@ -14,7 +14,7 @@ function ByYear({ expsArr }) {
 
   return expensesByYear.map((singleExpense) => (
     <li key={singleExpense.id} className="py-3">
-      <ExpenseBtn singleExpense={singleExpense} />
+      <ExpButton singleExpense={singleExpense} />
     </li>
   ));
 }
