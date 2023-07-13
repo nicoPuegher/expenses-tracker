@@ -1,4 +1,3 @@
-import formatExpense from '../utils/format-helpers/format-onreduce';
 import formatDate from '../utils/format-helpers/format-date';
 import newMonth from '../utils/expenses-reducer/new-month';
 import newExpenses from '../utils/expenses-reducer/new-expenses';
@@ -13,8 +12,8 @@ import defaultState from './expenses-default';
 
 const expensesReducer = (state, action) => {
   if (action.type === 'ADD') {
-    const newExpense = formatExpense(action);
-    const newDate = formatDate(action.expense);
+    const { expense: newExpense } = action;
+    const newDate = formatDate(newExpense);
 
     const updatedMonth = newMonth(state, newDate, newExpense);
     const updatedExpenses = newExpenses(state, newDate, updatedMonth);
