@@ -34,8 +34,8 @@ const expensesReducer = (state, action) => {
   if (action.type === 'CHANGE') {
     const { mode, expense } = action;
 
-    if (mode === 'Edit') return editExpense(expense);
-    if (mode === 'Delete') return deleteExpense(expense);
+    if (mode === 'Edit') return editExpense(state, expense);
+    if (mode === 'Delete') return deleteExpense(state, expense);
   }
 
   return defaultState;
