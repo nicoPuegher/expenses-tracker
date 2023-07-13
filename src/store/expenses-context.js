@@ -45,6 +45,7 @@ const ExpensesContext = React.createContext({
   total: { 0: 0, 1: 0 },
   addExpense: () => {},
   changeFilter: () => {},
+  changeExpense: () => {},
 });
 
 export default ExpensesContext;

@@ -7,6 +7,8 @@ import newTotal from '../utils/expenses-reducer/new-total';
 import addExpense from '../utils/expenses-reducer/add-expense';
 import yearlyFilter from '../utils/expenses-reducer/yearly-filter';
 import monthlyFilter from '../utils/expenses-reducer/monthly-filter';
+import editExpense from '../utils/expenses-reducer/edit-expense';
+import deleteExpense from '../utils/expenses-reducer/delete-expense';
 import defaultState from './expenses-default';
 
 const expensesReducer = (state, action) => {
@@ -27,6 +29,13 @@ const expensesReducer = (state, action) => {
 
     if (mode === 'Filter by year') return yearlyFilter(state, value);
     if (mode === 'Filter by month') return monthlyFilter(state, value, name);
+  }
+
+  if (action.type === 'CHANGE') {
+    const { mode, expense } = action;
+
+    if (mode === 'Edit') return editExpense(state, expense);
+    if (mode === 'Delete') return deleteExpense(state, expense);
   }
 
   return defaultState;

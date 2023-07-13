@@ -18,6 +18,10 @@ function ExpensesProvider({ children }) {
     dispatchExpense({ type: 'FILTER', mode, value, name });
   };
 
+  const changeExpense = (mode, expense) => {
+    dispatchExpense({ type: 'CHANGE', mode, expense });
+  };
+
   const expensesContext = useMemo(
     () => ({
       expenses: expensesState.expenses,
@@ -25,6 +29,7 @@ function ExpensesProvider({ children }) {
       total: expensesState.total,
       addExpense,
       changeFilter,
+      changeExpense,
     }),
     [expensesState.expenses, expensesState.currentView, expensesState.total]
   );
