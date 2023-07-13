@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import ExpensesContext from '../../../store/expenses-context';
 import yearHash from '../../../utils/hash/year-hash';
-import Empty from './Empty';
-import ByYear from './ByYear';
-import ByMonth from './ByMonth';
+import Empty from './Displays/Empty';
+import ByYear from './Displays/ByYear';
+import ByMonth from './Displays/ByMonth';
 
 function Expenses() {
   const {
