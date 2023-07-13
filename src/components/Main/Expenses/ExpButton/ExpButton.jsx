@@ -4,21 +4,21 @@ import PropTypes from 'prop-types';
 import ExpenseItem from '../ExpenseItem/ExpenseItem';
 import ExpTransition from './ExpTransition';
 
-function ExpButton({ singleExpense }) {
+function ExpButton({ expData }) {
   return (
     <Menu as="div" className="relative">
       <div>
         <Menu.Button className="w-full rounded bg-white px-3 py-2 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          <ExpenseItem singleExpense={singleExpense} />
+          <ExpenseItem expData={expData} />
         </Menu.Button>
       </div>
-      <ExpTransition />
+      <ExpTransition expData={expData} />
     </Menu>
   );
 }
 
 ExpButton.propTypes = {
-  singleExpense: PropTypes.instanceOf(Object).isRequired,
+  expData: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default ExpButton;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Menu } from '@headlessui/react';
+import PropTypes from 'prop-types';
 
-function ExpOptions() {
+function ExpOptions({ expData }) {
   const initial = `block w-full px-4 py-2 text-center text-sm`;
   const hover = 'bg-gray-100 text-gray-900';
   const normal = 'text-gray-700';
@@ -14,8 +15,7 @@ function ExpOptions() {
             <button
               className={`${initial} ${active ? hover : normal}`}
               type="button"
-              value="valueTest"
-              onClick="clickHandler"
+              value="editItem"
             >
               Edit
             </button>
@@ -26,8 +26,7 @@ function ExpOptions() {
             <button
               className={`${initial} ${active ? hover : normal}`}
               type="button"
-              value="valueTest"
-              onClick="clickHandler"
+              value="deleteItem"
             >
               Delete
             </button>
@@ -37,5 +36,9 @@ function ExpOptions() {
     </Menu.Items>
   );
 }
+
+ExpOptions.propTypes = {
+  expData: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default ExpOptions;
