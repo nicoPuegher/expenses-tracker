@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Menu } from '@headlessui/react';
 import PropTypes from 'prop-types';
+import ExpenseContext from '../../../../store/expenses-context';
 
 function ExpOptions({ expData }) {
+  const { changeExpense } = useContext(ExpenseContext);
+
   const initial = `block w-full px-4 py-2 text-center text-sm`;
   const hover = 'bg-gray-100 text-gray-900';
   const normal = 'text-gray-700';
@@ -16,6 +19,7 @@ function ExpOptions({ expData }) {
               className={`${initial} ${active ? hover : normal}`}
               type="button"
               value="editItem"
+              onClick={() => changeExpense('edit', expData)}
             >
               Edit
             </button>
@@ -27,6 +31,7 @@ function ExpOptions({ expData }) {
               className={`${initial} ${active ? hover : normal}`}
               type="button"
               value="deleteItem"
+              onClick={() => changeExpense('delete', expData)}
             >
               Delete
             </button>
