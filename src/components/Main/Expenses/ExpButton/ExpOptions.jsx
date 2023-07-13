@@ -12,11 +12,11 @@ function ExpOptions({ expData }) {
       <div className="flex h-full w-full">
         <ExpOption
           value="Edit"
-          onClick={() => changeExpense('edit', expData)}
+          onClick={(e) => changeExpense(e.target.textContent, expData)}
         />
         <ExpOption
           value="Delete"
-          onClick={() => changeExpense('delete', expData)}
+          onClick={(e) => changeExpense(e.target.textContent, expData)}
         />
       </div>
     </Menu.Items>
