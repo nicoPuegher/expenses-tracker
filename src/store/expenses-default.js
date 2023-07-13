@@ -43,6 +43,7 @@ const defaultState = {
   total: { 0: 0, 1: 0 },
   addExpense: () => {},
   changeFilter: () => {},
+  changeExpense: () => {},
 };
 
 export default defaultState;
