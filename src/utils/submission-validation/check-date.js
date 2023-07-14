@@ -1,18 +1,17 @@
-import dayjs from 'dayjs';
+import formatDate from '../format-helpers/format-date';
 
 const checkDate = (date) => {
-  const isValid = dayjs(date).isValid();
+  const { dayNum, month, year, isValid } = formatDate({ date });
+
   if (!isValid) {
     return { name: 'date', value: '' };
   }
 
-  const selectedYear = dayjs(date).year();
-  if (selectedYear < 2022 || selectedYear > 2023) {
+  if (Number(year) < 2022 || Number(year) > 2023) {
     return { name: 'date', value: '' };
   }
 
-  const { $M: month, $D: day, $y: year } = dayjs(date);
-  return { name: 'date', value: `${month + 1}-${day}-${year}` };
+  return { name: 'date', value: `${month + 1}-${dayNum}-${year}` };
 };
 
 export default checkDate;

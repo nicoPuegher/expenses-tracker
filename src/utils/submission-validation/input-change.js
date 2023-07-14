@@ -1,14 +1,15 @@
-const inputChange = (event, setInputValues) => {
-  const { name, value } = event;
+import { cloneDeep } from 'lodash';
 
-  setInputValues((prevValues) => ({
-    ...prevValues,
-    [name]: {
-      ...prevValues[name],
-      value,
-      error: value.trim() === '',
-    },
-  }));
+const inputChange = (event, setInputValues) => {
+  setInputValues((prevValues) => {
+    const updatedValues = cloneDeep(prevValues);
+    const { name, value } = event;
+
+    updatedValues[name].value = value;
+    updatedValues[name].error = value.trim() === '';
+
+    return updatedValues;
+  });
 };
 
 export default inputChange;
