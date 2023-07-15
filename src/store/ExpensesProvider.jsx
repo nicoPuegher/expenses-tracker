@@ -14,8 +14,8 @@ function ExpensesProvider({ children }) {
     dispatchExpense({ type: 'ADD', expense });
   };
 
-  const changeFilter = (mode, value, name) => {
-    dispatchExpense({ type: 'FILTER', mode, value, name });
+  const changeFilter = (mode, value, name, long) => {
+    dispatchExpense({ type: 'FILTER', mode, value, name, long });
   };
 
   const changeExpense = (mode, expense) => {

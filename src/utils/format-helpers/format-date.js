@@ -7,7 +7,7 @@ const formatDate = ({ date }) => {
   const day = formatMe.$d.toLocaleString('en-US', { day: '2-digit' });
   const dayNum = formatMe.$D;
   const month = formatMe.month();
-  const monthName = getMonthName(month);
+  const monthName = getMonthName('short', month);
   const year = formatMe.year().toString();
   const isValid = formatMe.isValid();
 

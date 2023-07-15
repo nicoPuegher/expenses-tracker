@@ -1,8 +1,10 @@
 import dayjs from 'dayjs';
 
-const getMonthName = (month) => {
+const getMonthName = (type, month) => {
   const date = dayjs().month(month).$d;
-  const name = date.toLocaleString('en-US', { month: 'short' });
+  const short = date.toLocaleString('en-US', { month: 'short' });
+  const long = date.toLocaleString('en-US', { month: 'long' });
+  const name = type === 'short' ? short : long;
 
   return name;
 };

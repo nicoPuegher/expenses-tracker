@@ -19,7 +19,8 @@ function ChartBars() {
   const chartBars = expenses[hash].map((month, i) => (
     <ChartBar
       key={uniqueId('chartbar_')}
-      name={getMonthName(i)}
+      name={getMonthName('short', i)}
+      long={getMonthName('long', i)}
       month={i}
       expenses={month.total}
       yearlyExpenses={total[hash]}
