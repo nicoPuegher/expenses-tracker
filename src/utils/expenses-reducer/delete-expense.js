@@ -1,6 +1,6 @@
 import formatDate from '../format-helpers/format-date';
 import yearHash from '../hash/year-hash';
-import newExpenses from './new-expenses';
+import newExpenses from './add/new-expenses';
 
 const deleteExpense = (state, expense) => {
   const { month, year } = formatDate(expense);
