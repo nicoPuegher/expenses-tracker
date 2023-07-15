@@ -3,7 +3,6 @@ import formatDate from '../utils/format-helpers/format-date';
 import newMonth from '../utils/expenses-reducer/add/new-month';
 import newView from '../utils/expenses-reducer/add/new-view';
 import newTotal from '../utils/expenses-reducer/add/new-total';
-import addExpense from '../utils/expenses-reducer/add-expense';
 import yearlyFilter from '../utils/expenses-reducer/filter/yearly-filter';
 import monthlyFilter from '../utils/expenses-reducer/filter/monthly-filter';
 import editExpense from '../utils/expenses-reducer/edit-expense';
@@ -21,9 +20,7 @@ const expensesReducer = (state, action) => {
     newView(newState, newDate);
     newTotal(newState, newDate, newExpense);
 
-    // const updatedTotal = newTotal(newState, newDate, newExpense);
-
-    // return addExpense(state, updatedExpenses, updatedView, updatedTotal);
+    return newState;
   }
 
   if (action.type === 'FILTER') {
