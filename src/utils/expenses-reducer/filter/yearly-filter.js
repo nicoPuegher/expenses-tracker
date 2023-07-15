@@ -1,6 +1,5 @@
 const yearlyFilter = (state, value) => {
-  const updatedState = state;
-  const { currentView } = updatedState;
+  const { currentView } = state;
 
   currentView.filter = {
     active: true,
@@ -12,8 +11,6 @@ const yearlyFilter = (state, value) => {
     current: null,
     name: null,
   };
-
-  return updatedState;
 };
 
 export default yearlyFilter;
