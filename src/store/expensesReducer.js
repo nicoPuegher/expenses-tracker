@@ -12,18 +12,18 @@ import deleteExpense from '../utils/expenses-reducer/delete-expense';
 import defaultState from './expenses-default';
 
 const expensesReducer = (state, action) => {
-  const clonedState = cloneDeep(state);
+  const newState = cloneDeep(state);
 
   if (action.type === 'ADD') {
     const { expense: newExpense } = action;
     const newDate = formatDate(newExpense);
 
-    const updatedMonth = newMonth(clonedState, newDate, newExpense);
-    const updatedExpenses = newExpenses(clonedState, newDate, updatedMonth);
-    const isViewFilter = clonedState.currentView.filter.active;
+    const updatedMonth = newMonth(newState, newDate, newExpense);
+    const updatedExpenses = newExpenses(newState, newDate, updatedMonth);
+    const isViewFilter = newState.currentView.filter.active;
     const updatedView = isViewFilter
-      ? yearlyFilter(clonedState, newDate.year)
-      : monthlyFilter(clonedState, newDate.year, newDate.monthName);
+      ? yearlyFilter(newState, newDate.year)
+      : monthlyFilter(newState, newDate.year, newDate.monthName);
     // const updatedView = newView(state, newDate);
     // console.log(updatedView);
     const updatedTotal = newTotal(state, newDate, newExpense);
@@ -34,8 +34,8 @@ const expensesReducer = (state, action) => {
   if (action.type === 'FILTER') {
     const { mode, value, name = null } = action;
 
-    if (mode === 'Filter by year') return yearlyFilter(clonedState, value);
-    if (mode === 'Filter by month') return monthlyFilter(state, value, name);
+    if (mode === 'Filter by year') return yearlyFilter(newState, value);
+    if (mode === 'Filter by month') return monthlyFilter(newState, value, name);
   }
 
   if (action.type === 'CHANGE') {

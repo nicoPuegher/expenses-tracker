@@ -1,7 +1,5 @@
-import { cloneDeep } from 'lodash';
-
 const monthlyFilter = (state, value, name) => {
-  const updatedState = cloneDeep(state);
+  const updatedState = state;
   const { currentView } = updatedState;
 
   currentView.filter.active = false;
