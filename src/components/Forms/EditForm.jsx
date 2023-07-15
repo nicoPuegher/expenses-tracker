@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import formatEdit from '../../utils/format-helpers/format-edit-values';
-
-// import inputState from '../../utils/submission-validation/input-state';
-
-// import ExpensesContext from '../../store/expenses-context';
-// import checkSubmit from '../../utils/submission-validation/check-submit';
-// import validateSubmit from '../../utils/submission-validation/validate-submit';
-// import formatExpense from '../../utils/format-helpers/format-expense';
+import ExpensesContext from '../../store/expenses-context';
+import checkSubmit from '../../utils/submission-validation/check-submit';
+import validateSubmit from '../../utils/submission-validation/validate-submit';
 import inputChange from '../../utils/submission-validation/input-change';
 import FormInputs from './FormInputs';
 import FormButtons from './FormButtons';
@@ -16,14 +12,14 @@ import FormButtons from './FormButtons';
 const EditForm = React.forwardRef(({ expData, onCloseModal }, ref) => {
   const inputState = formatEdit(expData);
   const [inputValues, setInputValues] = useState(inputState);
-  console.log(inputValues);
+  const { changeExpense } = useContext(ExpensesContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // checkSubmit(setInputValues);
-    // if (!validateSubmit(inputValues)) return;
-    // addExpense(formatExpense(inputValues));
-    // onCloseModal();
+    checkSubmit(setInputValues);
+    if (!validateSubmit(inputValues)) return;
+    changeExpense('Edit', expData);
+    onCloseModal();
   };
 
   const changeHandler = (e) => inputChange(e, setInputValues);
