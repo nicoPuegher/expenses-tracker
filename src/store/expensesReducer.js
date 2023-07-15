@@ -28,7 +28,7 @@ const expensesReducer = (state, action) => {
     const { mode, value, name = null } = action;
 
     if (mode === 'Filter by year') yearlyFilter(newState, value);
-    if (mode === 'Filter by month') return monthlyFilter(newState, value, name);
+    if (mode === 'Filter by month') monthlyFilter(newState, value, name);
 
     return newState;
   }

@@ -1,6 +1,5 @@
 const monthlyFilter = (state, value, name) => {
-  const updatedState = state;
-  const { currentView } = updatedState;
+  const { currentView } = state;
 
   currentView.filter.active = false;
 
@@ -9,8 +8,6 @@ const monthlyFilter = (state, value, name) => {
     current: value,
     name,
   };
-
-  return updatedState;
 };
 
 export default monthlyFilter;
