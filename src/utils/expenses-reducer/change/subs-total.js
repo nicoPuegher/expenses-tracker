@@ -4,7 +4,7 @@ const subsTotal = ({ total }, { year }, { amount }) => {
   const hash = yearHash(year);
   const updatedTotal = total;
 
-  updatedTotal[hash] = Number(updatedTotal) - Number(amount);
+  updatedTotal[hash] = Number(updatedTotal[hash]) - Number(amount);
 };
 
 export default subsTotal;
