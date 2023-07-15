@@ -5,7 +5,7 @@ import newView from '../utils/expenses-reducer/add/new-view';
 import newTotal from '../utils/expenses-reducer/add/new-total';
 import yearlyFilter from '../utils/expenses-reducer/filter/yearly-filter';
 import monthlyFilter from '../utils/expenses-reducer/filter/monthly-filter';
-import editExpense from '../utils/expenses-reducer/change/edit-expense';
+// import editExpense from '../utils/expenses-reducer/change/edit-expense';
 import deleteExpense from '../utils/expenses-reducer/change/delete-expense';
 import subsTotal from '../utils/expenses-reducer/change/subs-total';
 import defaultState from './expenses-default';
@@ -35,9 +35,11 @@ const expensesReducer = (state, action) => {
     const { mode, expense: newExpense } = action;
     const newDate = formatDate(newExpense);
 
-    if (mode === 'Edit') editExpense(newState, newDate, newExpense);
+    // if (mode === 'Edit') editExpense(newState, newDate, newExpense);
     if (mode === 'Delete') deleteExpense(newState, newDate, newExpense);
     subsTotal(newState, newDate, newExpense);
+
+    return newState;
   }
 
   return defaultState;
