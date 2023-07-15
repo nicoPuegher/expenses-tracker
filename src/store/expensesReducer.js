@@ -1,5 +1,5 @@
 import formatDate from '../utils/format-helpers/format-date';
-import newMonth from '../utils/expenses-reducer/new-month';
+import newMonth from '../utils/expenses-reducer/add/new-month';
 import newExpenses from '../utils/expenses-reducer/new-expenses';
 import newView from '../utils/expenses-reducer/new-view';
 import newTotal from '../utils/expenses-reducer/new-total';
