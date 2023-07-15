@@ -7,6 +7,7 @@ const newView = ({ currentView }, { month: monthDate, monthName, year }) => {
   }
 
   if (month.active) {
+    if (filter.current !== year) filter.current = year;
     month.current = monthDate;
     month.name = monthName;
   }
