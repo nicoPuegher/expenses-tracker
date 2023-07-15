@@ -39,7 +39,9 @@ const expensesReducer = (state, action) => {
 
     if (mode === 'Edit') editExpense(newState, newDate, newExpense);
     if (mode === 'Delete') deleteExpense(newState, newDate, newExpense);
-    subsTotal(newState, newDate, newExpense);
+    // subsTotal(newState, newDate, newExpense);
+
+    console.log(newState);
 
     return newState;
   }
