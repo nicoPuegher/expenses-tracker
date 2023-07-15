@@ -6,8 +6,6 @@ const newMonth = ({ expenses }, { year, month }, newExpense) => {
 
   updatedMonth.total = Number(updatedMonth.total) + Number(newExpense.amount);
   updatedMonth.arr = [...updatedMonth.arr, newExpense];
-
-  return updatedMonth;
 };
 
 export default newMonth;
