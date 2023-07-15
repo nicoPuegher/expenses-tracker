@@ -12,6 +12,7 @@ function Expenses() {
       filter: { active: fActive, current: currYear },
       month: { active: mActive, current: currMonth, name: currName },
     },
+    info,
     total,
   } = useContext(ExpensesContext);
 
@@ -21,7 +22,8 @@ function Expenses() {
   isEmpty = fActive ? total[hash] === 0 : exp[hash][currMonth].total === 0;
 
   const alert = { month: currMonth, name: currName, year: currYear };
-  if (isEmpty) return <Empty alert={alert} />;
+  if (isEmpty && info) return <Empty type="info" alert={alert} />;
+  if (isEmpty && !info) return <Empty type="error" alert={alert} />;
 
   return (
     <section className="overflow-y-scroll rounded bg-gray-300 px-2">
