@@ -35,7 +35,7 @@ const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
         </Dialog.Title>
         <FormInputs changeHandler={changeHandler} inputValues={inputValues} />
       </div>
-      <FormButtons onCloseModal={() => onCloseModal()} ref={ref} />
+      <FormButtons txt="Add" onCloseModal={() => onCloseModal()} ref={ref} />
     </form>
   );
 });
