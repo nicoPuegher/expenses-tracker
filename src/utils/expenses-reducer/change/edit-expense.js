@@ -1,4 +1,5 @@
 import yearHash from '../../hash/year-hash';
+import updateTotal from './update-total';
 
 const editExpense = (state, { year, month }, newExpense) => {
   const hash = yearHash(year);
@@ -11,6 +12,7 @@ const editExpense = (state, { year, month }, newExpense) => {
 
   updatedExpenses.total = Number(updatedTotal) - Number(oldExpense.amount);
   updatedExpenses.total = Number(updatedTotal) + Number(newExpense.amount);
+  updateTotal(state.total, hash, oldExpense, newExpense);
   updatedArr[index] = newExpense;
 };
 

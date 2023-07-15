@@ -9,7 +9,7 @@ const deleteExpense = (state, { year, month }, { id, amount }) => {
   updatedExpenses.total = Number(updatedExpenses.total) - Number(amount);
   updatedExpenses.arr = deleted;
 
-  subsTotal(state, hash, amount);
+  subsTotal(state.total, hash, amount);
 };
 
 export default deleteExpense;
