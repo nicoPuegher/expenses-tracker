@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
-import inputState from '../../utils/submission-validation/input-state';
+import formatEdit from '../../utils/format-helpers/format-edit-values';
+
+// import inputState from '../../utils/submission-validation/input-state';
+
 // import ExpensesContext from '../../store/expenses-context';
 // import checkSubmit from '../../utils/submission-validation/check-submit';
 // import validateSubmit from '../../utils/submission-validation/validate-submit';
@@ -10,8 +13,10 @@ import inputChange from '../../utils/submission-validation/input-change';
 import FormInputs from './FormInputs';
 import FormButtons from './FormButtons';
 
-const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
+const EditForm = React.forwardRef(({ expData, onCloseModal }, ref) => {
+  const inputState = formatEdit(expData);
   const [inputValues, setInputValues] = useState(inputState);
+  console.log(inputValues);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -39,12 +44,13 @@ const SubmitForm = React.forwardRef(({ onCloseModal }, ref) => {
   );
 });
 
-SubmitForm.propTypes = {
+EditForm.propTypes = {
+  expData: PropTypes.instanceOf(Object).isRequired,
   onCloseModal: PropTypes.func,
 };
 
-SubmitForm.defaultProps = {
+EditForm.defaultProps = {
   onCloseModal: () => {},
 };
 
-export default SubmitForm;
+export default EditForm;

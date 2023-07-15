@@ -14,7 +14,7 @@ function ExpTransition({ expData }) {
   return (
     <>
       <Modal isOpen={isOpen} onCloseModal={closeModalHandler}>
-        <EditForm onCloseModal={closeModalHandler} />
+        <EditForm expData={expData} onCloseModal={closeModalHandler} />
       </Modal>
       <Transition
         as={Fragment}
