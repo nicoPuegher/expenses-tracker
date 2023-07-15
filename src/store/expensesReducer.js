@@ -2,7 +2,7 @@ import { cloneDeep } from 'lodash';
 import formatDate from '../utils/format-helpers/format-date';
 import newMonth from '../utils/expenses-reducer/add/new-month';
 import newExpenses from '../utils/expenses-reducer/add/new-expenses';
-import newView from '../utils/expenses-reducer/new-view';
+// import newView from '../utils/expenses-reducer/new-view';
 import newTotal from '../utils/expenses-reducer/new-total';
 import addExpense from '../utils/expenses-reducer/add-expense';
 import yearlyFilter from '../utils/expenses-reducer/filter/yearly-filter';
@@ -20,7 +20,12 @@ const expensesReducer = (state, action) => {
 
     const updatedMonth = newMonth(clonedState, newDate, newExpense);
     const updatedExpenses = newExpenses(clonedState, newDate, updatedMonth);
-    const updatedView = newView(state, newDate);
+    const isViewFilter = clonedState.currentView.filter.active;
+    const updatedView = isViewFilter
+      ? yearlyFilter(clonedState, newDate.year)
+      : monthlyFilter(clonedState, newDate.year, newDate.monthName);
+    // const updatedView = newView(state, newDate);
+    // console.log(updatedView);
     const updatedTotal = newTotal(state, newDate, newExpense);
 
     return addExpense(state, updatedExpenses, updatedView, updatedTotal);
@@ -29,7 +34,7 @@ const expensesReducer = (state, action) => {
   if (action.type === 'FILTER') {
     const { mode, value, name = null } = action;
 
-    if (mode === 'Filter by year') return yearlyFilter(state, value);
+    if (mode === 'Filter by year') return yearlyFilter(clonedState, value);
     if (mode === 'Filter by month') return monthlyFilter(state, value, name);
   }
 

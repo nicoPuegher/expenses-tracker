@@ -1,7 +1,5 @@
-import { cloneDeep } from 'lodash';
-
 const yearlyFilter = (state, value) => {
-  const updatedState = cloneDeep(state);
+  const updatedState = state;
   const { currentView } = updatedState;
 
   currentView.filter = {
