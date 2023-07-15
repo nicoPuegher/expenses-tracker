@@ -26,18 +26,12 @@ function ExpensesProvider({ children }) {
     () => ({
       expenses: expensesState.expenses,
       currentView: expensesState.currentView,
-      info: expensesState.info,
       total: expensesState.total,
       addExpense,
       changeFilter,
       changeExpense,
     }),
-    [
-      expensesState.expenses,
-      expensesState.currentView,
-      expensesState.info,
-      expensesState.total,
-    ]
+    [expensesState.expenses, expensesState.currentView, expensesState.total]
   );
 
   return (
