@@ -40,6 +40,7 @@ const ExpensesContext = React.createContext({
       active: false,
       current: null,
       name: null,
+      long: null,
     },
   },
   info: true,

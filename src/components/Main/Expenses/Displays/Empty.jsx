@@ -2,16 +2,15 @@ import React from 'react';
 import Alert from '@mui/material/Alert';
 import PropTypes from 'prop-types';
 
-function Empty({ type, alert: { month, name, year } }) {
-  const infoTxt = 'Nothing to show, please add one expense!';
-  const errorTxt = `No expenses found in ${month !== null ? name : year}.`;
-  const txt = type === 'info' ? infoTxt : errorTxt;
+function Empty({ alert: { month, long, year } }) {
+  const txt = `Nothing to show in ${
+    month !== null ? long : year
+  }, please add one expense!`;
 
-  return <Alert severity={type}>{txt}</Alert>;
+  return <Alert severity="info">{txt}</Alert>;
 }
 
 Empty.propTypes = {
-  type: PropTypes.string.isRequired,
   alert: PropTypes.instanceOf(Object).isRequired,
 };
 

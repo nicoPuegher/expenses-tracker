@@ -38,6 +38,7 @@ const defaultState = {
       active: false,
       current: null,
       name: null,
+      long: null,
     },
   },
   info: true,
