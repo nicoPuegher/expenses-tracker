@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash';
 import formatDate from '../utils/format-helpers/format-date';
 import newMonth from '../utils/expenses-reducer/add/new-month';
 import newExpenses from '../utils/expenses-reducer/add/new-expenses';
@@ -11,6 +12,8 @@ import deleteExpense from '../utils/expenses-reducer/delete-expense';
 import defaultState from './expenses-default';
 
 const expensesReducer = (state, action) => {
+  const clonedState = cloneDeep(state);
+
   if (action.type === 'ADD') {
     const { expense: newExpense } = action;
     const newDate = formatDate(newExpense);
