@@ -18,7 +18,7 @@ const expensesReducer = (state, action) => {
     const { expense: newExpense } = action;
     const newDate = formatDate(newExpense);
 
-    const updatedMonth = newMonth(state, newDate, newExpense);
+    const updatedMonth = newMonth(clonedState, newDate, newExpense);
     const updatedExpenses = newExpenses(state, newDate, updatedMonth);
     const updatedView = newView(state, newDate);
     const updatedTotal = newTotal(state, newDate, newExpense);
