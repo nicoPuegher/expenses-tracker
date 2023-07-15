@@ -2,8 +2,7 @@ import { cloneDeep } from 'lodash';
 import formatDate from '../utils/format-helpers/format-date';
 import newMonth from '../utils/expenses-reducer/add/new-month';
 import newExpenses from '../utils/expenses-reducer/add/new-expenses';
-// import newView from '../utils/expenses-reducer/new-view';
-import newTotal from '../utils/expenses-reducer/new-total';
+import newTotal from '../utils/expenses-reducer/add/new-total';
 import addExpense from '../utils/expenses-reducer/add-expense';
 import yearlyFilter from '../utils/expenses-reducer/filter/yearly-filter';
 import monthlyFilter from '../utils/expenses-reducer/filter/monthly-filter';
@@ -24,9 +23,7 @@ const expensesReducer = (state, action) => {
     const updatedView = isViewFilter
       ? yearlyFilter(newState, newDate.year)
       : monthlyFilter(newState, newDate.year, newDate.monthName);
-    // const updatedView = newView(state, newDate);
-    // console.log(updatedView);
-    const updatedTotal = newTotal(state, newDate, newExpense);
+    const updatedTotal = newTotal(newState, newDate, newExpense);
 
     return addExpense(state, updatedExpenses, updatedView, updatedTotal);
   }
