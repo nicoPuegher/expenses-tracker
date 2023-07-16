@@ -1,9 +1,9 @@
 import { cloneDeep } from 'lodash';
 
-const inputChange = (event, setInputValues) => {
-  setInputValues((prevValues) => {
+const inputChange = (e, setValues) => {
+  setValues((prevValues) => {
     const updatedValues = cloneDeep(prevValues);
-    const { name, value } = event;
+    const { name, value } = e;
 
     updatedValues[name].value = value;
     updatedValues[name].error = value.trim() === '';

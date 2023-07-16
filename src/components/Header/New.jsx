@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-import SubmitForm from '../Forms/SubmitForm';
+import Form from '../Forms/Form';
 import Add from './Add';
 
 function New() {
@@ -12,7 +12,7 @@ function New() {
   return (
     <>
       <Modal isOpen={isOpen} onCloseModal={closeModalHandler}>
-        <SubmitForm onCloseModal={closeModalHandler} />
+        <Form type="Add" onCloseModal={closeModalHandler} />
       </Modal>
       <Add onOpenModal={openModalHandler} />
     </>

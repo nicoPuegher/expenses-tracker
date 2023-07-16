@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import formatDate from '../../../../utils/format-helpers/format-date';
+import formatDate from '../../../../utils/format/format-date';
 
 function ExpenseDate({ date }) {
-  const { monthShort, day, year } = formatDate(date);
+  const { month, day, year } = formatDate(date);
 
   return (
     <div className="flex flex-col items-center justify-center rounded bg-gray-400 px-2 py-0.5 text-xs">
-      <p>{monthShort}</p>
-      <p>{day}</p>
-      <p>{year}</p>
+      <p>{month.short}</p>
+      <p>{day.one}</p>
+      <p>{year.num}</p>
     </div>
   );
 }

@@ -1,29 +1,25 @@
 import React, { useState, useContext } from 'react';
 import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
-import formatEditState from '../../utils/format-helpers/format-edit-state';
+import inputState from '../../utils/form/input-state';
 import ExpensesContext from '../../store/expenses-context';
-import checkSubmit from '../../utils/submission-validation/check-submit';
-import formatEditExp from '../../utils/format-helpers/format-edit-exp';
-import validateSubmit from '../../utils/submission-validation/validate-submit';
-import inputChange from '../../utils/submission-validation/input-change';
+import submitHelper from '../../utils/form/submit-helper';
+import inputChange from '../../utils/form/input-change';
 import FormInputs from './FormInputs';
 import FormButtons from './FormButtons';
 
-const EditForm = React.forwardRef(({ txt, expData, onCloseModal }, ref) => {
-  const inputState = formatEditState(expData);
-  const [inputValues, setInputValues] = useState(inputState);
-  const { changeExpense } = useContext(ExpensesContext);
+const Form = React.forwardRef(({ type, expData, onCloseModal }, ref) => {
+  const initialFormState = inputState(type === 'Add', expData);
+  const formState = useState(initialFormState);
+  const context = useContext(ExpensesContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    checkSubmit(setInputValues);
-    if (!validateSubmit(inputValues)) return;
-    changeExpense('Edit', expData, formatEditExp(expData, inputValues));
+    if (submitHelper(type, formState, expData, context) === 'invalid') return;
     onCloseModal();
   };
 
-  const changeHandler = (e) => inputChange(e, setInputValues);
+  const changeHandler = (e) => inputChange(e, formState[1]);
 
   return (
     <form noValidate onSubmit={submitHandler}>
@@ -32,24 +28,24 @@ const EditForm = React.forwardRef(({ txt, expData, onCloseModal }, ref) => {
           as="h3"
           className="mb-3 text-base font-semibold leading-6 text-gray-900"
         >
-          {`${txt} Expense`}
+          {`${type} Expense`}
         </Dialog.Title>
-        <FormInputs changeHandler={changeHandler} inputValues={inputValues} />
+        <FormInputs values={formState[0]} changeHandler={changeHandler} />
       </div>
-      <FormButtons txt={txt} onCloseModal={() => onCloseModal()} ref={ref} />
+      <FormButtons type={type} onCloseModal={() => onCloseModal()} ref={ref} />
     </form>
   );
 });
 
-EditForm.propTypes = {
-  txt: PropTypes.string.isRequired,
+Form.propTypes = {
+  type: PropTypes.string.isRequired,
   expData: PropTypes.instanceOf(Object),
   onCloseModal: PropTypes.func,
 };
 
-EditForm.defaultProps = {
+Form.defaultProps = {
   expData: {},
   onCloseModal: () => {},
 };
 
-export default EditForm;
+export default Form;
