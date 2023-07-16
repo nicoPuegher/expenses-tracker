@@ -33,11 +33,11 @@ const expensesReducer = (state, action) => {
   }
 
   if (action.type === 'CHANGE') {
-    const { mode, expense: newExpense } = action;
-    const newDate = formatDate(newExpense);
+    const { mode, expense, newExpense = null } = action;
+    const newDate = formatDate(expense);
 
-    if (mode === 'Edit') editExpense(newState, newDate, newExpense);
-    if (mode === 'Delete') deleteExpense(newState, newDate, newExpense);
+    if (mode === 'Edit') editExpense(newState, newDate, expense, newExpense);
+    if (mode === 'Delete') deleteExpense(newState, newDate, expense);
 
     console.log(newState);
 

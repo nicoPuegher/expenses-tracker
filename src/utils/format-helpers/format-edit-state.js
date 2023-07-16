@@ -1,6 +1,6 @@
 import inputStateGenerator from '../submission-validation/input-state';
 
-const formatEdit = (expData) => {
+const formatEditState = (expData) => {
   const inputState = inputStateGenerator();
   const { title, amount, date, type } = inputState;
 
@@ -12,4 +12,4 @@ const formatEdit = (expData) => {
   return inputState;
 };
 
-export default formatEdit;
+export default formatEditState;
