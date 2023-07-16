@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import formatMonth from './format-month';
+import yearHash from '../hash/year-hash';
 
 const formatDate = (format) => {
   const date = dayjs(format);
@@ -15,7 +16,11 @@ const formatDate = (format) => {
     long: formatMonth('long', date.month()),
   };
 
-  const year = date.year().toString();
+  const year = {
+    num: date.year().toString(),
+    hash: yearHash(date.year().toString()),
+  };
+
   const isValid = date.isValid();
 
   return {
