@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash';
-import formatDate from '../utils/format-helpers/format-date';
+import formatDate from '../utils/format/format-date';
 import updateMonth from '../utils/reducer/add/update-month';
 import updateView from '../utils/reducer/add/update-view';
 import updateTotal from '../utils/reducer/add/update-total';

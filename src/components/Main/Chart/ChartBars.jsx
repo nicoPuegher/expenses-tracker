@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { uniqueId } from 'lodash';
 import ExpensesContext from '../../../store/expenses-context';
 import yearHash from '../../../utils/hash/year-hash';
-import formatMonth from '../../../utils/format-helpers/format-month';
+import formatMonth from '../../../utils/format/format-month';
 import ChartBar from './ChartBar';
 
 function ChartBars() {
