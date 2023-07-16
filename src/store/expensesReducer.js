@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import formatDate from '../utils/format-helpers/format-date';
 import updateMonth from '../utils/reducer/add/update-month';
-import newView from '../utils/reducer/add/new-view';
+import updateView from '../utils/reducer/add/update-view';
 import newTotal from '../utils/reducer/add/new-total';
 import yearlyFilter from '../utils/reducer/filter/yearly-filter';
 import monthlyFilter from '../utils/reducer/filter/monthly-filter';
@@ -17,7 +17,7 @@ const expensesReducer = (oldState, action) => {
     const date = formatDate(expense);
 
     updateMonth(state, date, expense);
-    newView(state, date);
+    updateView(state, date);
     newTotal(state, date, expense);
 
     return state;
