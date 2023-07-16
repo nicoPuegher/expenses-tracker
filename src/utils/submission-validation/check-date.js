@@ -7,11 +7,11 @@ const checkDate = (date) => {
     return { name: 'date', value: '' };
   }
 
-  if (Number(year) < 2022 || Number(year) > 2023) {
+  if (Number(year.num) < 2022 || Number(year.num) > 2023) {
     return { name: 'date', value: '' };
   }
 
-  return { name: 'date', value: `${month.num + 1}-${day.num}-${year}` };
+  return { name: 'date', value: `${month.num + 1}-${day.num}-${year.num}` };
 };
 
 export default checkDate;
