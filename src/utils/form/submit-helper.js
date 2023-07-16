@@ -1,13 +1,13 @@
-import checkSubmit from '../submission-validation/check-submit';
-import validateSubmit from '../submission-validation/validate-submit';
-import formatExpense from '../format-helpers/format-expense';
+import checkSubmit from '../validation/check-submit';
+import validateSubmit from '../validation/validate-submit';
+import formatExpense from '../format/format-expense';
 
-const submitHelper = (form, [values, setValues], context) => {
+const submitHelper = (form, [values, setValues], expData, context) => {
   checkSubmit(setValues);
   if (!validateSubmit(values)) return 'invalid';
-  const expense = formatExpense(values);
+  const expense = formatExpense(values, expData);
   if (form === 'Add') context.addExpense(expense);
-  // if (form === 'Edit') context.editExpense();
+  if (form === 'Edit') context.changeExpense(form, expData, expense);
   return 'valid';
 };
 

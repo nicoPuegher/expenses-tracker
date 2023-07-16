@@ -1,4 +1,4 @@
-import formatDate from '../format-helpers/format-date';
+import formatDate from '../format/format-date';
 
 const checkDate = (date) => {
   const { day, month, year, isValid } = formatDate(date);

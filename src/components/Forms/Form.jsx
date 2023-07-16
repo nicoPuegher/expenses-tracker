@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
-import inputState from '../../utils/submission-validation/input-state';
+import inputState from '../../utils/form/input-state';
 import ExpensesContext from '../../store/expenses-context';
 import submitHelper from '../../utils/form/submit-helper';
-import inputChange from '../../utils/submission-validation/input-change';
+import inputChange from '../../utils/form/input-change';
 import FormInputs from './FormInputs';
 import FormButtons from './FormButtons';
 
@@ -15,7 +15,7 @@ const Form = React.forwardRef(({ type, expData, onCloseModal }, ref) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (submitHelper(type, formState, context) === 'invalid') return;
+    if (submitHelper(type, formState, expData, context) === 'invalid') return;
     onCloseModal();
   };
 
