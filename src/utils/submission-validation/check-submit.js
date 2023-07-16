@@ -1,15 +1,15 @@
 import { cloneDeep } from 'lodash';
 
-const checkSubmit = (setInputValues) => {
-  setInputValues((prevValues) => {
+const checkSubmit = (setValues) => {
+  setValues((prevValues) => {
     const updatedValues = cloneDeep(prevValues);
-    const inputValues = Object.entries(updatedValues);
+    const values = Object.entries(updatedValues);
 
-    inputValues.forEach((inputValue) => {
-      const { 1: values } = inputValue;
+    values.forEach((value) => {
+      const { 1: prop } = value;
 
-      if (values.value.trim() === '') {
-        values.error = true;
+      if (prop.value.trim() === '') {
+        prop.error = true;
       }
     });
 
