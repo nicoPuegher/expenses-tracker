@@ -10,6 +10,7 @@ const yearlyFilter = (state, value) => {
     active: false,
     current: null,
     name: null,
+    long: null,
   };
 };
 

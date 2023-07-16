@@ -6,6 +6,8 @@ const monthlyFilter = (state, value, name, long) => {
     currentView.month = {
       active: false,
       current: null,
+      name: null,
+      long: null,
     };
     return;
   }
