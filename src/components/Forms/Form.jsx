@@ -8,14 +8,14 @@ import inputChange from '../../utils/submission-validation/input-change';
 import FormInputs from './FormInputs';
 import FormButtons from './FormButtons';
 
-const Form = React.forwardRef(({ txt, expData, onCloseModal }, ref) => {
-  const initialFormState = inputState(txt === 'Add', expData);
+const Form = React.forwardRef(({ type, expData, onCloseModal }, ref) => {
+  const initialFormState = inputState(type === 'Add', expData);
   const formState = useState(initialFormState);
   const context = useContext(ExpensesContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (submitHelper(txt, formState, context) === 'invalid') return;
+    if (submitHelper(type, formState, context) === 'invalid') return;
     onCloseModal();
   };
 
@@ -28,17 +28,17 @@ const Form = React.forwardRef(({ txt, expData, onCloseModal }, ref) => {
           as="h3"
           className="mb-3 text-base font-semibold leading-6 text-gray-900"
         >
-          {`${txt} Expense`}
+          {`${type} Expense`}
         </Dialog.Title>
-        <FormInputs changeHandler={changeHandler} inputValues={formState[0]} />
+        <FormInputs values={formState[0]} changeHandler={changeHandler} />
       </div>
-      <FormButtons txt={txt} onCloseModal={() => onCloseModal()} ref={ref} />
+      <FormButtons type={type} onCloseModal={() => onCloseModal()} ref={ref} />
     </form>
   );
 });
 
 Form.propTypes = {
-  txt: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   expData: PropTypes.instanceOf(Object),
   onCloseModal: PropTypes.func,
 };

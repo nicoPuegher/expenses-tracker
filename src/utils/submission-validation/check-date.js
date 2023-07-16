@@ -1,7 +1,7 @@
 import formatDate from '../format-helpers/format-date';
 
 const checkDate = (date) => {
-  const { dayNum, month, year, isValid } = formatDate({ date });
+  const { day, month, year, isValid } = formatDate(date);
 
   if (!isValid) {
     return { name: 'date', value: '' };
@@ -11,7 +11,7 @@ const checkDate = (date) => {
     return { name: 'date', value: '' };
   }
 
-  return { name: 'date', value: `${month + 1}-${dayNum}-${year}` };
+  return { name: 'date', value: `${month.num + 1}-${day.num}-${year}` };
 };
 
 export default checkDate;

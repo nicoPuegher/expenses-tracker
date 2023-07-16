@@ -1,23 +1,26 @@
 import dayjs from 'dayjs';
-import getMonthName from './get-month-name';
+import formatMonth from './format-month';
 
-const formatDate = ({ date }) => {
-  const formatMe = dayjs(date);
+const formatDate = (format) => {
+  const date = dayjs(format);
 
-  const day = formatMe.$d.toLocaleString('en-US', { day: '2-digit' });
-  const dayNum = formatMe.$D;
-  const month = formatMe.month();
-  const monthShort = getMonthName('short', month);
-  const monthLong = getMonthName('long', month);
-  const year = formatMe.year().toString();
-  const isValid = formatMe.isValid();
+  const day = {
+    name: date.$d.toLocaleString('en-US', { day: '2-digit' }),
+    num: date.$D,
+  };
+
+  const month = {
+    num: date.month(),
+    short: formatMonth('short', date.month()),
+    long: formatMonth('long', date.month()),
+  };
+
+  const year = date.year().toString();
+  const isValid = date.isValid();
 
   return {
     day,
-    dayNum,
     month,
-    monthShort,
-    monthLong,
     year,
     isValid,
   };

@@ -5,7 +5,7 @@ import AmountInput from '../Inputs/AmountInput';
 import DateInput from '../Inputs/DateInput';
 import SelectInput from '../Inputs/SelectInput';
 
-function FormInputs({ changeHandler, inputValues: values }) {
+function FormInputs({ values, changeHandler }) {
   return (
     <div className="flex flex-col gap-3">
       <TitleInput
@@ -37,8 +37,8 @@ function FormInputs({ changeHandler, inputValues: values }) {
 }
 
 FormInputs.propTypes = {
+  values: PropTypes.instanceOf(Object).isRequired,
   changeHandler: PropTypes.func.isRequired,
-  inputValues: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default FormInputs;
