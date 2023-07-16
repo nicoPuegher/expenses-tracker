@@ -11,7 +11,7 @@ const checkDate = (date) => {
     return { name: 'date', value: '' };
   }
 
-  return { name: 'date', value: `${month.num + 1}-${day.num}-${year.num}` };
+  return { name: 'date', value: `${month.num + 1}-${day.two}-${year.num}` };
 };
 
 export default checkDate;

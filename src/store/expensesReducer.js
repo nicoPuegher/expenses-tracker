@@ -14,7 +14,7 @@ const expensesReducer = (oldState, action) => {
 
   if (action.type === 'ADD') {
     const { expense } = action;
-    const date = formatDate(expense);
+    const date = formatDate(expense.date);
 
     updateMonth(state, date, expense);
     updateView(state, date);

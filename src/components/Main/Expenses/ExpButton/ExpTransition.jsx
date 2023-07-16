@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import Modal from '../../../Modal/Modal';
+import Form from '../../../Forms/Form';
 // import EditForm from '../../../Forms/EditForm';
 import ExpOptions from './ExpOptions';
 
@@ -13,9 +14,9 @@ function ExpTransition({ expData }) {
 
   return (
     <>
-      <Modal isOpen={isOpen} onCloseModal={closeModalHandler}>
-        {/* <EditForm expData={expData} onCloseModal={closeModalHandler} /> */}
-      </Modal>
+      {/* <Modal isOpen={isOpen} onCloseModal={closeModalHandler}>
+        <Form type="Edit" expData={expData} onCloseModal={closeModalHandler} />
+      </Modal> */}
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"

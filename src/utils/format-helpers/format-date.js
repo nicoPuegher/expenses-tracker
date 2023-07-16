@@ -6,8 +6,8 @@ const formatDate = (format) => {
   const date = dayjs(format);
 
   const day = {
-    name: date.$d.toLocaleString('en-US', { day: '2-digit' }),
-    num: date.$D,
+    one: date.$D,
+    two: date.$d.toLocaleString('en-US', { day: '2-digit' }),
   };
 
   const month = {
