@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
-import formatEditState from '../../utils/format-helpers/format-edit-state';
+import inputState from '../../utils/submission-validation/input-state';
 import ExpensesContext from '../../store/expenses-context';
 import checkSubmit from '../../utils/submission-validation/check-submit';
 import formatEditExp from '../../utils/format-helpers/format-edit-exp';
@@ -10,16 +10,16 @@ import inputChange from '../../utils/submission-validation/input-change';
 import FormInputs from './FormInputs';
 import FormButtons from './FormButtons';
 
-const EditForm = React.forwardRef(({ txt, expData, onCloseModal }, ref) => {
-  const inputState = formatEditState(expData);
-  const [inputValues, setInputValues] = useState(inputState);
-  const { changeExpense } = useContext(ExpensesContext);
+const Form = React.forwardRef(({ txt, expData, onCloseModal }, ref) => {
+  const formState = inputState(txt === 'Add', expData);
+  const [inputValues, setInputValues] = useState(formState);
+  // const { changeExpense } = useContext(ExpensesContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
     checkSubmit(setInputValues);
     if (!validateSubmit(inputValues)) return;
-    changeExpense('Edit', expData, formatEditExp(expData, inputValues));
+    // changeExpense('Edit', expData, formatEditExp(expData, inputValues));
     onCloseModal();
   };
 
@@ -41,15 +41,15 @@ const EditForm = React.forwardRef(({ txt, expData, onCloseModal }, ref) => {
   );
 });
 
-EditForm.propTypes = {
+Form.propTypes = {
   txt: PropTypes.string.isRequired,
   expData: PropTypes.instanceOf(Object),
   onCloseModal: PropTypes.func,
 };
 
-EditForm.defaultProps = {
+Form.defaultProps = {
   expData: {},
   onCloseModal: () => {},
 };
 
-export default EditForm;
+export default Form;
