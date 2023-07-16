@@ -3,27 +3,23 @@ import { Dialog } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import inputState from '../../utils/submission-validation/input-state';
 import ExpensesContext from '../../store/expenses-context';
-import checkSubmit from '../../utils/submission-validation/check-submit';
-import formatEditExp from '../../utils/format-helpers/format-edit-exp';
-import validateSubmit from '../../utils/submission-validation/validate-submit';
+import submitHelper from '../../utils/form/submit-helper';
 import inputChange from '../../utils/submission-validation/input-change';
 import FormInputs from './FormInputs';
 import FormButtons from './FormButtons';
 
 const Form = React.forwardRef(({ txt, expData, onCloseModal }, ref) => {
-  const formState = inputState(txt === 'Add', expData);
-  const [inputValues, setInputValues] = useState(formState);
-  // const { changeExpense } = useContext(ExpensesContext);
+  const initialFormState = inputState(txt === 'Add', expData);
+  const formState = useState(initialFormState);
+  const context = useContext(ExpensesContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    checkSubmit(setInputValues);
-    if (!validateSubmit(inputValues)) return;
-    // changeExpense('Edit', expData, formatEditExp(expData, inputValues));
+    if (submitHelper(txt, formState, context) === 'invalid') return;
     onCloseModal();
   };
 
-  const changeHandler = (e) => inputChange(e, setInputValues);
+  const changeHandler = (e) => inputChange(e, formState[1]);
 
   return (
     <form noValidate onSubmit={submitHandler}>
@@ -34,7 +30,7 @@ const Form = React.forwardRef(({ txt, expData, onCloseModal }, ref) => {
         >
           {`${txt} Expense`}
         </Dialog.Title>
-        <FormInputs changeHandler={changeHandler} inputValues={inputValues} />
+        <FormInputs changeHandler={changeHandler} inputValues={formState[0]} />
       </div>
       <FormButtons txt={txt} onCloseModal={() => onCloseModal()} ref={ref} />
     </form>
