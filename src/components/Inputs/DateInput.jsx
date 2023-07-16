@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import checkDate from '../../utils/submission-validation/check-date';
 
-function DateInput({ onChange, error, helperText }) {
+function DateInput({ value, onChange, error, helperText }) {
+  const currValue = value !== '' ? dayjs(value) : null;
   const min = dayjs(new Date(2022, 0, 1));
   const max = dayjs(new Date(2023, 11, 31));
 
@@ -21,6 +22,7 @@ function DateInput({ onChange, error, helperText }) {
         views={['year', 'month', 'day']}
         slotProps={{
           textField: {
+            value: currValue,
             size: 'small',
             onBlur: (e) => validateHandler(e.target.value),
             error,
@@ -36,6 +38,7 @@ function DateInput({ onChange, error, helperText }) {
 }
 
 DateInput.propTypes = {
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   error: PropTypes.bool.isRequired,
   helperText: PropTypes.string.isRequired,

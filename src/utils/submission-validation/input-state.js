@@ -1,21 +1,21 @@
-const inputState = () => ({
+const inputState = (add, edit) => ({
   title: {
-    value: '',
+    value: add ? '' : edit.title,
     error: false,
     errorMessage: 'Enter a title.',
   },
   amount: {
-    value: '',
+    value: add ? '' : edit.amount,
     error: false,
     errorMessage: 'Enter an amount.',
   },
   date: {
-    value: '',
+    value: add ? '' : edit.date,
     error: false,
     errorMessage: ' 2021 > date < 2024.',
   },
   type: {
-    value: '',
+    value: add ? '' : edit.type,
     error: false,
     errorMessage: 'Select a type.',
   },

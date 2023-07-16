@@ -5,9 +5,8 @@ import newView from '../utils/expenses-reducer/add/new-view';
 import newTotal from '../utils/expenses-reducer/add/new-total';
 import yearlyFilter from '../utils/expenses-reducer/filter/yearly-filter';
 import monthlyFilter from '../utils/expenses-reducer/filter/monthly-filter';
-// import editExpense from '../utils/expenses-reducer/change/edit-expense';
+import editExpense from '../utils/expenses-reducer/change/edit-expense';
 import deleteExpense from '../utils/expenses-reducer/change/delete-expense';
-import subsTotal from '../utils/expenses-reducer/change/subs-total';
 import defaultState from './expenses-default';
 
 const expensesReducer = (state, action) => {
@@ -25,21 +24,22 @@ const expensesReducer = (state, action) => {
   }
 
   if (action.type === 'FILTER') {
-    const { mode, value, name = null } = action;
+    const { mode, value, name = null, long = null } = action;
 
     if (mode === 'Filter by year') yearlyFilter(newState, value);
-    if (mode === 'Filter by month') monthlyFilter(newState, value, name);
+    if (mode === 'Filter by month') monthlyFilter(newState, value, name, long);
 
     return newState;
   }
 
   if (action.type === 'CHANGE') {
-    const { mode, expense: newExpense } = action;
-    const newDate = formatDate(newExpense);
+    const { mode, expense, newExpense = null } = action;
+    const newDate = formatDate(expense);
 
-    // if (mode === 'Edit') editExpense(newState, newDate, newExpense);
-    if (mode === 'Delete') deleteExpense(newState, newDate, newExpense);
-    subsTotal(newState, newDate, newExpense);
+    if (mode === 'Edit') editExpense(newState, newDate, expense, newExpense);
+    if (mode === 'Delete') deleteExpense(newState, newDate, expense);
+
+    console.log(newState);
 
     return newState;
   }

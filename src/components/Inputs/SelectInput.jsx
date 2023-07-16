@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import PropTypes from 'prop-types';
 import typesList from '../../utils/lists/types-list';
 
-function SelectInput({ onChange, error, helperText }) {
+function SelectInput({ value, onChange, error, helperText }) {
   const selectList = typesList.map((type) => (
     <MenuItem key={type.value} value={type.value}>
       {type.value}
@@ -16,6 +16,7 @@ function SelectInput({ onChange, error, helperText }) {
       id="outlined-basic"
       name="type"
       label="Type"
+      value={value}
       variant="outlined"
       size="small"
       defaultValue=""
@@ -33,6 +34,7 @@ function SelectInput({ onChange, error, helperText }) {
 }
 
 SelectInput.propTypes = {
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   error: PropTypes.bool.isRequired,
   helperText: PropTypes.string.isRequired,

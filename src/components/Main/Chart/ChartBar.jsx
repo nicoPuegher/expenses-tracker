@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ExpensesContext from '../../../store/expenses-context';
 import barSize from '../../../utils/chart/bar-size';
 
-function ChartBar({ name, month, expenses, yearlyExpenses }) {
+function ChartBar({ name, long, month, expenses, yearlyExpenses }) {
   const {
     currentView: {
       month: { current },
@@ -12,7 +12,7 @@ function ChartBar({ name, month, expenses, yearlyExpenses }) {
   } = useContext(ExpensesContext);
 
   const clickHandler = () => {
-    changeFilter('Filter by month', month, name);
+    changeFilter('Filter by month', month, name, long);
   };
 
   const activeClass = current === month ? 'bg-slate-500' : '';
@@ -34,6 +34,7 @@ function ChartBar({ name, month, expenses, yearlyExpenses }) {
 
 ChartBar.propTypes = {
   name: PropTypes.string.isRequired,
+  long: PropTypes.string.isRequired,
   month: PropTypes.number.isRequired,
   expenses: PropTypes.number.isRequired,
   yearlyExpenses: PropTypes.number.isRequired,

@@ -10,7 +10,7 @@ function Expenses() {
     expenses: exp,
     currentView: {
       filter: { active: fActive, current: currYear },
-      month: { active: mActive, current: currMonth, name: currName },
+      month: { active: mActive, current: currMonth, long: currLong },
     },
     total,
   } = useContext(ExpensesContext);
@@ -20,8 +20,8 @@ function Expenses() {
   let isEmpty = null;
   isEmpty = fActive ? total[hash] === 0 : exp[hash][currMonth].total === 0;
 
-  const alert = { month: currMonth, name: currName, year: currYear };
-  if (isEmpty) return <Empty alert={alert} />;
+  const alert = { month: currMonth, long: currLong, year: currYear };
+  if (isEmpty) return <Empty type="info" alert={alert} />;
 
   return (
     <section className="overflow-y-scroll rounded bg-gray-300 px-2">
