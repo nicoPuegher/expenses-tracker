@@ -9,18 +9,18 @@ import editExpense from '../utils/expenses-reducer/change/edit-expense';
 import deleteExpense from '../utils/expenses-reducer/change/delete-expense';
 import defaultState from './expenses-default';
 
-const expensesReducer = (state, action) => {
-  const newState = cloneDeep(state);
+const expensesReducer = (oldState, action) => {
+  const state = cloneDeep(oldState);
 
   if (action.type === 'ADD') {
-    const { expense: newExpense } = action;
-    const newDate = formatDate(newExpense);
+    const { expense } = action;
+    const date = formatDate(expense);
 
-    newMonth(newState, newDate, newExpense);
-    newView(newState, newDate);
-    newTotal(newState, newDate, newExpense);
+    newMonth(state, date, expense);
+    newView(state, date);
+    newTotal(state, date, expense);
 
-    return newState;
+    return state;
   }
 
   if (action.type === 'FILTER') {
