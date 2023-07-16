@@ -1,15 +1,13 @@
-import yearHash from '../../hash/year-hash';
 import subsTotal from './subs-total';
 
 const deleteExpense = (state, { year, month }, { id, amount }) => {
-  const hash = yearHash(year);
-  const updatedExpenses = state.expenses[hash][month];
+  const updatedExpenses = state.expenses[year.hash][month.num];
 
   const deleted = updatedExpenses.arr.filter((exp) => exp.id !== id);
   updatedExpenses.total = Number(updatedExpenses.total) - Number(amount);
   updatedExpenses.arr = deleted;
 
-  subsTotal(state.total, hash, amount);
+  subsTotal(state.total, year.hash, amount);
 };
 
 export default deleteExpense;
