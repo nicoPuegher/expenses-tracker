@@ -12,6 +12,9 @@ const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root.Mui-error.Mui-focused': {
     '& fieldset': { 'border-color': '#f87171' }, // red-400
   },
+  '& .MuiOutlinedInput-root.Mui-focused': {
+    '& fieldset': { 'border-color': '#818cf8' }, // indigo-400
+  },
 });
 
 export default StyledTextField;
