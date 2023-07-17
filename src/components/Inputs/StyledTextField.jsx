@@ -9,6 +9,9 @@ const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root.Mui-error': {
     '& fieldset': { 'border-color': '#f87171' }, // red-400
   },
+  '& .MuiOutlinedInput-root.Mui-error.Mui-focused': {
+    '& fieldset': { 'border-color': '#f87171' }, // red-400
+  },
 });
 
 export default StyledTextField;
