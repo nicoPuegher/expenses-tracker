@@ -1,10 +1,13 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
+import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
+
+const StyledTextField = styled(TextField)({});
 
 function TitleInput({ value, onChange, error, helperText }) {
   return (
-    <TextField
+    <StyledTextField
       id="outlined-basic"
       name="title"
       label="Title"
