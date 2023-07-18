@@ -14,6 +14,7 @@ const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': { 'border-color': slate400 },
   },
+  '& .MuiTypography-root': { color: slate400 },
 
   // Hover
   '&:hover .MuiOutlinedInput-root': {
@@ -26,6 +27,7 @@ const StyledTextField = styled(TextField)({
   '& p.Mui-error': { color: red400 },
   '& .MuiOutlinedInput-root.Mui-error': {
     '& fieldset': { 'border-color': red400 },
+    '& .MuiTypography-root': { color: red400 },
   },
 
   // Error & Focus
@@ -33,6 +35,7 @@ const StyledTextField = styled(TextField)({
   '& label span.Mui-error.Mui-focused': { color: red400 },
   '& .MuiOutlinedInput-root.Mui-error.Mui-focused': {
     '& fieldset': { 'border-color': red400 },
+    '& .MuiTypography-root': { color: red400 },
   },
 
   // Focus
@@ -40,6 +43,7 @@ const StyledTextField = styled(TextField)({
   '& label span.Mui-focused': { color: indigo400 },
   '& .MuiOutlinedInput-root.Mui-focused': {
     '& fieldset': { 'border-color': indigo400 },
+    '& .MuiTypography-root': { color: indigo400 },
   },
 });
 
