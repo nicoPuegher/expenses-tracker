@@ -1,9 +1,11 @@
 import React from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
+import { ThemeProvider } from '@mui/material';
+import theme from '../../utils/form/theme';
+import { StyledDatePicker } from './StyledTextField';
 import checkDate from '../../utils/validation/check-date';
 
 function DateInput({ value, onChange, error, helperText }) {
@@ -14,26 +16,28 @@ function DateInput({ value, onChange, error, helperText }) {
   const validateHandler = (date) => onChange(checkDate(date));
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
-        label="Pick a date"
-        minDate={min}
-        maxDate={max}
-        views={['year', 'month', 'day']}
-        slotProps={{
-          textField: {
-            value: currValue,
-            size: 'small',
-            onBlur: (e) => validateHandler(e.target.value),
-            error,
-            helperText,
-            fullWidth: true,
-            required: true,
-          },
-        }}
-        onChange={(e) => validateHandler(e ? e.$d : '')}
-      />
-    </LocalizationProvider>
+    <ThemeProvider theme={theme}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <StyledDatePicker
+          label="Pick a date"
+          minDate={min}
+          maxDate={max}
+          views={['year', 'month', 'day']}
+          slotProps={{
+            textField: {
+              value: currValue,
+              size: 'small',
+              onBlur: (e) => validateHandler(e.target.value),
+              error,
+              helperText,
+              fullWidth: true,
+              required: true,
+            },
+          }}
+          onChange={(e) => validateHandler(e ? e.$d : '')}
+        />
+      </LocalizationProvider>
+    </ThemeProvider>
   );
 }
 

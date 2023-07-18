@@ -23,10 +23,10 @@ const Form = React.forwardRef(({ type, expData, onCloseModal }, ref) => {
 
   return (
     <form noValidate onSubmit={submitHandler}>
-      <div className="mb-3 bg-white text-center">
+      <div className="mb-3 bg-main-light text-center">
         <Dialog.Title
           as="h3"
-          className="mb-3 text-base font-semibold leading-6 text-gray-900"
+          className="mb-3 text-base font-semibold leading-6 text-main-dark"
         >
           {`${type} Expense`}
         </Dialog.Title>
