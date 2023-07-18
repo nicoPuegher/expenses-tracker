@@ -1,9 +1,9 @@
 import React from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
+import { StyledDatePicker } from './StyledTextField';
 import checkDate from '../../utils/validation/check-date';
 
 function DateInput({ value, onChange, error, helperText }) {
@@ -15,7 +15,7 @@ function DateInput({ value, onChange, error, helperText }) {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
+      <StyledDatePicker
         label="Pick a date"
         minDate={min}
         maxDate={max}
