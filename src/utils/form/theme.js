@@ -11,6 +11,15 @@ const theme = createTheme({
         },
       },
     },
+
+    // Calendar header text
+    MuiDateCalendar: {
+      styleOverrides: {
+        root: {
+          color: neutral[600],
+        },
+      },
+    },
   },
 });
 
