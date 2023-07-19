@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { styled } from '@mui/material/styles';
-import { primary, neutral } from '../../utils/theme/theme';
+import { primary, neutral, error } from '../../utils/theme/theme';
 
 const customBorderWidth = '1px';
 
@@ -32,6 +32,16 @@ const sharedStyles = {
     '& fieldset': { borderColor: primary[400], borderWidth: customBorderWidth },
     '& .MuiTypography-root': { color: primary[400] },
     '& .MuiSvgIcon-root': { color: primary[400] },
+  },
+
+  // Error
+  '& label.Mui-error': { color: error[400] },
+  '& label.Mui-error span': { color: error[400] },
+  '& p.Mui-error': { color: error[400] },
+  '& .MuiOutlinedInput-root.Mui-error': {
+    '& fieldset': { borderColor: error[400], borderWidth: customBorderWidth },
+    '& .MuiTypography-root': { color: error[400] },
+    '& .MuiSvgIcon-root': { color: error[400] },
   },
 };
 
