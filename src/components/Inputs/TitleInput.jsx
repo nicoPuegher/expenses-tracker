@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledTextField from './StyledTextField';
+import { StyledTextField } from './StyledInput';
 
 function TitleInput({ value, onChange, error, helperText }) {
   return (
