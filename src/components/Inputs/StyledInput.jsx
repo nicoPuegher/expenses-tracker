@@ -27,7 +27,7 @@ const sharedStyles = {
 
   // Focus
   '& label.Mui-focused': { color: primary[400] },
-  '& label span.Mui-focused': { color: primary[400] },
+  '& label.Mui-focused span': { color: primary[400] },
   '& .MuiOutlinedInput-root.Mui-focused': {
     '& fieldset': { borderColor: primary[400], borderWidth: customBorderWidth },
     '& .MuiTypography-root': { color: primary[400] },
