@@ -1,7 +1,7 @@
 import React from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import PropTypes from 'prop-types';
-import StyledTextField from './StyledTextField';
+import { StyledTextField } from './StyledInput';
 
 function AmountInput({ value, onChange, error, helperText }) {
   return (
