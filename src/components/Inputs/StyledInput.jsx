@@ -17,6 +17,11 @@ const sharedStyles = {
     marginTop: '2px',
   },
   '& .MuiSvgIcon-root': { color: neutral[400] },
+
+  // Hover
+  '&:hover .MuiOutlinedInput-root': {
+    '& fieldset': { borderColor: neutral[600], borderWidth: '1px' },
+  },
 };
 
 const StyledTextField = styled(TextField)({
