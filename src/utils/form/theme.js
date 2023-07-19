@@ -29,6 +29,15 @@ const theme = createTheme({
         },
       },
     },
+
+    // Calendar header previous & next buttons
+    MuiPickersArrowSwitcher: {
+      styleOverrides: {
+        button: {
+          color: neutral[400],
+        },
+      },
+    },
   },
 });
 
