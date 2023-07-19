@@ -74,6 +74,15 @@ const theme = createTheme({
         },
       },
     },
+
+    // Calendar body single letter days
+    MuiDayCalendar: {
+      styleOverrides: {
+        weekDayLabel: {
+          color: neutral[400],
+        },
+      },
+    },
   },
 });
 
