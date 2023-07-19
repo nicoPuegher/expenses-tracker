@@ -20,6 +20,15 @@ const theme = createTheme({
         },
       },
     },
+
+    // Calendar header arrow button
+    MuiPickersCalendarHeader: {
+      styleOverrides: {
+        switchViewButton: {
+          color: neutral[400],
+        },
+      },
+    },
   },
 });
 
