@@ -12,7 +12,7 @@ const sharedStyles = {
     '& fieldset': { borderColor: neutral[400] },
   },
   '& .MuiTypography-root': {
-    color: neutral[600],
+    color: neutral[400],
     lineHeight: 1,
     marginTop: '2px',
   },
