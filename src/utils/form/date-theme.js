@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material';
 import { primary, neutral } from '../theme/theme';
 
-const theme = createTheme({
+const dateTheme = createTheme({
   components: {
     // Calendar container box
     MuiPickersLayout: {
@@ -113,4 +113,4 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export default dateTheme;
