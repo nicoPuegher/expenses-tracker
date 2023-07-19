@@ -13,6 +13,7 @@ function AmountInput({ value, onChange, error, helperText }) {
       value={value}
       variant="outlined"
       size="small"
+      autoComplete="off"
       InputProps={{
         startAdornment: <InputAdornment position="start">$</InputAdornment>,
       }}
