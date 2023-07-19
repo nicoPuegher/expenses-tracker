@@ -38,6 +38,24 @@ const theme = createTheme({
         },
       },
     },
+
+    // Calendar header year selected & hover
+    MuiPickersYear: {
+      styleOverrides: {
+        yearButton: {
+          '&.Mui-selected': {
+            color: primary[50],
+            backgroundColor: primary[400],
+          },
+          '&:hover.Mui-selected': {
+            backgroundColor: primary[500],
+          },
+          '&:focus-within.Mui-selected': {
+            backgroundColor: primary[400],
+          },
+        },
+      },
+    },
   },
 });
 
