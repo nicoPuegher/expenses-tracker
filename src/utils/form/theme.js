@@ -51,6 +51,7 @@ const theme = createTheme({
             backgroundColor: primary[500],
           },
           '&:focus-within.Mui-selected': {
+            color: primary[50],
             backgroundColor: primary[400],
           },
         },
@@ -69,6 +70,7 @@ const theme = createTheme({
             backgroundColor: primary[500],
           },
           '&:focus-within.Mui-selected': {
+            color: primary[50],
             backgroundColor: primary[400],
           },
         },
@@ -80,6 +82,31 @@ const theme = createTheme({
       styleOverrides: {
         weekDayLabel: {
           color: neutral[400],
+        },
+      },
+    },
+
+    // Calendar body number days
+    MuiPickersDay: {
+      styleOverrides: {
+        root: {
+          color: neutral[600],
+          '&:focus-within': {
+            color: primary[50],
+            borderColor: neutral[600],
+            backgroundColor: primary[400],
+          },
+          '&.Mui-selected': {
+            // color: 'yellow',
+            backgroundColor: primary[400],
+          },
+          '&:hover.Mui-selected': {
+            backgroundColor: primary[500],
+          },
+          '&:focus-within.Mui-selected': {
+            color: primary[50],
+            backgroundColor: primary[400],
+          },
         },
       },
     },
