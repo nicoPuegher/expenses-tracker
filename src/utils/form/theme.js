@@ -1,10 +1,5 @@
 import { createTheme } from '@mui/material';
-
-const slate50 = '#f8fafc';
-const slate700 = '#334155';
-const slate400 = '#94a3b8';
-const red400 = '#f87171';
-const indigo400 = '#818cf8';
+import { primary, neutral } from '../theme/theme';
 
 const theme = createTheme({
   components: {
@@ -12,7 +7,7 @@ const theme = createTheme({
     MuiPickersLayout: {
       styleOverrides: {
         root: {
-          backgroundColor: slate50,
+          backgroundColor: neutral[50],
         },
       },
     },
