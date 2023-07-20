@@ -11,7 +11,7 @@ const FormButtons = React.forwardRef(({ type, onCloseModal }, ref) => (
     </button>
     <button
       type="button"
-      className="mt-3 inline-flex w-full justify-center rounded bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+      className="mt-3 inline-flex w-full justify-center rounded bg-neutral-50 px-3 py-2 text-sm font-semibold text-neutral-600 shadow-sm outline-offset-4 ring-1 ring-inset ring-slate-200 focus:outline-indigo-400"
       onClick={() => onCloseModal()}
       ref={ref}
     >
