@@ -4,7 +4,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import { ThemeProvider } from '@mui/material';
-import theme from '../../utils/form/theme';
+import theme from '../../utils/form/date-theme';
 import { StyledDatePicker } from './StyledInput';
 import checkDate from '../../utils/validation/check-date';
 

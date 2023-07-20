@@ -1,6 +1,8 @@
 import React from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import PropTypes from 'prop-types';
+import { ThemeProvider } from '@mui/material';
+import theme from '../../utils/form/select-theme';
 import typesList from '../../utils/lists/types-list';
 import { StyledTextField } from './StyledInput';
 
@@ -12,24 +14,26 @@ function SelectInput({ value, onChange, error, helperText }) {
   ));
 
   return (
-    <StyledTextField
-      id="outlined-basic"
-      name="type"
-      label="Type"
-      value={value}
-      variant="outlined"
-      size="small"
-      defaultValue=""
-      onChange={(e) => onChange(e.target)}
-      onBlur={(e) => onChange(e.target)}
-      error={error}
-      helperText={helperText}
-      fullWidth
-      select
-      required
-    >
-      {selectList}
-    </StyledTextField>
+    <ThemeProvider theme={theme}>
+      <StyledTextField
+        id="outlined-basic"
+        name="type"
+        label="Type"
+        value={value}
+        variant="outlined"
+        size="small"
+        defaultValue=""
+        onChange={(e) => onChange(e.target)}
+        onBlur={(e) => onChange(e.target)}
+        error={error}
+        helperText={helperText}
+        fullWidth
+        select
+        required
+      >
+        {selectList}
+      </StyledTextField>
+    </ThemeProvider>
   );
 }
 
