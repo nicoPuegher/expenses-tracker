@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledTextField from './StyledTextField';
+import { StyledTextField } from './StyledInput';
 
 function TitleInput({ value, onChange, error, helperText }) {
   return (
@@ -11,6 +11,7 @@ function TitleInput({ value, onChange, error, helperText }) {
       value={value}
       variant="outlined"
       size="small"
+      autoComplete="off"
       onChange={(e) => onChange(e.target)}
       onBlur={(e) => onChange(e.target)}
       error={error}

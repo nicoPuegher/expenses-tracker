@@ -12,7 +12,7 @@ function TransitionIn() {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      <div className="fixed inset-0 bg-backdrop opacity-80 transition-opacity" />
+      <div className="fixed inset-0 bg-neutral-950 opacity-80 transition-opacity" />
     </Transition.Child>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import PropTypes from 'prop-types';
-import StyledTextField from './StyledTextField';
+import { StyledTextField } from './StyledInput';
 
 function AmountInput({ value, onChange, error, helperText }) {
   return (
@@ -13,6 +13,7 @@ function AmountInput({ value, onChange, error, helperText }) {
       value={value}
       variant="outlined"
       size="small"
+      autoComplete="off"
       InputProps={{
         startAdornment: <InputAdornment position="start">$</InputAdornment>,
       }}
