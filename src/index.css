@@ -6,6 +6,11 @@
   height: 100dvh;
 }
 
+/* HeadlessUI Modal adds padding left to everything, this counters it for now */
+html {
+  padding: 0 !important;
+}
+
 /* Small fixes for material-ui calendar */
 .css-3dah0e-MuiModal-root-MuiDialog-root {
   padding: 0 0.5rem;
