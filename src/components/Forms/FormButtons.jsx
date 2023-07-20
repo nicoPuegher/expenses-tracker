@@ -5,7 +5,7 @@ const FormButtons = React.forwardRef(({ type, onCloseModal }, ref) => (
   <div className="bg-gray-50">
     <button
       type="submit"
-      className="inline-flex w-full justify-center rounded bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500"
+      className="inline-flex w-full justify-center rounded bg-primary-400 px-3 py-2 text-sm font-semibold text-primary-50 shadow-sm outline-offset-4 hover:bg-primary-500 focus:outline-indigo-400"
     >
       {type}
     </button>
