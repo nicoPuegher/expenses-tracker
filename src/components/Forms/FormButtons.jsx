@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../UI/Button/Button';
 
 const FormButtons = React.forwardRef(({ type, onCloseModal }, ref) => (
-  <div className="bg-gray-50">
+  <div className="">
     <Button className="w-full" type="submit" txt={type} kind="active" />
     <Button
       className="mt-3 w-full"
