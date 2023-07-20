@@ -7,7 +7,7 @@ function Add({ onOpenModal }) {
 
   return (
     <div className="mb-3 flex justify-center rounded bg-neutral-50 py-3">
-      <Button type="" onClick={clickHandler} txt="Add" />
+      <Button type="" onClick={clickHandler} txt="Add" kind="active" />
     </div>
   );
 }
