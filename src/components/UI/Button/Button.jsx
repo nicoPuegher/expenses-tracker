@@ -6,7 +6,7 @@ const Button = React.forwardRef(
     const btn =
       kind === 'active' ? (
         <button
-          className={`${className} inline-flex items-center justify-center rounded bg-primary-400 px-6 py-2 text-sm font-semibold text-primary-50 shadow-sm outline-offset-4 hover:bg-primary-500 focus:outline-indigo-400`}
+          className={`${className} inline-flex items-center justify-center rounded bg-primary-400 px-6 py-2 text-sm font-semibold text-primary-50 shadow-sm outline-offset-4 hover:bg-primary-500 focus:outline-primary-400`}
           type={type ? 'submit' : 'button'}
           onClick={onClick}
         >
@@ -14,7 +14,7 @@ const Button = React.forwardRef(
         </button>
       ) : (
         <button
-          className={`${className} inline-flex items-center justify-center rounded bg-neutral-50 px-6 py-2 text-sm text-neutral-600 shadow-sm outline-offset-4 ring-1 ring-inset ring-slate-200 hover:bg-neutral-100 focus:outline-indigo-400`}
+          className={`${className} inline-flex items-center justify-center rounded bg-neutral-50 px-6 py-2 text-sm text-neutral-600 shadow-sm outline-offset-4 ring-1 ring-inset ring-neutral-200 hover:bg-neutral-100 focus:outline-primary-400`}
           type={type ? 'submit' : 'button'}
           onClick={onClick}
           ref={ref}
