@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 
 const Button = React.forwardRef(
-  ({ className, type, value, onClick, txt, kind }, ref) => {
+  ({ className, type, value, onClick, txt, kind, children }, ref) => {
     const btn =
       kind === 'active' ? (
         <button
@@ -28,6 +28,7 @@ const Button = React.forwardRef(
           ref={ref}
         >
           {txt}
+          {children}
         </button>
       );
 
@@ -42,12 +43,14 @@ Button.propTypes = {
   onClick: PropTypes.func,
   txt: PropTypes.string.isRequired,
   kind: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };
 
 Button.defaultProps = {
   className: '',
   value: 0,
   onClick: () => {},
+  children: null,
 };
 
 export default Button;
