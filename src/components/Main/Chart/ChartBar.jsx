@@ -15,7 +15,7 @@ function ChartBar({ name, long, month, expenses, yearlyExpenses }) {
     changeFilter('Filter by month', month, name, long);
   };
 
-  const activeClass = current === month ? 'bg-slate-500' : '';
+  const activeClass = current === month ? 'bg-primary-200' : '';
   const size = barSize(expenses, yearlyExpenses);
 
   return (
