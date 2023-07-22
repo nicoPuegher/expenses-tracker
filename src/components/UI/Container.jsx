@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { twMerge } from 'tailwind-merge';
 
 function Container({ className, children }) {
-  return <div className={twMerge('py-3 rounded', className)}>{children}</div>;
+  return (
+    <div className={twMerge('rounded-md py-3', className)}>{children}</div>
+  );
 }
 
 Container.propTypes = {
