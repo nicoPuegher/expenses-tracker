@@ -2,12 +2,55 @@ import { createTheme } from '@mui/material';
 import { primary, neutral } from '../theme/theme';
 
 const dateTheme = createTheme({
+  typography: {
+    fontFamily: 'inherit',
+  },
+
   components: {
+    // Main content box
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: '0.375rem',
+        },
+      },
+    },
+
     // Calendar container box
-    MuiPickersLayout: {
+    MuiDialogContent: {
       styleOverrides: {
         root: {
           backgroundColor: neutral[50],
+        },
+      },
+    },
+
+    // Calendar content box
+    MuiModal: {
+      styleOverrides: {
+        root: {
+          '@media (max-width: 319px)': {
+            '&.MuiDialog-root': {
+              margin: '0.5rem',
+            },
+            '&.MuiDialog-root .MuiDialog-paper': {
+              minWidth: '100%',
+            },
+          },
+        },
+      },
+    },
+
+    // Calendar top toolbar
+    MuiPickersToolbar: {
+      styleOverrides: {
+        root: {
+          span: {
+            color: neutral[400],
+          },
+          h4: {
+            color: primary[400],
+          },
         },
       },
     },
@@ -97,7 +140,6 @@ const dateTheme = createTheme({
             backgroundColor: primary[400],
           },
           '&.Mui-selected': {
-            // color: 'yellow',
             backgroundColor: primary[400],
           },
           '&:hover.Mui-selected': {
@@ -106,6 +148,20 @@ const dateTheme = createTheme({
           '&:focus-within.Mui-selected': {
             color: primary[50],
             backgroundColor: primary[400],
+          },
+        },
+      },
+    },
+
+    // Calendar bottom actionbar
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          '& button:first-of-type': {
+            color: neutral[600],
+          },
+          '& button:last-of-type': {
+            color: primary[400],
           },
         },
       },
