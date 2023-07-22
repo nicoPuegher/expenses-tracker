@@ -6,7 +6,7 @@ import Main from './components/Main/Main';
 function App() {
   return (
     <ExpensesProvider>
-      <div className="flex h-full flex-col px-2 py-3">
+      <div className="mx-auto flex h-full max-w-4xl flex-col px-2 py-3 md:px-6">
         <Header />
         <Main />
       </div>
