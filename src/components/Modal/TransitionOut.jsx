@@ -13,7 +13,7 @@ function TransitionOut({ children }) {
       leaveFrom="opacity-100 translate-y-0 sm:scale-100"
       leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
     >
-      <Dialog.Panel className="relative w-full overflow-hidden rounded bg-neutral-50 px-2 py-3 shadow-xl transition-all">
+      <Dialog.Panel className="mx-auto max-w-xl grow rounded-md bg-neutral-50 px-3 py-6 shadow transition-all">
         {children}
       </Dialog.Panel>
     </Transition.Child>

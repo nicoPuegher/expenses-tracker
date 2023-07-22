@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@800&family=Noto+Sans:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,12 +8,14 @@
   height: 100dvh;
 }
 
-/* Small fixes for material-ui calendar */
-.css-3dah0e-MuiModal-root-MuiDialog-root {
-  padding: 0 0.5rem;
-}
-.css-3dah0e-MuiModal-root-MuiDialog-root .MuiDialog-paper {
-  min-width: 100% !important;
+@layer base {
+  html {
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  h1 {
+    font-family: 'Kanit', sans-serif;
+  }
 }
 
 /* Don't display arrow buttons in input type number */

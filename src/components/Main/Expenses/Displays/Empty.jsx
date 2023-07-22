@@ -1,13 +1,11 @@
 import React from 'react';
-import Alert from '@mui/material/Alert';
 import PropTypes from 'prop-types';
+import EmptyTheme from './EmptyTheme';
 
 function Empty({ alert: { month, long, year } }) {
-  const txt = `Nothing to show in ${
-    month !== null ? long : year
-  }, please add one expense!`;
+  const txt = `Nothing to show in ${month !== null ? long : year}.`;
 
-  return <Alert severity="info">{txt}</Alert>;
+  return <EmptyTheme severity="info">{txt}</EmptyTheme>;
 }
 
 Empty.propTypes = {

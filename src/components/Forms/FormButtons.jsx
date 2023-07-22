@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../UI/Button/Button';
+import ActiveBtn from '../UI/ActiveBtn';
+import InactiveBtn from '../UI/InactiveBtn';
 
 const FormButtons = React.forwardRef(({ type, onCloseModal }, ref) => (
   <div className="">
-    <Button className="w-full" type="submit" txt={type} kind="active" />
-    <Button
+    <ActiveBtn className="w-full" type="submit" txt={type} />
+    <InactiveBtn
       className="mt-3 w-full"
-      type=""
       onClick={() => onCloseModal()}
       txt="Cancel"
-      kind="inactive"
       ref={ref}
     />
   </div>

@@ -2,6 +2,7 @@ import React, { Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import PropTypes from 'prop-types';
 import TransitionIn from './TransitionIn';
+import Wrapper from '../UI/Wrapper';
 import TransitionOut from './TransitionOut';
 
 function Modal({ isOpen, onCloseModal, children }) {
@@ -14,11 +15,11 @@ function Modal({ isOpen, onCloseModal, children }) {
 
   return (
     <Transition.Root show={isOpen} as={Fragment} initialFocus={focusRef}>
-      <Dialog as="div" className="relative z-10" onClose={() => onCloseModal()}>
+      <Dialog onClose={() => onCloseModal()}>
         <TransitionIn />
-        <div className="fixed inset-0 z-10 flex min-h-full items-center justify-center p-2 text-center">
+        <Wrapper className="fixed inset-0 items-center">
           <TransitionOut>{customChildren}</TransitionOut>
-        </div>
+        </Wrapper>
       </Dialog>
     </Transition.Root>
   );
