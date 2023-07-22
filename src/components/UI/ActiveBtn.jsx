@@ -20,12 +20,13 @@ function ActiveBtn({ className, type, onClick, txt }) {
 ActiveBtn.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   txt: PropTypes.string.isRequired,
 };
 
 ActiveBtn.defaultProps = {
   className: '',
+  onClick: () => {},
 };
 
 export default ActiveBtn;
