@@ -18,14 +18,6 @@
   }
 }
 
-/* Small fixes for material-ui calendar */
-.css-3dah0e-MuiModal-root-MuiDialog-root {
-  padding: 0 0.5rem;
-}
-.css-3dah0e-MuiModal-root-MuiDialog-root .MuiDialog-paper {
-  min-width: 100% !important;
-}
-
 /* Don't display arrow buttons in input type number */
 input[type='number'] {
   -moz-appearance: textfield;
