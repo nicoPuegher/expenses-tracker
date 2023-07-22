@@ -26,7 +26,7 @@ const Form = React.forwardRef(({ type, expData, onCloseModal }, ref) => {
       <div className="mb-3 bg-neutral-50 text-center">
         <Dialog.Title
           as="h3"
-          className="mb-3 text-base font-semibold leading-6 text-neutral-600"
+          className="mb-3 font-semibold leading-none text-neutral-600"
         >
           {`${type} Expense`}
         </Dialog.Title>
