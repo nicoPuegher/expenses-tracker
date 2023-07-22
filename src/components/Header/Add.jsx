@@ -6,7 +6,7 @@ function Add({ onOpenModal }) {
   const clickHandler = () => onOpenModal();
 
   return (
-    <div className="mb-3 flex justify-center rounded bg-neutral-100 py-3">
+    <div className="mb-3 flex justify-center rounded bg-neutral-50 py-3">
       <Button type="" onClick={clickHandler} txt="Add" kind="active" />
     </div>
   );
