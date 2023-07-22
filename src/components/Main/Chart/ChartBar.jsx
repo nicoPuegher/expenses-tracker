@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { twMerge } from 'tailwind-merge';
 import ExpensesContext from '../../../store/expenses-context';
 import barSize from '../../../utils/chart/bar-size';
+import Button from '../../UI/Button/Button';
 
 function ChartBar({ name, long, month, expenses, yearlyExpenses }) {
   const {
@@ -15,20 +17,31 @@ function ChartBar({ name, long, month, expenses, yearlyExpenses }) {
     changeFilter('Filter by month', month, name, long);
   };
 
-  const activeClass = current === month ? 'bg-slate-500' : '';
+  const btnActive =
+    current === month
+      ? 'bg-primary-200 hover:bg-primary-300 text-primary-500 font-semibold'
+      : '';
+
+  const barActive = current === month ? 'bg-primary-400' : '';
   const size = barSize(expenses, yearlyExpenses);
 
   return (
-    <button
-      type="button"
-      className={`${activeClass} mx-2 flex items-center justify-between`}
+    <Button
+      className={`${btnActive} justify-between shadow-none ring-0`}
+      type=""
+      value={0}
       onClick={clickHandler}
+      txt=""
+      kind="inactive"
     >
-      <div>{name}</div>
-      <div className="flex h-3.5 w-2/3 items-center bg-slate-400">
-        <div className="mx-0.5 h-2 bg-black" style={{ width: size }} />
+      <div className="w-auto">{name}</div>
+      <div className="flex w-10/12 items-center bg-neutral-200">
+        <div
+          className={twMerge('h-2 bg-neutral-400', barActive)}
+          style={{ width: size }}
+        />
       </div>
-    </button>
+    </Button>
   );
 }
 

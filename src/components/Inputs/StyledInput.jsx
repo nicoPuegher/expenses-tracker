@@ -12,6 +12,7 @@ const sharedStyles = {
   '& div input': { color: neutral[600] },
   '& .MuiOutlinedInput-root': {
     '& fieldset': { borderColor: neutral[400], borderWidth: customBorderWidth },
+    '& .MuiSelect-select': { color: neutral[600] },
   },
   '& .MuiTypography-root': {
     color: neutral[400],
