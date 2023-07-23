@@ -9,7 +9,7 @@ function ByMonth({ expsObj }) {
   combinedSort(expensesByMonth);
 
   return expensesByMonth.map((singleExpense) => (
-    <li key={singleExpense.id} className="py-3">
+    <li key={singleExpense.id}>
       <ExpButton expData={singleExpense} />
     </li>
   ));
