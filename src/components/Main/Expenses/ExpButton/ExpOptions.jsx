@@ -8,8 +8,8 @@ function ExpOptions({ expData, onClick }) {
   const { changeExpense } = useContext(ExpenseContext);
 
   return (
-    <Menu.Items className="absolute right-0 top-0 z-10 h-full w-full rounded bg-white px-3 py-2 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-      <div className="flex h-full w-full">
+    <Menu.Items className="h-full w-full py-2">
+      <div className="flex h-full">
         <ExpOption value="Edit" onClick={onClick} />
         <ExpOption
           value="Delete"
