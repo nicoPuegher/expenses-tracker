@@ -7,9 +7,9 @@ function ExpenseDate({ date }) {
 
   return (
     <div className="flex flex-col items-center justify-center rounded bg-neutral-100 px-2 py-0.5 text-xs text-neutral-600">
-      <p>{month.short}</p>
+      <p className="font-medium">{month.short}</p>
       <p>{day.one}</p>
-      <p>{year.num}</p>
+      <p className="font-medium">{year.num}</p>
     </div>
   );
 }

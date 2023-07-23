@@ -12,7 +12,7 @@ function DropdownItems({ filterList, clickHandler }) {
             i === 0 ? 'rounded-t-sm' : 'rounded-b-sm'
           } ${
             active ? 'bg-neutral-100' : ''
-          } text-left shadow-none focus:outline-none`}
+          } text-left shadow-none focus:outline-none focus:outline-0`}
           value={item.value}
           onClick={clickHandler}
           txt={`${item.value}`}

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import ExpensesContext from '../../../store/expenses-context';
 import yearHash from '../../../utils/hash/year-hash';
+import Container from '../../UI/Container';
 import Empty from './Displays/Empty';
 import ByYear from './Displays/ByYear';
 import ByMonth from './Displays/ByMonth';
@@ -24,12 +25,12 @@ function Expenses() {
   if (isEmpty) return <Empty type="info" alert={alert} />;
 
   return (
-    <section className="overflow-y-scroll rounded bg-neutral-800 px-2">
-      <ul className="divide-y divide-neutral-900">
+    <Container className="overflow-y-scroll border-y-14 border-neutral-800 bg-neutral-800  lg:py-0">
+      <ul className="flex flex-col gap-y-3">
         {fActive && !isEmpty && <ByYear expsArr={exp[hash]} />}
         {mActive && !isEmpty && <ByMonth expsObj={exp[hash][currMonth]} />}
       </ul>
-    </section>
+    </Container>
   );
 }
 

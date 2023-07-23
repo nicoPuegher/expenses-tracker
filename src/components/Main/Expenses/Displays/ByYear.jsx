@@ -13,7 +13,7 @@ function ByYear({ expsArr }) {
   combinedSort(expensesByYear);
 
   return expensesByYear.map((singleExpense) => (
-    <li key={singleExpense.id} className="py-3">
+    <li key={singleExpense.id}>
       <ExpButton expData={singleExpense} />
     </li>
   ));
