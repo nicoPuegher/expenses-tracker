@@ -25,10 +25,8 @@ function ExpTransition({ expData }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 top-0 z-10 h-full w-full rounded px-3 py-2">
-          <div className="w-full py-1">
-            <ExpOptions expData={expData} onClick={openModalHandler} />
-          </div>
+        <Menu.Items className="absolute right-0 top-0 h-full w-full focus:outline-none focus:outline-0">
+          <ExpOptions expData={expData} onClick={openModalHandler} />
         </Menu.Items>
       </Transition>
     </>
