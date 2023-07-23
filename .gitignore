@@ -11,8 +11,6 @@
 # Misc
 configs/
 .eslintrc.cjs
-tailwind.config.js
-postcss.config.js
 .DS_Store
 .vscode/*
 npm-debug.log*
