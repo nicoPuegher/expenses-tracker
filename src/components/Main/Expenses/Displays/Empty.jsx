@@ -5,7 +5,11 @@ import EmptyTheme from './EmptyTheme';
 function Empty({ alert: { month, long, year } }) {
   const txt = `Nothing to show in ${month !== null ? long : year}.`;
 
-  return <EmptyTheme severity="info">{txt}</EmptyTheme>;
+  return (
+    <EmptyTheme severity="info" sx={{ fontFamily: 'inherit' }}>
+      {txt}
+    </EmptyTheme>
+  );
 }
 
 Empty.propTypes = {
