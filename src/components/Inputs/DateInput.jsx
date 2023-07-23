@@ -4,12 +4,15 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import { ThemeProvider } from '@mui/material';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import theme from '../../utils/form/date-theme';
 import { StyledDatePicker } from './StyledInput';
 import checkDate from '../../utils/validation/check-date';
 
+dayjs.extend(customParseFormat);
+
 function DateInput({ value, onChange, error, helperText }) {
-  const currValue = value !== '' ? dayjs(value) : null;
+  const currValue = value !== '' ? dayjs(value, 'MM-DD-YYY') : null;
   const min = dayjs(new Date(2022, 0, 1));
   const max = dayjs(new Date(2023, 11, 31));
 
