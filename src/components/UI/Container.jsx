@@ -4,7 +4,9 @@ import { twMerge } from 'tailwind-merge';
 
 function Container({ className, children }) {
   return (
-    <div className={twMerge('rounded-md py-3', className)}>{children}</div>
+    <div className={twMerge('rounded-md p-3 md:px-4 lg:px-5', className)}>
+      {children}
+    </div>
   );
 }
 
