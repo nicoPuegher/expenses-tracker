@@ -5,7 +5,7 @@ import Dropdown from './Dropdown/Dropdown';
 
 function Filter({ title, currentFilter, filterList }) {
   return (
-    <Container className="mb-3 flex items-center justify-between bg-neutral-800 text-neutral-200">
+    <Container className="mb-3 flex items-center justify-between bg-neutral-800 text-neutral-200 md:mb-5">
       <h2>{title}</h2>
       <Dropdown
         title={title}
