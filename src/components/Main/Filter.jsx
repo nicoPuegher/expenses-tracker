@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Container from '../UI/Container';
 import Dropdown from './Dropdown/Dropdown';
 
 function Filter({ title, currentFilter, filterList }) {
   return (
-    <div className="relative mb-3 flex items-center justify-between rounded bg-neutral-800 px-2 py-3 text-neutral-200">
+    <Container className="mb-3 flex items-center justify-between bg-neutral-800 text-neutral-200">
       <h2>{title}</h2>
       <Dropdown
         title={title}
         currentFilter={currentFilter}
         filterList={filterList}
       />
-    </div>
+    </Container>
   );
 }
 

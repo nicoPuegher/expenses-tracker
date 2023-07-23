@@ -1,21 +1,21 @@
 import React from 'react';
 import { Menu } from '@headlessui/react';
 import PropTypes from 'prop-types';
-import Button from '../../UI/Button/Button';
+import InactiveBtn from '../../UI/InactiveBtn';
 
 function DropdownItems({ filterList, clickHandler }) {
-  return filterList.map((item) => (
+  return filterList.map((item, i) => (
     <Menu.Item key={item.id}>
       {({ active }) => (
-        <Button
-          className={`w-full justify-start text-sm shadow-none ring-0 ${
+        <InactiveBtn
+          className={`block w-full rounded-none ${
+            i === 0 ? 'rounded-t-sm' : 'rounded-b-sm'
+          } ${
             active ? 'bg-neutral-100' : ''
-          }`}
-          type=""
+          } text-left shadow-none focus:outline-none`}
           value={item.value}
           onClick={clickHandler}
           txt={`${item.value}`}
-          kind=""
         />
       )}
     </Menu.Item>

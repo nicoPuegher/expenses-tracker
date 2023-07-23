@@ -6,7 +6,7 @@ const InactiveBtn = React.forwardRef(
   ({ className, value, onClick, txt, children }, ref) => (
     <button
       className={twMerge(
-        'rounded bg-neutral-50 py-2.5 text-neutral-600 shadow-sm shadow-neutral-300 hover:bg-neutral-100 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-primary-400',
+        'rounded bg-neutral-50 px-5 py-2.5 text-neutral-600 shadow-sm shadow-neutral-300 hover:bg-neutral-100 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-primary-400 lg:px-6',
         className
       )}
       value={value}

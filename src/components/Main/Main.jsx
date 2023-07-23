@@ -13,7 +13,7 @@ function Main() {
   } = useContext(ExpensesContext);
 
   return (
-    <main className="flex flex-1 flex-col overflow-y-hidden">
+    <main className="flex flex-col overflow-y-hidden">
       <Filter
         title="Filter by year"
         currentFilter={current}

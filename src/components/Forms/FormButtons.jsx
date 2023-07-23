@@ -4,7 +4,7 @@ import ActiveBtn from '../UI/ActiveBtn';
 import InactiveBtn from '../UI/InactiveBtn';
 
 const FormButtons = React.forwardRef(({ type, onCloseModal }, ref) => (
-  <div className="">
+  <>
     <ActiveBtn className="w-full" type="submit" txt={type} />
     <InactiveBtn
       className="mt-3 w-full"
@@ -12,7 +12,7 @@ const FormButtons = React.forwardRef(({ type, onCloseModal }, ref) => (
       txt="Cancel"
       ref={ref}
     />
-  </div>
+  </>
 ));
 
 FormButtons.propTypes = {
