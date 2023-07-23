@@ -14,8 +14,8 @@ function DropTransition({ filterList, clickHandler }) {
       leaveFrom="transform opacity-100 scale-100"
       leaveTo="transform opacity-0 scale-95"
     >
-      <Menu.Items className="absolute right-px z-10 mt-2 w-44 origin-top-right rounded bg-neutral-50 text-neutral-600 shadow-lg ring-1 ring-neutral-950/5 focus:outline-none">
-        <div className="w-full py-1">
+      <Menu.Items className="relative">
+        <div className="absolute right-0 my-1 w-36 rounded bg-neutral-50 py-1 shadow-sm shadow-neutral-300">
           <DropdownItems filterList={filterList} clickHandler={clickHandler} />
         </div>
       </Menu.Items>
