@@ -3,9 +3,11 @@ import { Menu } from '@headlessui/react';
 import PropTypes from 'prop-types';
 
 function ExpOption({ value, onClick }) {
-  const initial = `block w-full px-4 py-2 text-center text-sm font-semibold`;
+  const initial = `block w-full text-sm font-semibold ${
+    value === 'Edit' ? 'text-support-500' : 'text-error-400'
+  }`;
   const hover = 'bg-neutral-100 text-neutral-600';
-  const normal = 'bg-neutral-200 text-neutral-600';
+  const normal = 'bg-neutral-50 text-neutral-600';
 
   return (
     <Menu.Item>
