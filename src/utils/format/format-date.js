@@ -12,6 +12,7 @@ const formatDate = (format) => {
     const len = format.length;
     if (len === 10) date = dayjs(format, 'MM-DD-YYYY');
     if (len === 9) date = dayjs(format, 'M-DD-YYYY');
+    if (len === 0) date = dayjs(format);
   }
 
   const day = {
