@@ -6,7 +6,7 @@ function Wrapper({ className, children }) {
   return (
     <div
       className={twMerge(
-        'mx-auto flex max-w-4xl px-2 md:px-6 md:py-8',
+        'mx-auto flex max-w-4xl px-2 md:p-5 2xl:py-8',
         className
       )}
     >
