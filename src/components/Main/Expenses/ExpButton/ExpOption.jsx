@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function ExpOption({ value, onClick }) {
   const initial = `block w-full text-sm font-semibold ${
-    value === 'Edit' ? 'text-support-500' : 'text-error-400'
+    value === 'Edit' ? 'text-primary-400' : 'text-error-400'
   }`;
   const hover = 'bg-neutral-100';
   const normal = 'bg-neutral-50';
