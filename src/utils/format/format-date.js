@@ -1,9 +1,18 @@
 import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import formatMonth from './format-month';
 import yearHash from '../hash/year-hash';
 
+dayjs.extend(customParseFormat);
+
 const formatDate = (format) => {
-  const date = dayjs(format);
+  let date;
+  if (typeof format === 'object') date = dayjs(format);
+  if (typeof format === 'string') {
+    const len = format.length;
+    if (len === 10) date = dayjs(format, 'MM-DD-YYYY');
+    if (len === 9) date = dayjs(format, 'M-DD-YYYY');
+  }
 
   const day = {
     one: date.$D,
