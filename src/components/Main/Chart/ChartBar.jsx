@@ -23,7 +23,7 @@ function ChartBar({ name, long, month, expenses, yearlyExpenses }) {
 
   return (
     <InactiveBtn
-      className={`inline-flex items-center justify-between rounded-none px-3 py-1 shadow-none focus:outline-offset-0 md:px-4 md:py-2.5 lg:flex lg:flex-col-reverse lg:px-6 ${radius} ${btnSelected}`}
+      className={`inline-flex items-center justify-between rounded-none px-3 py-1 shadow-none focus:-outline-offset-2 md:px-4 md:py-2.5 lg:flex lg:flex-col-reverse lg:px-6 ${radius} ${btnSelected}`}
       onClick={clickHandler}
     >
       <div className="">{name}</div>
