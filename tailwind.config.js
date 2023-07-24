@@ -28,7 +28,8 @@ export default {
       },
     },
     borderWidth: {
-      14: '14px',
+      12: '12px',
+      16: '16px',
     },
   },
 
