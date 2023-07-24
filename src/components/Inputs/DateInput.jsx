@@ -12,7 +12,12 @@ import checkDate from '../../utils/validation/check-date';
 dayjs.extend(customParseFormat);
 
 function DateInput({ value, onChange, error, helperText }) {
-  const currValue = value !== '' ? dayjs(value, 'MM-DD-YYY') : null;
+  let formatted = null;
+  const len = value.length;
+  if (len === 10) formatted = dayjs(value, 'MM-DD-YYYY');
+  if (len === 9) formatted = dayjs(value, 'M-DD-YYYY');
+
+  const currValue = value !== '' ? formatted : null;
   const min = dayjs(new Date(2022, 0, 1));
   const max = dayjs(new Date(2023, 11, 31));
 
