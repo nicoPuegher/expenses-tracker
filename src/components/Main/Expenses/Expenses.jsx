@@ -25,7 +25,7 @@ function Expenses() {
   if (isEmpty) return <Empty type="info" alert={alert} />;
 
   return (
-    <Container className="overflow-y-scroll border-y-14 border-neutral-800 bg-neutral-800  lg:py-0">
+    <Container className="overflow-y-scroll border-y-12 border-neutral-800 bg-neutral-800 py-0 md:border-y-16 md:py-0">
       <ul className="flex flex-col gap-y-3">
         {fActive && !isEmpty && <ByYear expsArr={exp[hash]} />}
         {mActive && !isEmpty && <ByMonth expsObj={exp[hash][currMonth]} />}
