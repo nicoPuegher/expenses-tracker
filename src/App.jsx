@@ -7,7 +7,7 @@ import Main from './components/Main/Main';
 function App() {
   return (
     <ExpensesProvider>
-      <Wrapper className="h-full flex-col py-3">
+      <Wrapper className="h-full flex-col py-2.5">
         <Header />
         <Main />
       </Wrapper>
