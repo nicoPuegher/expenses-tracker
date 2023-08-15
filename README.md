@@ -2,9 +2,11 @@
 
 ### Fully responsive frontend web application to keep track of your expenses.
 
-My projects were not aging well so I wanted to build something new to demonstrate my actual skills while solving a personal problem of mine and at the same time learn new technologies to expand my knowledge.
+This application allows you to keep track of your expenses, and it has a variety of categories to choose for each. Adding more or removing existing ones is quick and easy.
 
-Trying these libraries/frameworks helps me decide by myself what to use based on personal preferences or project requirements. In this case, I wanted to learn ***Tailwind CSS***, ***Material UI***, and build my project with ***Vite***.
+The graph displays monthly expenditures for a quick visual scan. Expenses are filtered by year or by month, in descending order. Each item can easily be changed or removed.
+
+The form has validation and will display what it expects if provided with the invalid data. By default this application uses 2022 and 2023 only but can be changed accordingly.
 
 ## Table of contents
 
@@ -23,12 +25,12 @@ Trying these libraries/frameworks helps me decide by myself what to use based on
 
 Users should be able to:
 
-- [X] View an optimal layout on any device
-- [X] Add an expense
-- [X] Edit an expense
-- [X] Delete an expense
-- [X] Filter expenses by year
-- [X] Filter expenses by month
+- [x] View an optimal layout on any device
+- [x] Add an expense
+- [x] Edit an expense
+- [x] Delete an expense
+- [x] Filter expenses by year
+- [x] Filter expenses by month
 
 ### Link
 
@@ -51,12 +53,11 @@ Live web application: [Tracky - Expenses Tracker](https://nicopuegher.github.io/
 
 ### What I learned
 
-- Setup and deploy a ***Vite*** project.
-- Style with ***Tailwind CSS*** and create a custom theme.
-- Format dates using ***Day.js***.
-- Use ***Material UI*** and ***Headless UI*** components with my custom theme.
-- Pass props to children inside reusable component in ***React.js***:
-
+- Setup and deploy a **_Vite_** project.
+- Style with **_Tailwind CSS_** and create a custom theme.
+- Format dates using **_Day.js_**.
+- Use **_Material UI_** and **_Headless UI_** components with my custom theme.
+- Pass props to children inside reusable component in **_React.js_**:
 
 ```js
 import React, from 'react';
@@ -85,6 +86,7 @@ export default Modal;
 In the project directory, you can run:
 
 ### `npm install`
+
 Installs all necessary external modules the project depends on.
 
 ### `npm run dev`
