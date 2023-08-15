@@ -18,6 +18,22 @@
   }
 }
 
+.position {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    align-items: flex-end !important;
+  }
+}
+
+.fill {
+  @media screen and (max-width: 1023px) {
+    height: 9px !important;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 100% !important;
+  }
+}
+
 /* Don't display arrow buttons in input type number */
 input[type='number'] {
   -moz-appearance: textfield;

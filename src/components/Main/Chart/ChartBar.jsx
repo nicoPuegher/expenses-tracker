@@ -27,10 +27,11 @@ function ChartBar({ name, long, month, expenses, yearlyExpenses }) {
       onClick={clickHandler}
     >
       <div className="">{name}</div>
-      <div className="w-9/12 bg-neutral-200 lg:w-3 lg:grow">
+      <div className="position w-9/12 bg-neutral-200 lg:w-3 lg:grow">
         <div
-          className={twMerge('h-2 bg-neutral-400 lg:h-full', barSelected)}
-          style={{ width: size }}
+          className={twMerge('fill h-2 bg-neutral-400 lg:h-full', barSelected)}
+          // style={{ width: size, height: size }}
+          style={{ width: size, height: size }}
         />
       </div>
     </InactiveBtn>
